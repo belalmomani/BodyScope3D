@@ -27,7 +27,9 @@
    "parentId": "head",
    "level": 2,
    "side": null,
-   "meshNames": [],
+   "meshNames": [
+    "mesh_face"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.88,
@@ -44,7 +46,9 @@
    "parentId": "head",
    "level": 2,
    "side": null,
-   "meshNames": [],
+   "meshNames": [
+    "mesh_scalp"
+   ],
    "camera": {
     "yawDeg": 180,
     "targetY": 0.95,
@@ -61,7 +65,9 @@
    "parentId": null,
    "level": 1,
    "side": null,
-   "meshNames": [],
+   "meshNames": [
+    "mesh_neck"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.78,
@@ -95,7 +101,9 @@
    "parentId": "torso",
    "level": 2,
    "side": "R",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_shoulder_r"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.7,
@@ -112,7 +120,9 @@
    "parentId": "torso",
    "level": 2,
    "side": "L",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_shoulder_l"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.7,
@@ -129,7 +139,9 @@
    "parentId": "torso",
    "level": 2,
    "side": null,
-   "meshNames": [],
+   "meshNames": [
+    "mesh_chest"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.6,
@@ -146,7 +158,9 @@
    "parentId": "torso",
    "level": 2,
    "side": null,
-   "meshNames": [],
+   "meshNames": [
+    "mesh_abdomen"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.4,
@@ -163,7 +177,9 @@
    "parentId": "torso",
    "level": 2,
    "side": null,
-   "meshNames": [],
+   "meshNames": [
+    "mesh_back"
+   ],
    "camera": {
     "yawDeg": 180,
     "targetY": 0.5,
@@ -180,7 +196,9 @@
    "parentId": "torso",
    "level": 2,
    "side": null,
-   "meshNames": [],
+   "meshNames": [
+    "mesh_pelvis"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.25,
@@ -231,7 +249,9 @@
    "parentId": "arm_r",
    "level": 2,
    "side": "R",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_upper_arm_r"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.6,
@@ -248,7 +268,9 @@
    "parentId": "arm_l",
    "level": 2,
    "side": "L",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_upper_arm_l"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.6,
@@ -265,7 +287,9 @@
    "parentId": "arm_r",
    "level": 2,
    "side": "R",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_forearm_r"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.45,
@@ -282,7 +306,9 @@
    "parentId": "arm_l",
    "level": 2,
    "side": "L",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_forearm_l"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.45,
@@ -299,7 +325,9 @@
    "parentId": "arm_r",
    "level": 2,
    "side": "R",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_hand_r"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.3,
@@ -316,7 +344,9 @@
    "parentId": "arm_l",
    "level": 2,
    "side": "L",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_hand_l"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.3,
@@ -367,7 +397,9 @@
    "parentId": "leg_r",
    "level": 2,
    "side": "R",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_thigh_r"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.15,
@@ -384,7 +416,9 @@
    "parentId": "leg_l",
    "level": 2,
    "side": "L",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_thigh_l"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": 0.15,
@@ -401,7 +435,9 @@
    "parentId": "leg_r",
    "level": 2,
    "side": "R",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_shin_r"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": -0.2,
@@ -418,7 +454,9 @@
    "parentId": "leg_l",
    "level": 2,
    "side": "L",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_shin_l"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": -0.2,
@@ -435,7 +473,9 @@
    "parentId": "leg_r",
    "level": 2,
    "side": "R",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_foot_r"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": -0.45,
@@ -452,7 +492,9 @@
    "parentId": "leg_l",
    "level": 2,
    "side": "L",
-   "meshNames": [],
+   "meshNames": [
+    "mesh_foot_l"
+   ],
    "camera": {
     "yawDeg": 0,
     "targetY": -0.45,

@@ -1,2 +1,2 @@
 -keep class com.google.android.filament.** { *; }
--keepclassmembers class * { @kotlinx.serialization.Serializable *; }
+-keep class com.bodyscope3d.app.data.** { *; }

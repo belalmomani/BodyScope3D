@@ -38,14 +38,14 @@ fun AppRoot(graph: AppGraph) {
             })
         }) { pad ->
             NavHost(nav, "home", Modifier.padding(pad)) {
-                composable("home") { HomeScreen(nav::navigate) }
+                composable("home") { HomeScreen { nav.navigate(it) } }
                 composable("explore") { ExploreScreen(graph, exploreVm, onDetails = { nav.navigate("detail") }, onLog = { nav.navigate("log") }) }
                 composable("detail") { DetailScreen(graph, exploreVm) }
                 composable("anatomy") { AnatomyScreen(graph) }
                 composable("log") { PainLogScreen(graph, exploreVm.state.value.selectedId) { nav.navigate("history") { popUpTo("home") } } }
                 composable("history") { HistoryScreen(graph) }
                 composable("favorites") { FavoritesScreen(graph) }
-                composable("settings") { SettingsScreen(graph, nav::navigate) }
+                composable("settings") { SettingsScreen(graph) { nav.navigate(it) } }
                 composable("privacy") { InfoScreen(R.string.privacy, R.string.privacy_text) }
                 composable("help") { InfoScreen(R.string.help, R.string.help_text) }
             }

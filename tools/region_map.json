@@ -1,0 +1,178 @@
+{
+ "_note": "STARTER guesses. Z-Anatomy object names were NOT inspected; tune keywords after opening the .blend. Side detected from '.r/.l', '_r/_l', 'right/left' in the object name.",
+ "regions": {
+  "face": {
+   "keywords": [
+    "mandible",
+    "maxilla",
+    "nasal",
+    "zygom",
+    "orbit"
+   ],
+   "side": null
+  },
+  "scalp": {
+   "keywords": [
+    "skull",
+    "cranium",
+    "frontal bone",
+    "parietal",
+    "occipital",
+    "temporal bone"
+   ],
+   "side": null
+  },
+  "neck": {
+   "keywords": [
+    "cervical",
+    "hyoid",
+    "vertebra c"
+   ],
+   "side": null
+  },
+  "shoulder_r": {
+   "keywords": [
+    "clavic",
+    "scapula",
+    "acromion"
+   ],
+   "side": "R"
+  },
+  "shoulder_l": {
+   "keywords": [
+    "clavic",
+    "scapula",
+    "acromion"
+   ],
+   "side": "L"
+  },
+  "chest": {
+   "keywords": [
+    "rib",
+    "sternum",
+    "thoracic",
+    "costal"
+   ],
+   "side": null
+  },
+  "abdomen": {
+   "keywords": [
+    "lumbar"
+   ],
+   "side": null
+  },
+  "back": {
+   "keywords": [
+    "scapula spine",
+    "vertebral column"
+   ],
+   "side": null
+  },
+  "pelvis": {
+   "keywords": [
+    "pelvis",
+    "sacrum",
+    "coccyx",
+    "ilium",
+    "ischium",
+    "pubis",
+    "hip bone"
+   ],
+   "side": null
+  },
+  "upper_arm_r": {
+   "keywords": [
+    "humerus"
+   ],
+   "side": "R"
+  },
+  "upper_arm_l": {
+   "keywords": [
+    "humerus"
+   ],
+   "side": "L"
+  },
+  "forearm_r": {
+   "keywords": [
+    "radius",
+    "ulna"
+   ],
+   "side": "R"
+  },
+  "forearm_l": {
+   "keywords": [
+    "radius",
+    "ulna"
+   ],
+   "side": "L"
+  },
+  "hand_r": {
+   "keywords": [
+    "carpal",
+    "metacarpal",
+    "phalanx of hand",
+    "phalanges of hand"
+   ],
+   "side": "R"
+  },
+  "hand_l": {
+   "keywords": [
+    "carpal",
+    "metacarpal",
+    "phalanx of hand",
+    "phalanges of hand"
+   ],
+   "side": "L"
+  },
+  "thigh_r": {
+   "keywords": [
+    "femur",
+    "patella"
+   ],
+   "side": "R"
+  },
+  "thigh_l": {
+   "keywords": [
+    "femur",
+    "patella"
+   ],
+   "side": "L"
+  },
+  "shin_r": {
+   "keywords": [
+    "tibia",
+    "fibula"
+   ],
+   "side": "R"
+  },
+  "shin_l": {
+   "keywords": [
+    "tibia",
+    "fibula"
+   ],
+   "side": "L"
+  },
+  "foot_r": {
+   "keywords": [
+    "tarsal",
+    "metatarsal",
+    "calcaneus",
+    "talus",
+    "phalanx of foot",
+    "phalanges of foot"
+   ],
+   "side": "R"
+  },
+  "foot_l": {
+   "keywords": [
+    "tarsal",
+    "metatarsal",
+    "calcaneus",
+    "talus",
+    "phalanx of foot",
+    "phalanges of foot"
+   ],
+   "side": "L"
+  }
+ }
+}

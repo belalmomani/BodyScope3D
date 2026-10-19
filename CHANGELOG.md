@@ -10,5 +10,6 @@
 - CI + tag-driven release workflows.
 ### Known issues
 - No licensed 3D assets bundled yet (see ASSETS.md); app runs in "model missing" mode with a list-based region picker.
+- Asset pipeline (tools/export_glb.py, region_map.json, NOTICE.md) added; still no bundled GLB.
 - Placeholder launcher icon until `tools/app_icon_source.png` is provided.
 - Not built or run in the authoring environment (no network/SDK).
