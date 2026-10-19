@@ -1,0 +1,45 @@
+name: Release
+on: { push: { tags: ['v*'] } }
+permissions: { contents: write }
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: 8.7 }
+      - name: Verify tag matches project version
+        run: |
+          set -e
+          V=$(grep '^VERSION_NAME=' version.properties | cut -d= -f2)
+          [ "${GITHUB_REF_NAME}" = "v$V" ] || { echo "tag ${GITHUB_REF_NAME} != v$V"; exit 1; }
+          [ "$V" = "$(cat VERSION | tr -d '[:space:]')" ] || { echo "VERSION mismatch"; exit 1; }
+      - run: gradle :app:testDebugUnitTest --no-daemon
+      - name: Decode signing key (if secrets exist)
+        id: sign
+        env:
+          KS_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KS_PASS: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASS: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          if [ -n "$KS_B64" ]; then
+            echo "$KS_B64" | base64 -d > release.keystore
+            printf 'storeFile=release.keystore\nstorePassword=%s\nkeyAlias=%s\nkeyPassword=%s\n' "$KS_PASS" "$KEY_ALIAS" "$KEY_PASS" > keystore.properties
+            echo "signed=true" >> $GITHUB_OUTPUT
+          else echo "signed=false" >> $GITHUB_OUTPUT; fi
+      - name: Build release (APK + AAB)
+        if: steps.sign.outputs.signed == 'true'
+        run: gradle :app:assembleRelease :app:bundleRelease --no-daemon
+      - name: Unsigned fallback notice
+        if: steps.sign.outputs.signed != 'true'
+        run: echo "::warning::No signing secrets; publishing nothing signed. Debug APK is NOT a distributable release." && gradle :app:assembleDebug --no-daemon
+      - uses: softprops/action-gh-release@v2
+        with:
+          body_path: CHANGELOG.md
+          files: |
+            app/build/outputs/apk/release/*.apk
+            app/build/outputs/bundle/release/*.aab

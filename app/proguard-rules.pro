@@ -1,0 +1,2 @@
+-keep class com.google.android.filament.** { *; }
+-keepclassmembers class * { @kotlinx.serialization.Serializable *; }

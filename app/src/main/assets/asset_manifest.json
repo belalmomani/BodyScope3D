@@ -1,0 +1,56 @@
+{
+ "version": 1,
+ "note": "Only files that physically exist may have status READY. No asset is bundled yet.",
+ "models": [
+  {
+   "id": "body_exterior",
+   "path": "models/body.glb",
+   "layer": "EXTERIOR",
+   "status": "MISSING",
+   "contains": [
+    "external body, per-region meshes named as in regions.json meshNames"
+   ],
+   "license": null,
+   "source": null,
+   "redistributable": null
+  },
+  {
+   "id": "skeleton",
+   "path": "models/skeleton.glb",
+   "layer": "SKELETAL",
+   "status": "MISSING",
+   "contains": [
+    "skeleton"
+   ],
+   "license": null,
+   "source": null,
+   "redistributable": null
+  },
+  {
+   "id": "muscles",
+   "path": "models/muscles.glb",
+   "layer": "MUSCULAR",
+   "status": "MISSING",
+   "contains": [
+    "muscles"
+   ],
+   "license": null,
+   "source": null,
+   "redistributable": null
+  },
+  {
+   "id": "organs",
+   "path": "models/organs.glb",
+   "layer": "ORGANS",
+   "status": "MISSING",
+   "contains": [
+    "heart",
+    "lungs",
+    "digestive tract"
+   ],
+   "license": null,
+   "source": null,
+   "redistributable": null
+  }
+ ]
+}

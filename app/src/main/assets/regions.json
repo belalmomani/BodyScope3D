@@ -1,0 +1,464 @@
+{
+ "version": 1,
+ "regions": [
+  {
+   "id": "head",
+   "nameAr": "الرأس",
+   "nameEn": "Head",
+   "descAr": "الجزء العلوي من الجسم ويضم الجمجمة والدماغ والوجه.",
+   "descEn": "Upper part of the body housing the skull, brain and face.",
+   "parentId": null,
+   "level": 1,
+   "side": null,
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.9,
+    "distance": 0.8
+   },
+   "contentRef": null
+  },
+  {
+   "id": "face",
+   "nameAr": "الوجه",
+   "nameEn": "Face",
+   "descAr": "مقدمة الرأس: العينان والأنف والفم.",
+   "descEn": "Front of the head: eyes, nose and mouth.",
+   "parentId": "head",
+   "level": 2,
+   "side": null,
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.88,
+    "distance": 0.6
+   },
+   "contentRef": null
+  },
+  {
+   "id": "scalp",
+   "nameAr": "فروة الرأس والجمجمة",
+   "nameEn": "Scalp & skull",
+   "descAr": "الغطاء الجلدي والعظمي للدماغ.",
+   "descEn": "Skin and bone covering the brain.",
+   "parentId": "head",
+   "level": 2,
+   "side": null,
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 180,
+    "targetY": 0.95,
+    "distance": 0.6
+   },
+   "contentRef": null
+  },
+  {
+   "id": "neck",
+   "nameAr": "الرقبة",
+   "nameEn": "Neck",
+   "descAr": "تصل الرأس بالجذع وتضم الفقرات العنقية.",
+   "descEn": "Connects head to torso; contains the cervical vertebrae.",
+   "parentId": null,
+   "level": 1,
+   "side": null,
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.78,
+    "distance": 0.7
+   },
+   "contentRef": null
+  },
+  {
+   "id": "torso",
+   "nameAr": "الجذع",
+   "nameEn": "Torso",
+   "descAr": "الصدر والبطن والظهر والحوض.",
+   "descEn": "Chest, abdomen, back and pelvis.",
+   "parentId": null,
+   "level": 1,
+   "side": null,
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.45,
+    "distance": 1.6
+   },
+   "contentRef": null
+  },
+  {
+   "id": "shoulder_r",
+   "nameAr": "الكتف الأيمن",
+   "nameEn": "Right shoulder",
+   "descAr": "مفصل الكتف الأيمن.",
+   "descEn": "Right shoulder joint.",
+   "parentId": "torso",
+   "level": 2,
+   "side": "R",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.7,
+    "distance": 0.9
+   },
+   "contentRef": null
+  },
+  {
+   "id": "shoulder_l",
+   "nameAr": "الكتف الأيسر",
+   "nameEn": "Left shoulder",
+   "descAr": "مفصل الكتف الأيسر.",
+   "descEn": "Left shoulder joint.",
+   "parentId": "torso",
+   "level": 2,
+   "side": "L",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.7,
+    "distance": 0.9
+   },
+   "contentRef": null
+  },
+  {
+   "id": "chest",
+   "nameAr": "الصدر",
+   "nameEn": "Chest",
+   "descAr": "منطقة القفص الصدري.",
+   "descEn": "Region of the rib cage.",
+   "parentId": "torso",
+   "level": 2,
+   "side": null,
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.6,
+    "distance": 1.0
+   },
+   "contentRef": null
+  },
+  {
+   "id": "abdomen",
+   "nameAr": "البطن",
+   "nameEn": "Abdomen",
+   "descAr": "المنطقة أسفل الصدر وفوق الحوض.",
+   "descEn": "Area below the chest and above the pelvis.",
+   "parentId": "torso",
+   "level": 2,
+   "side": null,
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.4,
+    "distance": 1.0
+   },
+   "contentRef": null
+  },
+  {
+   "id": "back",
+   "nameAr": "الظهر",
+   "nameEn": "Back",
+   "descAr": "الجهة الخلفية من الجذع.",
+   "descEn": "Posterior side of the torso.",
+   "parentId": "torso",
+   "level": 2,
+   "side": null,
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 180,
+    "targetY": 0.5,
+    "distance": 1.2
+   },
+   "contentRef": null
+  },
+  {
+   "id": "pelvis",
+   "nameAr": "الحوض",
+   "nameEn": "Pelvis",
+   "descAr": "المنطقة السفلية من الجذع.",
+   "descEn": "Lower part of the torso.",
+   "parentId": "torso",
+   "level": 2,
+   "side": null,
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.25,
+    "distance": 1.0
+   },
+   "contentRef": null
+  },
+  {
+   "id": "arm_r",
+   "nameAr": "الذراع اليمنى",
+   "nameEn": "Right arm",
+   "descAr": "الذراع اليمنى من الكتف إلى اليد.",
+   "descEn": "Right arm from shoulder to hand.",
+   "parentId": null,
+   "level": 1,
+   "side": "R",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.5,
+    "distance": 1.4
+   },
+   "contentRef": null
+  },
+  {
+   "id": "arm_l",
+   "nameAr": "الذراع اليسرى",
+   "nameEn": "Left arm",
+   "descAr": "الذراع اليسرى من الكتف إلى اليد.",
+   "descEn": "Left arm from shoulder to hand.",
+   "parentId": null,
+   "level": 1,
+   "side": "L",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.5,
+    "distance": 1.4
+   },
+   "contentRef": null
+  },
+  {
+   "id": "upper_arm_r",
+   "nameAr": "العضد الأيمن",
+   "nameEn": "Right upper arm",
+   "descAr": "العضد الأيمن",
+   "descEn": "Right upper arm",
+   "parentId": "arm_r",
+   "level": 2,
+   "side": "R",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.6,
+    "distance": 0.8
+   },
+   "contentRef": null
+  },
+  {
+   "id": "upper_arm_l",
+   "nameAr": "العضد الأيسر",
+   "nameEn": "Left upper arm",
+   "descAr": "العضد الأيسر",
+   "descEn": "Left upper arm",
+   "parentId": "arm_l",
+   "level": 2,
+   "side": "L",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.6,
+    "distance": 0.8
+   },
+   "contentRef": null
+  },
+  {
+   "id": "forearm_r",
+   "nameAr": "الساعد الأيمن",
+   "nameEn": "Right forearm",
+   "descAr": "الساعد الأيمن",
+   "descEn": "Right forearm",
+   "parentId": "arm_r",
+   "level": 2,
+   "side": "R",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.45,
+    "distance": 0.8
+   },
+   "contentRef": null
+  },
+  {
+   "id": "forearm_l",
+   "nameAr": "الساعد الأيسر",
+   "nameEn": "Left forearm",
+   "descAr": "الساعد الأيسر",
+   "descEn": "Left forearm",
+   "parentId": "arm_l",
+   "level": 2,
+   "side": "L",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.45,
+    "distance": 0.8
+   },
+   "contentRef": null
+  },
+  {
+   "id": "hand_r",
+   "nameAr": "اليد اليمنى",
+   "nameEn": "Right hand",
+   "descAr": "اليد اليمنى",
+   "descEn": "Right hand",
+   "parentId": "arm_r",
+   "level": 2,
+   "side": "R",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.3,
+    "distance": 0.6
+   },
+   "contentRef": null
+  },
+  {
+   "id": "hand_l",
+   "nameAr": "اليد اليسرى",
+   "nameEn": "Left hand",
+   "descAr": "اليد اليسرى",
+   "descEn": "Left hand",
+   "parentId": "arm_l",
+   "level": 2,
+   "side": "L",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.3,
+    "distance": 0.6
+   },
+   "contentRef": null
+  },
+  {
+   "id": "leg_r",
+   "nameAr": "الساق اليمنى (الطرف السفلي)",
+   "nameEn": "Right lower limb",
+   "descAr": "الطرف السفلي الأيمن من الورك إلى القدم.",
+   "descEn": "Right lower limb from hip to foot.",
+   "parentId": null,
+   "level": 1,
+   "side": "R",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.0,
+    "distance": 2.0
+   },
+   "contentRef": null
+  },
+  {
+   "id": "leg_l",
+   "nameAr": "الساق اليسرى (الطرف السفلي)",
+   "nameEn": "Left lower limb",
+   "descAr": "الطرف السفلي الأيسر من الورك إلى القدم.",
+   "descEn": "Left lower limb from hip to foot.",
+   "parentId": null,
+   "level": 1,
+   "side": "L",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.0,
+    "distance": 2.0
+   },
+   "contentRef": null
+  },
+  {
+   "id": "thigh_r",
+   "nameAr": "الفخذ الأيمن",
+   "nameEn": "Right thigh",
+   "descAr": "الفخذ الأيمن",
+   "descEn": "Right thigh",
+   "parentId": "leg_r",
+   "level": 2,
+   "side": "R",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.15,
+    "distance": 1.0
+   },
+   "contentRef": null
+  },
+  {
+   "id": "thigh_l",
+   "nameAr": "الفخذ الأيسر",
+   "nameEn": "Left thigh",
+   "descAr": "الفخذ الأيسر",
+   "descEn": "Left thigh",
+   "parentId": "leg_l",
+   "level": 2,
+   "side": "L",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": 0.15,
+    "distance": 1.0
+   },
+   "contentRef": null
+  },
+  {
+   "id": "shin_r",
+   "nameAr": "الساق اليمنى (أسفل الركبة)",
+   "nameEn": "Right lower leg",
+   "descAr": "الساق اليمنى (أسفل الركبة)",
+   "descEn": "Right lower leg",
+   "parentId": "leg_r",
+   "level": 2,
+   "side": "R",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": -0.2,
+    "distance": 1.0
+   },
+   "contentRef": null
+  },
+  {
+   "id": "shin_l",
+   "nameAr": "الساق اليسرى (أسفل الركبة)",
+   "nameEn": "Left lower leg",
+   "descAr": "الساق اليسرى (أسفل الركبة)",
+   "descEn": "Left lower leg",
+   "parentId": "leg_l",
+   "level": 2,
+   "side": "L",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": -0.2,
+    "distance": 1.0
+   },
+   "contentRef": null
+  },
+  {
+   "id": "foot_r",
+   "nameAr": "القدم اليمنى",
+   "nameEn": "Right foot",
+   "descAr": "القدم اليمنى",
+   "descEn": "Right foot",
+   "parentId": "leg_r",
+   "level": 2,
+   "side": "R",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": -0.45,
+    "distance": 0.7
+   },
+   "contentRef": null
+  },
+  {
+   "id": "foot_l",
+   "nameAr": "القدم اليسرى",
+   "nameEn": "Left foot",
+   "descAr": "القدم اليسرى",
+   "descEn": "Left foot",
+   "parentId": "leg_l",
+   "level": 2,
+   "side": "L",
+   "meshNames": [],
+   "camera": {
+    "yawDeg": 0,
+    "targetY": -0.45,
+    "distance": 0.7
+   },
+   "contentRef": null
+  }
+ ]
+}
