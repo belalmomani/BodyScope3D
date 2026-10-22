@@ -113,10 +113,27 @@ fun SettingsScreen(graph: AppGraph, go: (String) -> Unit) {
             Button({ AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("en")) }) { Text(stringResource(R.string.lang_en)) }
         }
         OutlinedButton({ go("privacy") }) { Text(stringResource(R.string.privacy)) }
+        OutlinedButton({ go("about") }) { Text(stringResource(R.string.about)) }
         OutlinedButton({ confirm = true }) { Text(stringResource(R.string.clear_data)) }
     }
     if (confirm) AlertDialog(onDismissRequest = { confirm = false },
         text = { Text(stringResource(R.string.clear_confirm)) },
         confirmButton = { TextButton({ scope.launchIO { graph.repo.clearAll() }; confirm = false }) { Text(stringResource(R.string.confirm)) } },
         dismissButton = { TextButton({ confirm = false }) { Text(stringResource(R.string.cancel)) } })
+}
+
+@Composable
+fun AboutScreen(graph: AppGraph) {
+    val ctx = androidx.compose.ui.platform.LocalContext.current
+    val version = remember { runCatching { ctx.packageManager.getPackageInfo(ctx.packageName, 0).versionName }.getOrNull().orEmpty() }
+    Column(Modifier.padding(16.dp).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(stringResource(R.string.about), style = MaterialTheme.typography.titleLarge)
+        Text(stringResource(R.string.about_version) + ": " + version)
+        Text(stringResource(R.string.about_notice))
+        Text(stringResource(R.string.about_assets), style = MaterialTheme.typography.titleMedium)
+        graph.models.forEach { m ->
+            val ok = graph.isReady(m)
+            Text("• ${m.layer.name}: " + if (ok) "${m.license ?: "?"} — ${m.source ?: "?"}" else stringResource(R.string.about_none))
+        }
+    }
 }

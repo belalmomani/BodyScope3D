@@ -5,3 +5,5 @@ Anatomy models, if bundled, derive from:
 ShareAlike: any distributed derivative of these models (including GLBs exported from them) must stay under a compatible CC BY-SA license, with source/data available.
 EXCLUDE parts under NC licenses (e.g., kidney, inner-ear models by other authors, CC BY-NC) unless the app stays strictly non-commercial.
 Show this attribution inside the app (Settings → Privacy/About) before release.
+
+Current build bundles ONLY original generated models (body/skeleton/organs): no third-party mesh, nothing above applies until real assets are added.

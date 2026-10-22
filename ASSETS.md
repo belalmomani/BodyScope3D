@@ -1,5 +1,9 @@
 # Required 3D assets / الأصول المطلوبة
-No 3D model is bundled. Place licensed GLB files under `app/src/main/assets/models/` and record each below **before** shipping.
+**Bundled now:** `models/body.glb` — stylized procedural exterior (122 KB, 50 named mesh nodes, clothed), generated for this project, no third-party mesh, redistributable. NOT photorealistic, NOT anatomically accurate. Internal layers: `skeleton.glb` (26 parts) and `organs.glb` (17 organs) are SCHEMATIC generated shapes (`tools/gen_layers.py`: ellipsoids/tubes fitted to the body) — approximate, NOT anatomically accurate, no third-party mesh. Each contains 2 invisible `anchor_*` triangles so every layer scales identically to body.glb. A muscles layer does not exist.
+Processing applied: root node rotated Z-up→Y-up and centred (glTF convention); geometry untouched.
+**Left/right:** the file's `_L` nodes sit on the viewer's left of a person facing the viewer, i.e. the person's anatomical RIGHT. `regions.json` therefore maps `*_L`→`*_r` and `*_R`→`*_l`. Verify visually on a device.
+
+Original note: Place licensed GLB files under `app/src/main/assets/models/` and record each below **before** shipping.
 
 | File | Needed content | Naming requirement | Source | License | Redistribution OK? |
 |---|---|---|---|---|---|

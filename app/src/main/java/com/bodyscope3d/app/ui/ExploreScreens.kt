@@ -23,6 +23,7 @@ fun ExploreScreen(graph: AppGraph, vm: ExploreViewModel, onDetails: () -> Unit, 
     var loadError by remember { mutableStateOf(false) }
     var attempt by remember { mutableIntStateOf(0) }
     var yaw by remember { mutableStateOf<Float?>(null) }
+    var liveYaw by remember { mutableFloatStateOf(0f) }
     var camKey by remember { mutableIntStateOf(0) }
     val sel = cat.byId(st.selectedId)
 
@@ -33,8 +34,14 @@ fun ExploreScreen(graph: AppGraph, vm: ExploreViewModel, onDetails: () -> Unit, 
                 loadError -> Column { Banner(R.string.model_error); Button({ loadError = false; attempt++ }) { Text(stringResource(R.string.retry)) } }
                 else -> key(attempt) {
                     Viewer3D(model!!.path, sel, st.isolated, cat.regions,
-                        onMeshTapped = { mesh -> cat.regions.firstOrNull { mesh in it.meshNames }?.let { vm.select(it.id) } },
-                        onError = { loadError = true }, resetKey = camKey, viewYawDeg = if (sel == null) yaw else null,
+                        onMeshTapped = { mesh ->
+                            // شبكة قد تنتمي لأكثر من منطقة (مثل الصدر/الظهر): نفضّل الأقرب لزاوية الكاميرا المعروفة
+                            val y = liveYaw
+                            cat.regions.filter { mesh in it.meshNames }
+                                .minByOrNull { kotlin.math.abs(((it.camera.yawDeg - y + 540f) % 360f) - 180f) }
+                                ?.let { vm.select(it.id) }
+                        },
+                        onError = { loadError = true }, onYaw = { liveYaw = it }, resetKey = camKey, viewYawDeg = if (sel == null) yaw else null,
                         modifier = Modifier.fillMaxSize())
                 }
             }
@@ -95,17 +102,53 @@ fun DetailScreen(graph: AppGraph, vm: ExploreViewModel) {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun AnatomyScreen(graph: AppGraph) {
     val ar = isArabic()
-    val layers = graph.models
-    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        val anyReady = layers.any { it.layer != Layer.EXTERIOR && graph.isReady(it) }
-        if (!anyReady) Text(stringResource(R.string.layers_none))
-        layers.filter { it.layer != Layer.EXTERIOR }.forEach { m ->
-            val ok = graph.isReady(m)
-            ListItem(headlineContent = { Text(m.layer.name) },
-                supportingContent = { Text(stringResource(if (ok) R.string.layer_available else R.string.layer_missing)) })
+    val ready = graph.models.filter { graph.isReady(it) }
+    var visible by remember { mutableStateOf(ready.filter { it.layer != Layer.EXTERIOR }.map { it.id }.toSet()) }
+    var picked by remember { mutableStateOf<String?>(null) }
+    var err by remember { mutableStateOf(false) }
+    var camKey by remember { mutableIntStateOf(0) }
+    var yaw by remember { mutableFloatStateOf(0f) }
+    val internal = ready.filter { it.layer != Layer.EXTERIOR }
+    if (internal.isEmpty()) { Text(stringResource(R.string.layers_none), Modifier.padding(16.dp)); return }
+    val item = graph.anatomy.firstOrNull { it.id == picked }
+    val layers = ready.map { com.bodyscope3d.app.viewer.LayerModel(it.id, it.path, it.id in visible) }
+    Column(Modifier.fillMaxSize().padding(8.dp)) {
+        Box(Modifier.fillMaxWidth().weight(1f)) {
+            if (err) Column { Banner(R.string.model_error); Button({ err = false; camKey++ }) { Text(stringResource(R.string.retry)) } }
+            else key(camKey) {
+                com.bodyscope3d.app.viewer.AnatomyViewer(layers, onNodeTapped = { n -> graph.anatomy.firstOrNull { it.mesh == n }?.let { picked = it.id } },
+                    onError = { err = true }, viewYawDeg = yaw, modifier = Modifier.fillMaxSize())
+            }
+        }
+        Text(stringResource(R.string.schematic_note), style = MaterialTheme.typography.bodySmall)
+        FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            ready.forEach { m ->
+                FilterChip(m.id in visible, { visible = if (m.id in visible) visible - m.id else visible + m.id },
+                    { Text(stringResource(layerName(m.layer))) })
+            }
+            AssistChip({ yaw = 0f; camKey++ }, { Text(stringResource(R.string.view_front)) })
+            AssistChip({ yaw = 180f; camKey++ }, { Text(stringResource(R.string.view_back)) })
+            AssistChip({ yaw = 0f; visible = internal.map { it.id }.toSet(); picked = null; camKey++ }, { Text(stringResource(R.string.reset_camera)) })
+        }
+        Column(Modifier.heightIn(max = 170.dp).verticalScroll(rememberScrollState())) {
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                graph.anatomy.filter { a -> ready.any { it.layer == a.layer && it.id in visible } }.forEach { a ->
+                    FilterChip(a.id == picked, { picked = a.id }, { Text(a.name(ar)) })
+                }
+            }
+        }
+        item?.let {
+            Text(it.name(ar), style = MaterialTheme.typography.titleMedium)
+            Text(it.desc(ar)); Text(stringResource(R.string.content_unverified), style = MaterialTheme.typography.bodySmall)
         }
     }
+}
+
+private fun layerName(l: Layer) = when (l) {
+    Layer.EXTERIOR -> R.string.layer_exterior; Layer.SKELETAL -> R.string.layer_skeletal
+    Layer.MUSCULAR -> R.string.layer_muscular; Layer.ORGANS -> R.string.layer_organs
 }

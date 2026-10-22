@@ -9,7 +9,11 @@
 - Emergency guidance banner; clear-all-data with confirmation.
 - CI + tag-driven release workflows.
 ### Known issues
-- No licensed 3D assets bundled yet (see ASSETS.md); app runs in "model missing" mode with a list-based region picker.
+- Only the stylized exterior model is bundled (not realistic); no internal anatomy layers yet (see ASSETS.md).
+- Bundled stylized exterior body.glb (orientation-fixed, mapped to 22 leaf regions; back shares torso meshes).
+- Schematic internal layers (skeleton, organs) + anatomy catalog (34 items, AR/EN) + real layer viewer with toggles and tap-to-identify.
+- Finer exterior regions (eyes, ears, nose, mouth, elbows, fingers, thumbs, knees, ankles): 43 regions total.
+- Own orbit/pinch camera; About/licenses screen; locale persistence.
 - Asset pipeline (tools/export_glb.py, region_map.json, NOTICE.md) added; still no bundled GLB.
 - Placeholder launcher icon until `tools/app_icon_source.png` is provided.
 - Not built or run in the authoring environment (no network/SDK).

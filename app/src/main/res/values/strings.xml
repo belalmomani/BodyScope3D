@@ -66,4 +66,14 @@
     <string name="side_l">Left</string>
     <string name="content_unverified">Educational text is a short general description; a reviewed medical source is not attached yet.</string>
     <string name="err_intensity">Choose a region and a nature.</string>
+    <string name="about">About & licenses</string>
+    <string name="about_version">Version</string>
+    <string name="about_assets">3D assets</string>
+    <string name="about_none">Not bundled</string>
+    <string name="about_notice">This app is for education and symptom logging only. The bundled body model is a stylized generated model, not medically accurate. No third-party anatomy assets are included in this build.</string>
+    <string name="layer_exterior">Body</string>
+    <string name="layer_skeletal">Skeleton</string>
+    <string name="layer_muscular">Muscles</string>
+    <string name="layer_organs">Organs</string>
+    <string name="schematic_note">Schematic model: shapes and positions are approximate, for general education only.</string>
 </resources>

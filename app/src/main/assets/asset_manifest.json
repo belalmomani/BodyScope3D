@@ -6,51 +6,37 @@
    "id": "body_exterior",
    "path": "models/body.glb",
    "layer": "EXTERIOR",
-   "status": "MISSING",
+   "status": "READY",
    "contains": [
-    "external body, per-region meshes named as in regions.json meshNames"
+    "stylized clothed adult exterior, 50 named mesh nodes, NOT medically accurate"
    ],
-   "license": null,
-   "source": null,
-   "redistributable": null
+   "license": "Original generated asset; no third-party mesh",
+   "source": "Generated for this project (procedural primitives via trimesh); supplied by project owner",
+   "redistributable": true
   },
   {
    "id": "skeleton",
    "path": "models/skeleton.glb",
    "layer": "SKELETAL",
-   "status": "MISSING",
+   "status": "READY",
    "contains": [
-    "skeleton"
+    "schematic simplified bones (not anatomically accurate)"
    ],
-   "license": null,
-   "source": null,
-   "redistributable": null
-  },
-  {
-   "id": "muscles",
-   "path": "models/muscles.glb",
-   "layer": "MUSCULAR",
-   "status": "MISSING",
-   "contains": [
-    "muscles"
-   ],
-   "license": null,
-   "source": null,
-   "redistributable": null
+   "license": "Original generated schematic; no third-party mesh",
+   "source": "tools/gen_layers.py (this project)",
+   "redistributable": true
   },
   {
    "id": "organs",
    "path": "models/organs.glb",
    "layer": "ORGANS",
-   "status": "MISSING",
+   "status": "READY",
    "contains": [
-    "heart",
-    "lungs",
-    "digestive tract"
+    "schematic simplified organs (approximate position/size)"
    ],
-   "license": null,
-   "source": null,
-   "redistributable": null
+   "license": "Original generated schematic; no third-party mesh",
+   "source": "tools/gen_layers.py (this project)",
+   "redistributable": true
   }
  ]
 }

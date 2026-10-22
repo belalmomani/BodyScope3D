@@ -12,9 +12,10 @@
    "side": null,
    "meshNames": [],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.9,
-    "distance": 0.8
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.441,
+    "distance": 1.0
    },
    "contentRef": null
   },
@@ -28,12 +29,13 @@
    "level": 2,
    "side": null,
    "meshNames": [
-    "mesh_face"
+    "head"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.88,
-    "distance": 0.6
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.411,
+    "distance": 0.7
    },
    "contentRef": null
   },
@@ -47,12 +49,13 @@
    "level": 2,
    "side": null,
    "meshNames": [
-    "mesh_scalp"
+    "hair_cap"
    ],
    "camera": {
-    "yawDeg": 180,
-    "targetY": 0.95,
-    "distance": 0.6
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.47,
+    "distance": 0.7
    },
    "contentRef": null
   },
@@ -66,11 +69,13 @@
    "level": 1,
    "side": null,
    "meshNames": [
-    "mesh_neck"
+    "neck",
+    "collar"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.78,
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.342,
     "distance": 0.7
    },
    "contentRef": null
@@ -86,9 +91,10 @@
    "side": null,
    "meshNames": [],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.45,
-    "distance": 1.6
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.125,
+    "distance": 1.35
    },
    "contentRef": null
   },
@@ -102,12 +108,13 @@
    "level": 2,
    "side": "R",
    "meshNames": [
-    "mesh_shoulder_r"
+    "shoulder_L"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.7,
-    "distance": 0.9
+    "yawDeg": 0.0,
+    "targetX": -0.162,
+    "targetY": 0.265,
+    "distance": 0.7
    },
    "contentRef": null
   },
@@ -121,12 +128,13 @@
    "level": 2,
    "side": "L",
    "meshNames": [
-    "mesh_shoulder_l"
+    "shoulder_R"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.7,
-    "distance": 0.9
+    "yawDeg": 0.0,
+    "targetX": 0.162,
+    "targetY": 0.265,
+    "distance": 0.7
    },
    "contentRef": null
   },
@@ -140,12 +148,13 @@
    "level": 2,
    "side": null,
    "meshNames": [
-    "mesh_chest"
+    "shirt_chest"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.6,
-    "distance": 1.0
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.265,
+    "distance": 0.9
    },
    "contentRef": null
   },
@@ -159,12 +168,16 @@
    "level": 2,
    "side": null,
    "meshNames": [
-    "mesh_abdomen"
+    "shirt_torso",
+    "shirt_waist",
+    "belt",
+    "belt_buckle"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.4,
-    "distance": 1.0
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.131,
+    "distance": 0.99
    },
    "contentRef": null
   },
@@ -178,12 +191,15 @@
    "level": 2,
    "side": null,
    "meshNames": [
-    "mesh_back"
+    "shirt_chest",
+    "shirt_torso",
+    "shirt_waist"
    ],
    "camera": {
-    "yawDeg": 180,
-    "targetY": 0.5,
-    "distance": 1.2
+    "yawDeg": 180.0,
+    "targetX": 0.0,
+    "targetY": 0.144,
+    "distance": 1.03
    },
    "contentRef": null
   },
@@ -197,12 +213,13 @@
    "level": 2,
    "side": null,
    "meshNames": [
-    "mesh_pelvis"
+    "pelvis_pants"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.25,
-    "distance": 1.0
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": -0.015,
+    "distance": 0.81
    },
    "contentRef": null
   },
@@ -217,9 +234,10 @@
    "side": "R",
    "meshNames": [],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.5,
-    "distance": 1.4
+    "yawDeg": 0.0,
+    "targetX": -0.202,
+    "targetY": 0.06,
+    "distance": 1.16
    },
    "contentRef": null
   },
@@ -234,9 +252,10 @@
    "side": "L",
    "meshNames": [],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.5,
-    "distance": 1.4
+    "yawDeg": 0.0,
+    "targetX": 0.202,
+    "targetY": 0.06,
+    "distance": 1.16
    },
    "contentRef": null
   },
@@ -250,12 +269,13 @@
    "level": 2,
    "side": "R",
    "meshNames": [
-    "mesh_upper_arm_r"
+    "upper_arm_L"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.6,
-    "distance": 0.8
+    "yawDeg": 0.0,
+    "targetX": -0.188,
+    "targetY": 0.142,
+    "distance": 0.7
    },
    "contentRef": null
   },
@@ -269,12 +289,13 @@
    "level": 2,
    "side": "L",
    "meshNames": [
-    "mesh_upper_arm_l"
+    "upper_arm_R"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.6,
-    "distance": 0.8
+    "yawDeg": 0.0,
+    "targetX": 0.188,
+    "targetY": 0.142,
+    "distance": 0.7
    },
    "contentRef": null
   },
@@ -288,12 +309,13 @@
    "level": 2,
    "side": "R",
    "meshNames": [
-    "mesh_forearm_r"
+    "forearm_L"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.45,
-    "distance": 0.8
+    "yawDeg": 0.0,
+    "targetX": -0.205,
+    "targetY": 0.073,
+    "distance": 0.72
    },
    "contentRef": null
   },
@@ -307,12 +329,13 @@
    "level": 2,
    "side": "L",
    "meshNames": [
-    "mesh_forearm_l"
+    "forearm_R"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.45,
-    "distance": 0.8
+    "yawDeg": 0.0,
+    "targetX": 0.205,
+    "targetY": 0.073,
+    "distance": 0.72
    },
    "contentRef": null
   },
@@ -326,12 +349,13 @@
    "level": 2,
    "side": "R",
    "meshNames": [
-    "mesh_hand_r"
+    "hand_L"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.3,
-    "distance": 0.6
+    "yawDeg": 0.0,
+    "targetX": -0.214,
+    "targetY": -0.022,
+    "distance": 0.7
    },
    "contentRef": null
   },
@@ -345,12 +369,13 @@
    "level": 2,
    "side": "L",
    "meshNames": [
-    "mesh_hand_l"
+    "hand_R"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.3,
-    "distance": 0.6
+    "yawDeg": 0.0,
+    "targetX": 0.214,
+    "targetY": -0.022,
+    "distance": 0.7
    },
    "contentRef": null
   },
@@ -365,9 +390,10 @@
    "side": "R",
    "meshNames": [],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.0,
-    "distance": 2.0
+    "yawDeg": 0.0,
+    "targetX": -0.062,
+    "targetY": -0.306,
+    "distance": 1.38
    },
    "contentRef": null
   },
@@ -382,9 +408,10 @@
    "side": "L",
    "meshNames": [],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.0,
-    "distance": 2.0
+    "yawDeg": 0.0,
+    "targetX": 0.062,
+    "targetY": -0.306,
+    "distance": 1.38
    },
    "contentRef": null
   },
@@ -398,12 +425,13 @@
    "level": 2,
    "side": "R",
    "meshNames": [
-    "mesh_thigh_r"
+    "thigh_L"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.15,
-    "distance": 1.0
+    "yawDeg": 0.0,
+    "targetX": -0.065,
+    "targetY": -0.156,
+    "distance": 0.97
    },
    "contentRef": null
   },
@@ -417,12 +445,13 @@
    "level": 2,
    "side": "L",
    "meshNames": [
-    "mesh_thigh_l"
+    "thigh_R"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": 0.15,
-    "distance": 1.0
+    "yawDeg": 0.0,
+    "targetX": 0.065,
+    "targetY": -0.156,
+    "distance": 0.97
    },
    "contentRef": null
   },
@@ -436,12 +465,13 @@
    "level": 2,
    "side": "R",
    "meshNames": [
-    "mesh_shin_r"
+    "calf_L"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": -0.2,
-    "distance": 1.0
+    "yawDeg": 0.0,
+    "targetX": -0.065,
+    "targetY": -0.376,
+    "distance": 0.76
    },
    "contentRef": null
   },
@@ -455,12 +485,13 @@
    "level": 2,
    "side": "L",
    "meshNames": [
-    "mesh_shin_l"
+    "calf_R"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": -0.2,
-    "distance": 1.0
+    "yawDeg": 0.0,
+    "targetX": 0.065,
+    "targetY": -0.376,
+    "distance": 0.76
    },
    "contentRef": null
   },
@@ -474,11 +505,13 @@
    "level": 2,
    "side": "R",
    "meshNames": [
-    "mesh_foot_r"
+    "foot_L",
+    "shoe_L"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": -0.45,
+    "yawDeg": 0.0,
+    "targetX": -0.057,
+    "targetY": -0.456,
     "distance": 0.7
    },
    "contentRef": null
@@ -493,12 +526,342 @@
    "level": 2,
    "side": "L",
    "meshNames": [
-    "mesh_foot_l"
+    "foot_R",
+    "shoe_R"
    ],
    "camera": {
-    "yawDeg": 0,
-    "targetY": -0.45,
+    "yawDeg": 0.0,
+    "targetX": 0.057,
+    "targetY": -0.456,
     "distance": 0.7
+   },
+   "contentRef": null
+  },
+  {
+   "id": "nose",
+   "nameAr": "الأنف",
+   "nameEn": "Nose",
+   "descAr": "الأنف",
+   "descEn": "Nose",
+   "parentId": "face",
+   "level": 3,
+   "side": null,
+   "meshNames": [
+    "nose"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.408,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "mouth",
+   "nameAr": "الفم",
+   "nameEn": "Mouth",
+   "descAr": "الفم",
+   "descEn": "Mouth",
+   "parentId": "face",
+   "level": 3,
+   "side": null,
+   "meshNames": [
+    "mouth"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.384,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "eye_r",
+   "nameAr": "العين اليمنى",
+   "nameEn": "Right eye",
+   "descAr": "العين اليمنى",
+   "descEn": "Right eye",
+   "parentId": "face",
+   "level": 3,
+   "side": "R",
+   "meshNames": [
+    "eye_L",
+    "brow_L"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.023,
+    "targetY": 0.426,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "ear_r",
+   "nameAr": "الأذن اليمنى",
+   "nameEn": "Right ear",
+   "descAr": "الأذن اليمنى",
+   "descEn": "Right ear",
+   "parentId": "face",
+   "level": 3,
+   "side": "R",
+   "meshNames": [
+    "ear_L"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.063,
+    "targetY": 0.411,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "elbow_r",
+   "nameAr": "المرفق الأيمن",
+   "nameEn": "Right elbow",
+   "descAr": "المرفق الأيمن",
+   "descEn": "Right elbow",
+   "parentId": "forearm_r",
+   "level": 3,
+   "side": "R",
+   "meshNames": [
+    "elbow_L"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.205,
+    "targetY": 0.136,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "fingers_r",
+   "nameAr": "أصابع اليد اليمنى",
+   "nameEn": "Right fingers",
+   "descAr": "أصابع اليد اليمنى",
+   "descEn": "Right fingers",
+   "parentId": "hand_r",
+   "level": 3,
+   "side": "R",
+   "meshNames": [
+    "finger_L_0",
+    "finger_L_1",
+    "finger_L_2",
+    "finger_L_3"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.218,
+    "targetY": -0.044,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "thumb_r",
+   "nameAr": "إبهام اليد اليمنى",
+   "nameEn": "Right thumb",
+   "descAr": "إبهام اليد اليمنى",
+   "descEn": "Right thumb",
+   "parentId": "hand_r",
+   "level": 3,
+   "side": "R",
+   "meshNames": [
+    "thumb_L"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.191,
+    "targetY": -0.02,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "knee_r",
+   "nameAr": "الركبة اليمنى",
+   "nameEn": "Right knee",
+   "descAr": "الركبة اليمنى",
+   "descEn": "Right knee",
+   "parentId": "thigh_r",
+   "level": 3,
+   "side": "R",
+   "meshNames": [
+    "knee_L"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.065,
+    "targetY": -0.279,
+    "distance": 0.5
+   },
+   "contentRef": null
+  },
+  {
+   "id": "ankle_r",
+   "nameAr": "الكاحل الأيمن",
+   "nameEn": "Right ankle",
+   "descAr": "الكاحل الأيمن",
+   "descEn": "Right ankle",
+   "parentId": "shin_r",
+   "level": 3,
+   "side": "R",
+   "meshNames": [
+    "ankle_L"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.065,
+    "targetY": -0.441,
+    "distance": 0.46
+   },
+   "contentRef": null
+  },
+  {
+   "id": "eye_l",
+   "nameAr": "العين اليسرى",
+   "nameEn": "Left eye",
+   "descAr": "العين اليسرى",
+   "descEn": "Left eye",
+   "parentId": "face",
+   "level": 3,
+   "side": "L",
+   "meshNames": [
+    "eye_R",
+    "brow_R"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.023,
+    "targetY": 0.426,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "ear_l",
+   "nameAr": "الأذن اليسرى",
+   "nameEn": "Left ear",
+   "descAr": "الأذن اليسرى",
+   "descEn": "Left ear",
+   "parentId": "face",
+   "level": 3,
+   "side": "L",
+   "meshNames": [
+    "ear_R"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.063,
+    "targetY": 0.411,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "elbow_l",
+   "nameAr": "المرفق الأيسر",
+   "nameEn": "Left elbow",
+   "descAr": "المرفق الأيسر",
+   "descEn": "Left elbow",
+   "parentId": "forearm_l",
+   "level": 3,
+   "side": "L",
+   "meshNames": [
+    "elbow_R"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.205,
+    "targetY": 0.136,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "fingers_l",
+   "nameAr": "أصابع اليد اليسرى",
+   "nameEn": "Left fingers",
+   "descAr": "أصابع اليد اليسرى",
+   "descEn": "Left fingers",
+   "parentId": "hand_l",
+   "level": 3,
+   "side": "L",
+   "meshNames": [
+    "finger_R_0",
+    "finger_R_1",
+    "finger_R_2",
+    "finger_R_3"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.218,
+    "targetY": -0.044,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "thumb_l",
+   "nameAr": "إبهام اليد اليسرى",
+   "nameEn": "Left thumb",
+   "descAr": "إبهام اليد اليسرى",
+   "descEn": "Left thumb",
+   "parentId": "hand_l",
+   "level": 3,
+   "side": "L",
+   "meshNames": [
+    "thumb_R"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.191,
+    "targetY": -0.02,
+    "distance": 0.45
+   },
+   "contentRef": null
+  },
+  {
+   "id": "knee_l",
+   "nameAr": "الركبة اليسرى",
+   "nameEn": "Left knee",
+   "descAr": "الركبة اليسرى",
+   "descEn": "Left knee",
+   "parentId": "thigh_l",
+   "level": 3,
+   "side": "L",
+   "meshNames": [
+    "knee_R"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.065,
+    "targetY": -0.279,
+    "distance": 0.5
+   },
+   "contentRef": null
+  },
+  {
+   "id": "ankle_l",
+   "nameAr": "الكاحل الأيسر",
+   "nameEn": "Left ankle",
+   "descAr": "الكاحل الأيسر",
+   "descEn": "Left ankle",
+   "parentId": "shin_l",
+   "level": 3,
+   "side": "L",
+   "meshNames": [
+    "ankle_R"
+   ],
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.065,
+    "targetY": -0.441,
+    "distance": 0.46
    },
    "contentRef": null
   }

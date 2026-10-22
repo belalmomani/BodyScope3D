@@ -1,0 +1,416 @@
+{
+ "version": 1,
+ "note": "SCHEMATIC positions/sizes; general descriptions, no reviewed medical source attached.",
+ "items": [
+  {
+   "id": "brain",
+   "mesh": "brain",
+   "layer": "ORGANS",
+   "system": "nervous",
+   "nameAr": "الدماغ",
+   "nameEn": "Brain",
+   "descAr": "مركز التحكم في الجهاز العصبي داخل الجمجمة.",
+   "descEn": "Control centre of the nervous system, inside the skull."
+  },
+  {
+   "id": "trachea",
+   "mesh": "trachea",
+   "layer": "ORGANS",
+   "system": "respiratory",
+   "nameAr": "القصبة الهوائية",
+   "nameEn": "Trachea",
+   "descAr": "أنبوب يوصل الهواء من الحنجرة إلى الرئتين.",
+   "descEn": "Tube carrying air from the larynx to the lungs."
+  },
+  {
+   "id": "lung_r",
+   "mesh": "lung_r",
+   "layer": "ORGANS",
+   "system": "respiratory",
+   "nameAr": "الرئة اليمنى",
+   "nameEn": "Right lung",
+   "descAr": "عضو التبادل الغازي؛ اليمنى أكبر قليلًا من اليسرى.",
+   "descEn": "Organ of gas exchange; the right is slightly larger than the left."
+  },
+  {
+   "id": "lung_l",
+   "mesh": "lung_l",
+   "layer": "ORGANS",
+   "system": "respiratory",
+   "nameAr": "الرئة اليسرى",
+   "nameEn": "Left lung",
+   "descAr": "عضو التبادل الغازي ولها فراغ للقلب.",
+   "descEn": "Organ of gas exchange, with a notch for the heart."
+  },
+  {
+   "id": "heart",
+   "mesh": "heart",
+   "layer": "ORGANS",
+   "system": "circulatory",
+   "nameAr": "القلب",
+   "nameEn": "Heart",
+   "descAr": "مضخة عضلية تدفع الدم في الجسم؛ يميل قليلًا إلى اليسار.",
+   "descEn": "Muscular pump moving blood through the body; sits slightly left of the midline."
+  },
+  {
+   "id": "aorta",
+   "mesh": "aorta",
+   "layer": "ORGANS",
+   "system": "circulatory",
+   "nameAr": "الشريان الأبهر",
+   "nameEn": "Aorta",
+   "descAr": "أكبر شريان، يخرج من القلب ويوزع الدم المؤكسج.",
+   "descEn": "Largest artery, leaving the heart and distributing oxygenated blood."
+  },
+  {
+   "id": "esophagus",
+   "mesh": "esophagus",
+   "layer": "ORGANS",
+   "system": "digestive",
+   "nameAr": "المريء",
+   "nameEn": "Esophagus",
+   "descAr": "أنبوب عضلي ينقل الطعام من الفم إلى المعدة.",
+   "descEn": "Muscular tube moving food from the mouth to the stomach."
+  },
+  {
+   "id": "liver",
+   "mesh": "liver",
+   "layer": "ORGANS",
+   "system": "digestive",
+   "nameAr": "الكبد",
+   "nameEn": "Liver",
+   "descAr": "أكبر غدة داخلية، في الجهة العلوية اليمنى من البطن.",
+   "descEn": "Largest internal gland, in the upper right abdomen."
+  },
+  {
+   "id": "gallbladder",
+   "mesh": "gallbladder",
+   "layer": "ORGANS",
+   "system": "digestive",
+   "nameAr": "المرارة",
+   "nameEn": "Gallbladder",
+   "descAr": "كيس صغير يخزن الصفراء تحت الكبد.",
+   "descEn": "Small sac storing bile under the liver."
+  },
+  {
+   "id": "stomach",
+   "mesh": "stomach",
+   "layer": "ORGANS",
+   "system": "digestive",
+   "nameAr": "المعدة",
+   "nameEn": "Stomach",
+   "descAr": "كيس عضلي يبدأ فيه هضم الطعام، في الجهة العلوية اليسرى.",
+   "descEn": "Muscular sac where digestion begins, in the upper left abdomen."
+  },
+  {
+   "id": "spleen",
+   "mesh": "spleen",
+   "layer": "ORGANS",
+   "system": "immune",
+   "nameAr": "الطحال",
+   "nameEn": "Spleen",
+   "descAr": "عضو لمفاوي في أعلى البطن الأيسر يرشّح الدم.",
+   "descEn": "Lymphoid organ in the upper left abdomen that filters blood."
+  },
+  {
+   "id": "pancreas",
+   "mesh": "pancreas",
+   "layer": "ORGANS",
+   "system": "digestive",
+   "nameAr": "البنكرياس",
+   "nameEn": "Pancreas",
+   "descAr": "غدة تفرز إنزيمات الهضم والإنسولين.",
+   "descEn": "Gland producing digestive enzymes and insulin."
+  },
+  {
+   "id": "kidney_r",
+   "mesh": "kidney_r",
+   "layer": "ORGANS",
+   "system": "urinary",
+   "nameAr": "الكلية اليمنى",
+   "nameEn": "Right kidney",
+   "descAr": "ترشّح الدم وتكوّن البول؛ خلف الصفاق في الظهر.",
+   "descEn": "Filters blood and forms urine; sits toward the back."
+  },
+  {
+   "id": "kidney_l",
+   "mesh": "kidney_l",
+   "layer": "ORGANS",
+   "system": "urinary",
+   "nameAr": "الكلية اليسرى",
+   "nameEn": "Left kidney",
+   "descAr": "ترشّح الدم وتكوّن البول؛ خلف الصفاق في الظهر.",
+   "descEn": "Filters blood and forms urine; sits toward the back."
+  },
+  {
+   "id": "small_intestine",
+   "mesh": "small_intestine",
+   "layer": "ORGANS",
+   "system": "digestive",
+   "nameAr": "الأمعاء الدقيقة",
+   "nameEn": "Small intestine",
+   "descAr": "الجزء الرئيسي لامتصاص الغذاء.",
+   "descEn": "Main site of nutrient absorption."
+  },
+  {
+   "id": "large_intestine",
+   "mesh": "large_intestine",
+   "layer": "ORGANS",
+   "system": "digestive",
+   "nameAr": "الأمعاء الغليظة",
+   "nameEn": "Large intestine",
+   "descAr": "تمتص الماء وتكوّن البراز، وتحيط بالأمعاء الدقيقة.",
+   "descEn": "Absorbs water and forms stool; frames the small intestine."
+  },
+  {
+   "id": "bladder",
+   "mesh": "bladder",
+   "layer": "ORGANS",
+   "system": "urinary",
+   "nameAr": "المثانة",
+   "nameEn": "Bladder",
+   "descAr": "كيس عضلي يخزن البول في الحوض.",
+   "descEn": "Muscular sac storing urine in the pelvis."
+  },
+  {
+   "id": "skull",
+   "mesh": "skull",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الجمجمة",
+   "nameEn": "Skull",
+   "descAr": "تحمي الدماغ وتشكل هيكل الوجه.",
+   "descEn": "Protects the brain and shapes the face."
+  },
+  {
+   "id": "mandible",
+   "mesh": "mandible",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الفك السفلي",
+   "nameEn": "Mandible",
+   "descAr": "العظم المتحرك الوحيد في الجمجمة.",
+   "descEn": "The only movable bone of the skull."
+  },
+  {
+   "id": "vertebral_column",
+   "mesh": "vertebral_column",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "العمود الفقري",
+   "nameEn": "Vertebral column",
+   "descAr": "سلسلة فقرات تحمي الحبل الشوكي وتدعم الجسم.",
+   "descEn": "Chain of vertebrae protecting the spinal cord and supporting the body."
+  },
+  {
+   "id": "ribcage",
+   "mesh": "ribcage",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "القفص الصدري",
+   "nameEn": "Rib cage",
+   "descAr": "أضلاع تحمي القلب والرئتين.",
+   "descEn": "Ribs protecting the heart and lungs."
+  },
+  {
+   "id": "sternum",
+   "mesh": "sternum",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظمة القص",
+   "nameEn": "Sternum",
+   "descAr": "عظم مسطح في منتصف الصدر تتصل به الأضلاع.",
+   "descEn": "Flat bone at the centre of the chest where ribs attach."
+  },
+  {
+   "id": "pelvis_bone",
+   "mesh": "pelvis_bone",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظام الحوض",
+   "nameEn": "Pelvic bones",
+   "descAr": "تحمل وزن الجذع وتحمي أعضاء الحوض.",
+   "descEn": "Bear the trunk's weight and protect pelvic organs."
+  },
+  {
+   "id": "clavicle_r",
+   "mesh": "clavicle_r",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الترقوة اليمنى",
+   "nameEn": "Right clavicle",
+   "descAr": "عظم يصل القص بالكتف.",
+   "descEn": "Bone linking the sternum to the shoulder."
+  },
+  {
+   "id": "scapula_r",
+   "mesh": "scapula_r",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "لوح الكتف اليمنى",
+   "nameEn": "Right scapula",
+   "descAr": "عظم مسطح مثلثي في أعلى الظهر.",
+   "descEn": "Flat triangular bone in the upper back."
+  },
+  {
+   "id": "humerus_r",
+   "mesh": "humerus_r",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظم العضد اليمنى",
+   "nameEn": "Right humerus",
+   "descAr": "عظم العضد بين الكتف والمرفق.",
+   "descEn": "Upper-arm bone between shoulder and elbow."
+  },
+  {
+   "id": "radius_ulna_r",
+   "mesh": "radius_ulna_r",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الكعبرة والزند اليمنى",
+   "nameEn": "Right radius & ulna",
+   "descAr": "عظما الساعد.",
+   "descEn": "The two forearm bones."
+  },
+  {
+   "id": "hand_bones_r",
+   "mesh": "hand_bones_r",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظام اليد اليمنى",
+   "nameEn": "Right hand bones",
+   "descAr": "رسغ وأمشاط وسلاميات (تمثيل مبسط).",
+   "descEn": "Wrist, metacarpals and phalanges (simplified)."
+  },
+  {
+   "id": "femur_r",
+   "mesh": "femur_r",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظم الفخذ اليمنى",
+   "nameEn": "Right femur",
+   "descAr": "أطول عظم في الجسم.",
+   "descEn": "The longest bone in the body."
+  },
+  {
+   "id": "tibia_fibula_r",
+   "mesh": "tibia_fibula_r",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الظنبوب والشظية اليمنى",
+   "nameEn": "Right tibia & fibula",
+   "descAr": "عظما الساق.",
+   "descEn": "The two lower-leg bones."
+  },
+  {
+   "id": "patella_r",
+   "mesh": "patella_r",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الرضفة اليمنى",
+   "nameEn": "Right patella",
+   "descAr": "عظم صغير يحمي الركبة.",
+   "descEn": "Small bone protecting the knee."
+  },
+  {
+   "id": "foot_bones_r",
+   "mesh": "foot_bones_r",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظام القدم اليمنى",
+   "nameEn": "Right foot bones",
+   "descAr": "عظام الرسغ والمشط والأصابع (تمثيل مبسط).",
+   "descEn": "Tarsals, metatarsals and toes (simplified)."
+  },
+  {
+   "id": "clavicle_l",
+   "mesh": "clavicle_l",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الترقوة اليسرى",
+   "nameEn": "Left clavicle",
+   "descAr": "عظم يصل القص بالكتف.",
+   "descEn": "Bone linking the sternum to the shoulder."
+  },
+  {
+   "id": "scapula_l",
+   "mesh": "scapula_l",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "لوح الكتف اليسرى",
+   "nameEn": "Left scapula",
+   "descAr": "عظم مسطح مثلثي في أعلى الظهر.",
+   "descEn": "Flat triangular bone in the upper back."
+  },
+  {
+   "id": "humerus_l",
+   "mesh": "humerus_l",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظم العضد اليسرى",
+   "nameEn": "Left humerus",
+   "descAr": "عظم العضد بين الكتف والمرفق.",
+   "descEn": "Upper-arm bone between shoulder and elbow."
+  },
+  {
+   "id": "radius_ulna_l",
+   "mesh": "radius_ulna_l",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الكعبرة والزند اليسرى",
+   "nameEn": "Left radius & ulna",
+   "descAr": "عظما الساعد.",
+   "descEn": "The two forearm bones."
+  },
+  {
+   "id": "hand_bones_l",
+   "mesh": "hand_bones_l",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظام اليد اليسرى",
+   "nameEn": "Left hand bones",
+   "descAr": "رسغ وأمشاط وسلاميات (تمثيل مبسط).",
+   "descEn": "Wrist, metacarpals and phalanges (simplified)."
+  },
+  {
+   "id": "femur_l",
+   "mesh": "femur_l",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظم الفخذ اليسرى",
+   "nameEn": "Left femur",
+   "descAr": "أطول عظم في الجسم.",
+   "descEn": "The longest bone in the body."
+  },
+  {
+   "id": "tibia_fibula_l",
+   "mesh": "tibia_fibula_l",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الظنبوب والشظية اليسرى",
+   "nameEn": "Left tibia & fibula",
+   "descAr": "عظما الساق.",
+   "descEn": "The two lower-leg bones."
+  },
+  {
+   "id": "patella_l",
+   "mesh": "patella_l",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "الرضفة اليسرى",
+   "nameEn": "Left patella",
+   "descAr": "عظم صغير يحمي الركبة.",
+   "descEn": "Small bone protecting the knee."
+  },
+  {
+   "id": "foot_bones_l",
+   "mesh": "foot_bones_l",
+   "layer": "SKELETAL",
+   "system": "skeletal",
+   "nameAr": "عظام القدم اليسرى",
+   "nameEn": "Left foot bones",
+   "descAr": "عظام الرسغ والمشط والأصابع (تمثيل مبسط).",
+   "descEn": "Tarsals, metatarsals and toes (simplified)."
+  }
+ ]
+}

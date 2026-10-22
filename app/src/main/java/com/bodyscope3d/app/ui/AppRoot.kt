@@ -47,6 +47,7 @@ fun AppRoot(graph: AppGraph) {
                 composable("favorites") { FavoritesScreen(graph) }
                 composable("settings") { SettingsScreen(graph) { nav.navigate(it) } }
                 composable("privacy") { InfoScreen(R.string.privacy, R.string.privacy_text) }
+                composable("about") { AboutScreen(graph) }
                 composable("help") { InfoScreen(R.string.help, R.string.help_text) }
             }
         }

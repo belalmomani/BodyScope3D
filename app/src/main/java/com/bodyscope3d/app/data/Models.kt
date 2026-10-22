@@ -3,7 +3,7 @@ package com.bodyscope3d.app.data
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
-@Serializable data class CameraPreset(val yawDeg: Float = 0f, val targetY: Float = 0f, val distance: Float = 2f)
+@Serializable data class CameraPreset(val yawDeg: Float = 0f, val targetX: Float = 0f, val targetY: Float = 0f, val distance: Float = 2f)
 
 @Serializable data class Region(
     val id: String, val nameAr: String, val nameEn: String,
@@ -36,6 +36,14 @@ class RegionCatalog(val regions: List<Region>) {
         fun parse(text: String) = RegionCatalog(json.decodeFromString<RegionFile>(text).regions)
     }
 }
+
+@Serializable data class AnatomyItem(
+    val id: String, val mesh: String, val layer: Layer, val system: String,
+    val nameAr: String, val nameEn: String, val descAr: String, val descEn: String,
+) { fun name(ar: Boolean) = if (ar) nameAr else nameEn; fun desc(ar: Boolean) = if (ar) descAr else descEn }
+@Serializable private data class AnatomyFile(val version: Int, val items: List<AnatomyItem>)
+object AnatomyCatalog { private val json = Json { ignoreUnknownKeys = true }
+    fun parse(text: String): List<AnatomyItem> = json.decodeFromString<AnatomyFile>(text).items }
 
 enum class Layer { EXTERIOR, SKELETAL, MUSCULAR, ORGANS }
 

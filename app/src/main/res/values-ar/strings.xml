@@ -66,4 +66,14 @@
     <string name="side_l">يسار</string>
     <string name="content_unverified">النص التثقيفي وصف عام مختصر؛ لم يُربط بعد بمصدر طبي مُراجَع.</string>
     <string name="err_intensity">اختر منطقة وطبيعة الألم.</string>
+    <string name="about">حول التطبيق والتراخيص</string>
+    <string name="about_version">الإصدار</string>
+    <string name="about_assets">الأصول ثلاثية الأبعاد</string>
+    <string name="about_none">غير مضمّن</string>
+    <string name="about_notice">التطبيق للتثقيف وتسجيل الأعراض فقط. مجسم الجسم المضمّن نموذج مبسّط مولَّد وليس دقيقًا طبيًا. لا تتضمن هذه النسخة أي أصول تشريحية من جهات خارجية.</string>
+    <string name="layer_exterior">الجسم</string>
+    <string name="layer_skeletal">الهيكل العظمي</string>
+    <string name="layer_muscular">العضلات</string>
+    <string name="layer_organs">الأعضاء</string>
+    <string name="schematic_note">مجسم تخطيطي: الأشكال والمواضع تقريبية للتثقيف العام فقط.</string>
 </resources>

@@ -3,7 +3,7 @@
 **AR:** تطبيق تثقيفي لاستكشاف جسم ثلاثي الأبعاد وتسجيل مواضع الألم. لا يشخّص الأمراض ولا يغني عن الطبيب.
 
 ## Status / الحالة
-No 3D asset is bundled yet → the app runs in "model missing" mode (list-based region picker). See `ASSETS.md`, `docs/VERIFICATION.md`.
+Bundled: stylized exterior `body.glb` (not realistic, not medically accurate). Internal anatomy layers: not yet. If the model fails to load, a list-based region picker is shown. See `ASSETS.md`, `docs/VERIFICATION.md`.
 
 ## Build from phone (GitHub Actions) / البناء من الهاتف
 1. Upload this folder to a GitHub repo (main branch). 2. Actions → CI → download artifact `bodyscope3d-debug-apk`. (Debug APK = testing only.)
