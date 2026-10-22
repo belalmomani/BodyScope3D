@@ -64,7 +64,7 @@
     <string name="help_text">Tap a region on the body (or choose from the list), zoom in, then log pain from the Log pain screen. Educational content is general and not medical advice.</string>
     <string name="side_r">Right</string>
     <string name="side_l">Left</string>
-    <string name="content_unverified">Educational text is a short general description; a reviewed medical source is not attached yet.</string>
+    <string name="content_unverified">General reference for further reading: SEER Training – Anatomy &amp; Physiology (NCI/NIH), training.seer.cancer.gov/anatomy (link checked 2026-10-23). The text in this app was written by the project and has not been medically reviewed.</string>
     <string name="err_intensity">Choose a region and a nature.</string>
     <string name="about">About &amp; licenses</string>
     <string name="about_version">Version</string>

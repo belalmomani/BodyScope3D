@@ -64,7 +64,7 @@
     <string name="help_text">المس منطقة على الجسم (أو اختر من القائمة)، كبّرها، ثم سجّل الألم من شاشة تسجيل الألم. المحتوى التثقيفي عام وليس نصيحة طبية.</string>
     <string name="side_r">يمين</string>
     <string name="side_l">يسار</string>
-    <string name="content_unverified">النص التثقيفي وصف عام مختصر؛ لم يُربط بعد بمصدر طبي مُراجَع.</string>
+    <string name="content_unverified">مرجع عام للاستزادة: SEER Training – Anatomy &amp; Physiology (المعهد الوطني للسرطان/NIH)، الرابط training.seer.cancer.gov/anatomy (فُحص الرابط في 2026-10-23). النص داخل التطبيق كتبه فريق المشروع ولم تراجعه جهة طبية.</string>
     <string name="err_intensity">اختر منطقة وطبيعة الألم.</string>
     <string name="about">حول التطبيق والتراخيص</string>
     <string name="about_version">الإصدار</string>
