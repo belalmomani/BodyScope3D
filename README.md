@@ -14,3 +14,7 @@ Open the folder → sync → Run on a real device (OpenGL ES 3.0). CLI: `gradle 
 Put your image at `tools/app_icon_source.png`, run `python3 tools/make_icons.py`, remove the placeholder vector foreground.
 ## Versioning
 Edit only `version.properties`, `VERSION`, `CHANGELOG.md`; tag `vX.Y.Z`. Firebase: future opt-in via the repository interfaces in `data/Db.kt`.
+
+## Signing key from the phone / مفتاح التوقيع من الهاتف
+1. Actions → **Make signing keystore** → Run workflow. 2. Download artifact `signing-secrets-DELETE-AFTER-USE`.
+3. Settings → Secrets → Actions: add the 4 values from `secrets.txt` (names identical). 4. **Back up `release.keystore` + passwords somewhere private** (lose it = cannot update the app), then delete the artifact/run. 5. Push tag `v1.0.0`.
