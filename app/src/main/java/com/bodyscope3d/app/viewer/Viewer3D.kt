@@ -78,7 +78,7 @@ fun Viewer3D(
         cameraManipulator = null, childNodes = nodes,
         onGestureListener = rememberOnGestureListener(
             onSingleTapConfirmed = { _, node -> node?.name?.let(onMeshTapped) },
-            onScroll = { _, _, _, dx, dy -> orbit.yaw += dx * 0.4f; orbit.pitch = (orbit.pitch - dy * 0.3f).coerceIn(-60f, 60f) },
+            onScroll = { _, _, _, d -> orbit.yaw += d.x * 0.4f; orbit.pitch = (orbit.pitch - d.y * 0.3f).coerceIn(-60f, 60f) },
             onScale = { detector, _, _ -> orbit.zoom = (orbit.zoom / detector.scaleFactor).coerceIn(0.4f, 2.5f) },
         ),
     )
@@ -113,7 +113,7 @@ fun AnatomyViewer(
         cameraManipulator = null, childNodes = nodes,
         onGestureListener = rememberOnGestureListener(
             onSingleTapConfirmed = { _, node -> node?.name?.let(onNodeTapped) },
-            onScroll = { _, _, _, dx, dy -> orbit.yaw += dx * 0.4f; orbit.pitch = (orbit.pitch - dy * 0.3f).coerceIn(-60f, 60f) },
+            onScroll = { _, _, _, d -> orbit.yaw += d.x * 0.4f; orbit.pitch = (orbit.pitch - d.y * 0.3f).coerceIn(-60f, 60f) },
             onScale = { detector, _, _ -> orbit.zoom = (orbit.zoom / detector.scaleFactor).coerceIn(0.4f, 2.5f) },
         ),
     )
