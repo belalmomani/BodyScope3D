@@ -66,7 +66,7 @@
     <string name="side_l">Left</string>
     <string name="content_unverified">Educational text is a short general description; a reviewed medical source is not attached yet.</string>
     <string name="err_intensity">Choose a region and a nature.</string>
-    <string name="about">About & licenses</string>
+    <string name="about">About &amp; licenses</string>
     <string name="about_version">Version</string>
     <string name="about_assets">3D assets</string>
     <string name="about_none">Not bundled</string>
