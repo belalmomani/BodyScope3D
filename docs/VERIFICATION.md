@@ -21,7 +21,7 @@
 - Region highlight in 3D (glow/tint) is NOT implemented: SceneView material API unknown; selection is shown by isolation, camera move and a coral marker in the panel.
 - Tooltips on icon buttons: content descriptions only (screen readers); no long-press tooltips.
 - Font: system Arabic font (no font file bundled; no network to fetch one).
-- Head zones (forehead, temples, cheeks, mid-face, jaw, occiput) are cut from the single head mesh by triangle centroid (coarse, jagged); checked only by an offline plot. Boundaries are approximate anatomy.
+- Head sub-areas from the brief (forehead, temples, cheeks, jaw, occiput) are NOT separate meshes: only front/back/right/left halves + eyes, ears, nose, mouth exist.
 - Muscles and blood-vessel layers do not exist and are not shown.
 - Layers load on first show (synchronously on the main thread; files are <300 KB).
 - Instrumented tests (androidTest) assume an English device and were not run.
