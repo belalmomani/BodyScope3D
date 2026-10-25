@@ -17,6 +17,7 @@
 - Educational text now cites a general government reference (SEER Training, NCI/NIH) with link-check date; text itself is project-written and NOT medically reviewed.
 - Direction picker (front/back/right/left) for every region: moves the camera to that side and is saved with each pain entry (DB v2 with migration).
 - Real half-part selection: direction (front/back/right/left) now isolates the matching half of each part (45 parts split into 4 pieces; 185 nodes, 342 KB).
+- Internal anatomy: selecting a bone/organ now isolates it and focuses the camera on it ("Show all" toggles back).
 - Asset pipeline (tools/export_glb.py, region_map.json, NOTICE.md) added; still no bundled GLB.
 - Placeholder launcher icon until `tools/app_icon_source.png` is provided.
 - Not built or run in the authoring environment (no network/SDK).

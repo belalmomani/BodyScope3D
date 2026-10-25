@@ -40,6 +40,7 @@ class RegionCatalog(val regions: List<Region>) {
 @Serializable data class AnatomyItem(
     val id: String, val mesh: String, val layer: Layer, val system: String,
     val nameAr: String, val nameEn: String, val descAr: String, val descEn: String,
+    val camera: CameraPreset = CameraPreset(),
 ) { fun name(ar: Boolean) = if (ar) nameAr else nameEn; fun desc(ar: Boolean) = if (ar) descAr else descEn }
 @Serializable private data class AnatomyFile(val version: Int, val items: List<AnatomyItem>)
 object AnatomyCatalog { private val json = Json { ignoreUnknownKeys = true }

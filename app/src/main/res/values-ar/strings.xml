@@ -81,4 +81,5 @@
     <string name="aspect_back">خلف</string>
     <string name="aspect_right">يمين</string>
     <string name="aspect_left">يسار</string>
+    <string name="show_all">إظهار الكل</string>
 </resources>

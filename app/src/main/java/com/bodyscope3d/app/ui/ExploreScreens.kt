@@ -120,6 +120,7 @@ fun AnatomyScreen(graph: AppGraph) {
     val ready = graph.models.filter { graph.isReady(it) }
     var visible by remember { mutableStateOf(ready.filter { it.layer != Layer.EXTERIOR }.map { it.id }.toSet()) }
     var picked by remember { mutableStateOf<String?>(null) }
+    var isolate by remember { mutableStateOf(true) }
     var err by remember { mutableStateOf(false) }
     var camKey by remember { mutableIntStateOf(0) }
     var yaw by remember { mutableFloatStateOf(0f) }
@@ -131,8 +132,9 @@ fun AnatomyScreen(graph: AppGraph) {
         Box(Modifier.fillMaxWidth().weight(1f)) {
             if (err) Column { Banner(R.string.model_error); Button({ err = false; camKey++ }) { Text(stringResource(R.string.retry)) } }
             else key(camKey) {
-                com.bodyscope3d.app.viewer.AnatomyViewer(layers, onNodeTapped = { n -> graph.anatomy.firstOrNull { it.mesh == n }?.let { picked = it.id } },
-                    onError = { err = true }, viewYawDeg = yaw, modifier = Modifier.fillMaxSize())
+                com.bodyscope3d.app.viewer.AnatomyViewer(layers, onNodeTapped = { n -> graph.anatomy.firstOrNull { it.mesh == n }?.let { picked = it.id; isolate = true } },
+                    onError = { err = true }, viewYawDeg = yaw,
+                    selectedMesh = item?.mesh, focus = item?.camera, isolate = isolate, modifier = Modifier.fillMaxSize())
             }
         }
         Text(stringResource(R.string.schematic_note), style = MaterialTheme.typography.bodySmall)
@@ -143,12 +145,13 @@ fun AnatomyScreen(graph: AppGraph) {
             }
             AssistChip({ yaw = 0f; camKey++ }, { Text(stringResource(R.string.view_front)) })
             AssistChip({ yaw = 180f; camKey++ }, { Text(stringResource(R.string.view_back)) })
+            if (item != null) AssistChip({ isolate = !isolate }, { Text(stringResource(if (isolate) R.string.show_all else R.string.isolate)) })
             AssistChip({ yaw = 0f; visible = internal.map { it.id }.toSet(); picked = null; camKey++ }, { Text(stringResource(R.string.reset_camera)) })
         }
         Column(Modifier.heightIn(max = 170.dp).verticalScroll(rememberScrollState())) {
             FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 graph.anatomy.filter { a -> ready.any { it.layer == a.layer && it.id in visible } }.forEach { a ->
-                    FilterChip(a.id == picked, { picked = a.id }, { Text(a.name(ar)) })
+                    FilterChip(a.id == picked, { picked = a.id; isolate = true }, { Text(a.name(ar)) })
                 }
             }
         }

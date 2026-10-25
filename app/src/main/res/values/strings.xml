@@ -81,4 +81,5 @@
     <string name="aspect_back">Back</string>
     <string name="aspect_right">Right</string>
     <string name="aspect_left">Left</string>
+    <string name="show_all">Show all</string>
 </resources>

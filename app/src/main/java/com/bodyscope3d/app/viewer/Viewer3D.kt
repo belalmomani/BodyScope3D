@@ -4,6 +4,7 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import com.bodyscope3d.app.data.Aspect
+import com.bodyscope3d.app.data.CameraPreset
 import com.bodyscope3d.app.data.Pieces
 import com.bodyscope3d.app.data.Region
 import io.github.sceneview.Scene
@@ -96,6 +97,7 @@ data class LayerModel(val id: String, val path: String, val visible: Boolean)
 fun AnatomyViewer(
     layers: List<LayerModel>, onNodeTapped: (String) -> Unit, onError: (Throwable) -> Unit,
     modifier: Modifier = Modifier, resetKey: Int = 0, viewYawDeg: Float = 0f,
+    selectedMesh: String? = null, focus: CameraPreset? = null, isolate: Boolean = false,
 ) {
     val engine = rememberEngine()
     val modelLoader = rememberModelLoader(engine)
@@ -110,9 +112,18 @@ fun AnatomyViewer(
             }.onFailure(onError)
         }
     }
-    LaunchedEffect(resetKey) { orbit.reset() }
-    OrbitEffect(cameraNode, orbit, viewYawDeg, 0f, 0f, 2.2f) {}
-    LaunchedEffect(layers) { layers.forEach { l -> byId[l.id]?.isVisible = l.visible } }
+    LaunchedEffect(resetKey, selectedMesh, viewYawDeg) { orbit.reset() }
+    OrbitEffect(cameraNode, orbit, viewYawDeg, focus?.targetX ?: 0f, focus?.targetY ?: 0f, focus?.distance ?: 2.2f) {}
+    // التحديد: عند العزل تُخفى كل القطع ما عدا القطعة المحددة (في كل الطبقات)
+    LaunchedEffect(layers, selectedMesh, isolate) {
+        val only = isolate && selectedMesh != null
+        layers.forEach { l ->
+            byId[l.id]?.let { m ->
+                m.isVisible = l.visible || only
+                runCatching { m.renderableNodes.forEach { n -> n.isVisible = !only || n.name == selectedMesh } }
+            }
+        }
+    }
     Scene(
         modifier = modifier, engine = engine, modelLoader = modelLoader, cameraNode = cameraNode,
         cameraManipulator = null, childNodes = nodes,
