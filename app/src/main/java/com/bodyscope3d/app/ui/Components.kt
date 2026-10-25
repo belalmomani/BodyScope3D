@@ -50,17 +50,24 @@ fun SecondaryButton(text: String, onClick: () -> Unit, modifier: Modifier = Modi
     }
 }
 
-/** زر أيقوني دائري (48dp) للتحكم بالمجسم، مع وصف لقارئات الشاشة */
+/** زر أيقوني دائري (48dp) للتحكم بالمجسم: وصف لقارئات الشاشة + تلميح عند الضغط المطوّل */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RoundIconButton(icon: ImageVector, description: String, onClick: () -> Unit, modifier: Modifier = Modifier, active: Boolean = false) {
-    Surface(
-        onClick = onClick,
-        modifier = modifier.size(48.dp).semantics { contentDescription = description },
-        shape = CircleShape,
-        color = if (active) Palette.Primary else Palette.SurfaceHigh,
-        contentColor = if (active) Palette.OnPrimary else Palette.TextPrimary,
-        border = BorderStroke(1.dp, Palette.Outline),
-    ) { Box(contentAlignment = Alignment.Center) { Icon(icon, null, Modifier.size(24.dp)) } }
+    TooltipBox(
+        positionProvider = TooltipDefaults.rememberPlainTooltipPositionProvider(),
+        tooltip = { PlainTooltip { Text(description) } },
+        state = rememberTooltipState(),
+    ) {
+        Surface(
+            onClick = onClick,
+            modifier = modifier.size(48.dp).semantics { contentDescription = description },
+            shape = CircleShape,
+            color = if (active) Palette.Primary else Palette.SurfaceHigh,
+            contentColor = if (active) Palette.OnPrimary else Palette.TextPrimary,
+            border = BorderStroke(1.dp, Palette.Outline),
+        ) { Box(contentAlignment = Alignment.Center) { Icon(icon, null, Modifier.size(24.dp)) } }
+    }
 }
 
 /** زر تبديل/اختيار: يُستخدم للطبقات والمناطق والجهات. accent = لون التحديد (المرجاني للألم فقط) */
