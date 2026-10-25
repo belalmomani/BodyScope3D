@@ -24,9 +24,10 @@ private fun natureRes(n: String) = when (n) {
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
-fun PainLogScreen(graph: AppGraph, preselected: String?, onSaved: () -> Unit) {
+fun PainLogScreen(graph: AppGraph, preselected: String?, preAspect: Aspect?, onSaved: () -> Unit) {
     val ar = isArabic(); val scope = rememberCoroutineScope()
     var region by remember { mutableStateOf(preselected) }
+    var aspect by remember { mutableStateOf(preAspect) }
     var intensity by remember { mutableFloatStateOf(0f) }
     var nature by remember { mutableStateOf<String?>(null) }
     var onset by remember { mutableStateOf("") }
@@ -41,6 +42,10 @@ fun PainLogScreen(graph: AppGraph, preselected: String?, onSaved: () -> Unit) {
         FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             graph.catalog.regions.forEach { r -> FilterChip(r.id == region, { region = r.id }, { Text(r.name(ar)) }) }
         }
+        Text(stringResource(R.string.aspect_label), style = MaterialTheme.typography.labelLarge)
+        FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            Aspect.entries.forEach { a -> FilterChip(aspect == a, { aspect = if (aspect == a) null else a }, { Text(stringResource(aspectRes(a))) }) }
+        }
         Text(stringResource(R.string.pain_intensity) + ": ${intensity.toInt()}")
         Slider(intensity, { intensity = it }, valueRange = 0f..10f, steps = 9)
         Text(stringResource(R.string.pain_nature), style = MaterialTheme.typography.labelLarge)
@@ -54,7 +59,7 @@ fun PainLogScreen(graph: AppGraph, preselected: String?, onSaved: () -> Unit) {
         Button({
             if (PainValidator.valid(region, intensity.toInt(), nature)) {
                 pending += PainEntryEntity(sessionId = 0, regionId = region!!, intensity = intensity.toInt(), nature = nature!!,
-                    onset = onset.trim(), duration = duration.trim(), symptoms = symptoms.trim())
+                    onset = onset.trim(), duration = duration.trim(), symptoms = symptoms.trim(), aspect = aspect?.key.orEmpty())
                 nature = null; intensity = 0f; onset = ""; duration = ""; symptoms = ""; error = false
             } else error = true
         }, Modifier.fillMaxWidth()) { Text(stringResource(R.string.pain_add)) }
@@ -63,7 +68,7 @@ fun PainLogScreen(graph: AppGraph, preselected: String?, onSaved: () -> Unit) {
             Text(stringResource(R.string.pain_review), style = MaterialTheme.typography.titleMedium)
             pending.forEachIndexed { i, e ->
                 ListItem(headlineContent = { Text(graph.catalog.byId(e.regionId)?.name(ar) ?: e.regionId) },
-                    supportingContent = { Text("${e.intensity}/10 · " + stringResource(natureRes(e.nature))) },
+                    supportingContent = { Text("${e.intensity}/10 · " + stringResource(natureRes(e.nature)) + (Aspect.fromKey(e.aspect)?.let { " · " + stringResource(aspectRes(it)) } ?: "")) },
                     trailingContent = { TextButton({ pending.removeAt(i) }) { Text(stringResource(R.string.remove)) } })
             }
             Button({ scope.launchIO { graph.repo.save(pending.toList()) }; onSaved() }, Modifier.fillMaxWidth()) {
@@ -84,7 +89,7 @@ fun HistoryScreen(graph: AppGraph) {
                 Column(Modifier.padding(12.dp)) {
                     Text(DateFormat.getDateTimeInstance().format(Date(s.session.createdAt)), style = MaterialTheme.typography.titleSmall)
                     s.entries.forEach { e ->
-                        Text("• " + (graph.catalog.byId(e.regionId)?.name(ar) ?: e.regionId) + " — ${e.intensity}/10, " + stringResource(natureRes(e.nature)) +
+                        Text("• " + (graph.catalog.byId(e.regionId)?.name(ar) ?: e.regionId) + (Aspect.fromKey(e.aspect)?.let { " (" + stringResource(aspectRes(it)) + ")" } ?: "") + " — ${e.intensity}/10, " + stringResource(natureRes(e.nature)) +
                             listOf(e.onset, e.duration, e.symptoms).filter { it.isNotBlank() }.joinToString(" | ", prefix = " | ").takeIf { e.onset.isNotBlank() || e.duration.isNotBlank() || e.symptoms.isNotBlank() }.orEmpty())
                     }
                     TextButton({ scope.launchIO { graph.repo.delete(s.session.id) } }) { Text(stringResource(R.string.delete)) }

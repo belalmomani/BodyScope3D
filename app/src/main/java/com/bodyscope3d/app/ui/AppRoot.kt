@@ -42,7 +42,7 @@ fun AppRoot(graph: AppGraph) {
                 composable("explore") { ExploreScreen(graph, exploreVm, onDetails = { nav.navigate("detail") }, onLog = { nav.navigate("log") }) }
                 composable("detail") { DetailScreen(graph, exploreVm) }
                 composable("anatomy") { AnatomyScreen(graph) }
-                composable("log") { PainLogScreen(graph, exploreVm.state.value.selectedId) { nav.navigate("history") { popUpTo("home") } } }
+                composable("log") { PainLogScreen(graph, exploreVm.state.value.selectedId, exploreVm.state.value.aspect) { nav.navigate("history") { popUpTo("home") } } }
                 composable("history") { HistoryScreen(graph) }
                 composable("favorites") { FavoritesScreen(graph) }
                 composable("settings") { SettingsScreen(graph) { nav.navigate(it) } }

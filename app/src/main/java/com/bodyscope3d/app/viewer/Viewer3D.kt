@@ -3,6 +3,8 @@ package com.bodyscope3d.app.viewer
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import com.bodyscope3d.app.data.Aspect
+import com.bodyscope3d.app.data.Pieces
 import com.bodyscope3d.app.data.Region
 import io.github.sceneview.Scene
 import io.github.sceneview.math.Position
@@ -49,7 +51,7 @@ private fun subtree(root: Region, all: List<Region>): List<Region> =
 fun Viewer3D(
     modelPath: String, selected: Region?, isolated: Boolean, regions: List<Region>,
     onMeshTapped: (String) -> Unit, onError: (Throwable) -> Unit, modifier: Modifier = Modifier,
-    resetKey: Int = 0, viewYawDeg: Float? = null, onYaw: (Float) -> Unit = {},
+    resetKey: Int = 0, viewYawDeg: Float? = null, onYaw: (Float) -> Unit = {}, aspect: Aspect? = null,
 ) {
     val engine = rememberEngine()
     val modelLoader = rememberModelLoader(engine)
@@ -62,16 +64,19 @@ fun Viewer3D(
             modelNode = m; add(m)
         }.onFailure(onError)
     }
-    LaunchedEffect(selected?.id, resetKey) { orbit.reset() }
+    LaunchedEffect(selected?.id, resetKey, viewYawDeg) { orbit.reset() }
     val c = selected?.camera
     OrbitEffect(cameraNode, orbit, viewYawDeg ?: c?.yawDeg ?: 0f, c?.targetX ?: 0f, c?.targetY ?: 0f,
         c?.distance?.coerceIn(0.4f, 3f) ?: 2.2f, onYaw)
 
     // العزل: إخفاء كل ما ليس ضمن المنطقة المحددة وأبنائها (كل المستويات)
-    LaunchedEffect(selected?.id, isolated, modelNode) {
+    LaunchedEffect(selected?.id, isolated, modelNode, aspect) {
         val m = modelNode ?: return@LaunchedEffect
         val keep = if (selected == null || !isolated) null else subtree(selected, regions).flatMap { it.meshNames }.toSet()
-        runCatching { m.renderableNodes.forEach { n -> n.isVisible = keep == null || n.name in keep } }.onFailure(onError)
+        runCatching { m.renderableNodes.forEach { n ->
+                val nm = n.name ?: ""
+                n.isVisible = keep == null || (Pieces.base(nm) in keep && Pieces.matches(nm, aspect))
+            } }.onFailure(onError)
     }
     Scene(
         modifier = modifier, engine = engine, modelLoader = modelLoader, cameraNode = cameraNode,

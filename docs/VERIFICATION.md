@@ -12,3 +12,6 @@
 
 - Internal layers are generated schematics aligned to body.glb by shared root transform + anchors; alignment was checked offline by plotting vertices only. SceneView must apply the same scaleToUnits to each file (assumes bounding box includes root transform) — verify on device that skeleton/organs sit inside the body.
 - Camera is custom (cameraManipulator=null) using onScroll/onScale gesture callbacks whose exact signatures are from memory: likely first compile error.
+
+- Direction (aspect): camera view + stored value + isolation of the matching half via split pieces (tools/split_body.py). Halves are cut by triangle centroid on a low-poly mesh (jagged). Parts <6 cm (eyes, ears, fingers) stay whole. Not verified in SceneView: relies on renderable node names equal to glTF node names.
+- DB migration 1→2 (ALTER TABLE add aspect) is untested; installing over an older debug build exercises it.

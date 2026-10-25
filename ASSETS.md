@@ -1,5 +1,6 @@
 # Required 3D assets / الأصول المطلوبة
 **Bundled now:** `models/body.glb` — stylized procedural exterior (122 KB, 50 named mesh nodes, clothed), generated for this project, no third-party mesh, redistributable. NOT photorealistic, NOT anatomically accurate. Internal layers: `skeleton.glb` (26 parts) and `organs.glb` (17 organs) are SCHEMATIC generated shapes (`tools/gen_layers.py`: ellipsoids/tubes fitted to the body) — approximate, NOT anatomically accurate, no third-party mesh. Each contains 2 invisible `anchor_*` triangles so every layer scales identically to body.glb. A muscles layer does not exist.
+Split: `tools/split_body.py` cuts each part ≥6 cm into 4 pieces (`<part>__FR|FL|BR|BL`; F/B front/back, R/L anatomical right/left) by triangle centroid so the app can show half of a part (jagged edges; source kept in `tools/body_source.glb`).
 Processing applied: root node rotated Z-up→Y-up and centred (glTF convention); geometry untouched.
 **Left/right:** the file's `_L` nodes sit on the viewer's left of a person facing the viewer, i.e. the person's anatomical RIGHT. `regions.json` therefore maps `*_L`→`*_r` and `*_R`→`*_l`. Verify visually on a device.
 

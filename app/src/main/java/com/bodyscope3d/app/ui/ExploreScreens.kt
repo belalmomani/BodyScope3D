@@ -37,11 +37,11 @@ fun ExploreScreen(graph: AppGraph, vm: ExploreViewModel, onDetails: () -> Unit, 
                         onMeshTapped = { mesh ->
                             // شبكة قد تنتمي لأكثر من منطقة (مثل الصدر/الظهر): نفضّل الأقرب لزاوية الكاميرا المعروفة
                             val y = liveYaw
-                            cat.regions.filter { mesh in it.meshNames }
+                            cat.regions.filter { Pieces.base(mesh) in it.meshNames }
                                 .minByOrNull { kotlin.math.abs(((it.camera.yawDeg - y + 540f) % 360f) - 180f) }
                                 ?.let { vm.select(it.id) }
                         },
-                        onError = { loadError = true }, onYaw = { liveYaw = it }, resetKey = camKey, viewYawDeg = if (sel == null) yaw else null,
+                        onError = { loadError = true }, onYaw = { liveYaw = it }, aspect = st.aspect, resetKey = camKey, viewYawDeg = if (sel == null) yaw else st.aspect?.yawDeg,
                         modifier = Modifier.fillMaxSize())
                 }
             }
@@ -70,11 +70,22 @@ fun ExploreScreen(graph: AppGraph, vm: ExploreViewModel, onDetails: () -> Unit, 
                 list.forEach { r -> FilterChip(r.id == st.selectedId, { vm.select(r.id) }, { Text(r.name(ar)) }) }
             }
         }
+        if (sel != null) {
+            Text(stringResource(R.string.aspect_label), style = MaterialTheme.typography.labelLarge)
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                Aspect.entries.forEach { a -> FilterChip(st.aspect == a, { vm.setAspect(a) }, { Text(stringResource(aspectRes(a))) }) }
+            }
+        }
         if (sel != null) Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             Button(onDetails) { Text(stringResource(R.string.region_details)) }
             OutlinedButton(onLog) { Text(stringResource(R.string.home_log)) }
         }
     }
+}
+
+fun aspectRes(a: Aspect) = when (a) {
+    Aspect.FRONT -> R.string.aspect_front; Aspect.BACK -> R.string.aspect_back
+    Aspect.RIGHT -> R.string.aspect_right; Aspect.LEFT -> R.string.aspect_left
 }
 
 @Composable private fun Banner(res: Int) = Card(Modifier.fillMaxWidth().padding(8.dp)) {

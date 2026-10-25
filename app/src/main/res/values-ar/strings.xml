@@ -76,4 +76,9 @@
     <string name="layer_muscular">العضلات</string>
     <string name="layer_organs">الأعضاء</string>
     <string name="schematic_note">مجسم تخطيطي: الأشكال والمواضع تقريبية للتثقيف العام فقط.</string>
+    <string name="aspect_label">الجهة (زاوية العرض / جانب المنطقة)</string>
+    <string name="aspect_front">أمام</string>
+    <string name="aspect_back">خلف</string>
+    <string name="aspect_right">يمين</string>
+    <string name="aspect_left">يسار</string>
 </resources>

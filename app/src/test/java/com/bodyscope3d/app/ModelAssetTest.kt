@@ -15,12 +15,22 @@ class ModelAssetTest {
         assertEquals(0x46546C67, bb.getInt(0))               // 'glTF'
         val len = bb.getInt(12)
         val json = Json.parseToJsonElement(String(glb.readBytes(), 20, len)).jsonObject
-        return json["nodes"]!!.jsonArray.mapNotNull { it.jsonObject["name"]?.jsonPrimitive?.content }.toSet()
+        return json["nodes"]!!.jsonArray.mapNotNull { it.jsonObject["name"]?.jsonPrimitive?.content }.map { it.substringBefore("__") }.toSet()
     }
     @Test fun everyMeshNameExistsInGlb() {
         val names = glbNodeNames()
         val cat = RegionCatalog.parse(File("src/main/assets/regions.json").readText())
         cat.regions.flatMap { it.meshNames }.forEach { assertTrue("missing in GLB: $it", it in names) }
+    }
+    @Test fun splitPiecesExistAndMatchAspects() {
+        val raw = glb.readBytes(); val bb = ByteBuffer.wrap(raw).order(ByteOrder.LITTLE_ENDIAN)
+        val all = Json.parseToJsonElement(String(raw, 20, bb.getInt(12))).jsonObject["nodes"]!!.jsonArray
+            .mapNotNull { it.jsonObject["name"]?.jsonPrimitive?.content }
+        val head = all.filter { it.startsWith("head__") }.toSet()
+        assertEquals(setOf("head__FR", "head__FL", "head__BR", "head__BL"), head)
+        assertEquals(2, head.count { Pieces.matches(it, Aspect.FRONT) }); assertEquals(2, head.count { Pieces.matches(it, Aspect.LEFT) })
+        assertEquals(1, head.count { Pieces.matches(it, Aspect.FRONT) && Pieces.matches(it, Aspect.RIGHT) })
+        assertTrue(Pieces.matches("ear_L", Aspect.BACK)); assertEquals("head", Pieces.base("head__FR"))
     }
     @Test fun everyLeafRegionIsPickable() {
         val cat = RegionCatalog.parse(File("src/main/assets/regions.json").readText())

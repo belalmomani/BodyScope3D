@@ -2,6 +2,8 @@ package com.bodyscope3d.app.data
 
 import android.content.Context
 import androidx.room.*
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.flow.Flow
 
 @Entity data class SessionEntity(@PrimaryKey(autoGenerate = true) val id: Long = 0, val createdAt: Long)
@@ -10,6 +12,7 @@ data class PainEntryEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0, val sessionId: Long,
     val regionId: String, val intensity: Int, val nature: String,
     val onset: String, val duration: String, val symptoms: String,
+    @ColumnInfo(defaultValue = "''") val aspect: String = "",
 )
 @Entity data class FavoriteEntity(@PrimaryKey val regionId: String)
 
@@ -29,11 +32,16 @@ data class SessionWithEntries(@Embedded val session: SessionEntity,
     @Query("DELETE FROM FavoriteEntity") suspend fun clearFavorites()
 }
 
-@Database(entities = [SessionEntity::class, PainEntryEntity::class, FavoriteEntity::class], version = 1, exportSchema = false)
+@Database(entities = [SessionEntity::class, PainEntryEntity::class, FavoriteEntity::class], version = 2, exportSchema = false)
 abstract class AppDb : RoomDatabase() {
     abstract fun dao(): AppDao
     companion object {
-        fun create(c: Context) = Room.databaseBuilder(c, AppDb::class.java, "bodyscope.db").build()
+        private val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE PainEntryEntity ADD COLUMN aspect TEXT NOT NULL DEFAULT ''")
+            }
+        }
+        fun create(c: Context) = Room.databaseBuilder(c, AppDb::class.java, "bodyscope.db").addMigrations(MIGRATION_1_2).build()
     }
 }
 

@@ -76,4 +76,9 @@
     <string name="layer_muscular">Muscles</string>
     <string name="layer_organs">Organs</string>
     <string name="schematic_note">Schematic model: shapes and positions are approximate, for general education only.</string>
+    <string name="aspect_label">Direction (view / side of the area)</string>
+    <string name="aspect_front">Front</string>
+    <string name="aspect_back">Back</string>
+    <string name="aspect_right">Right</string>
+    <string name="aspect_left">Left</string>
 </resources>

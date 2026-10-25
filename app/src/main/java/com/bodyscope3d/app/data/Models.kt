@@ -61,6 +61,26 @@ object AssetManifest {
     fun isReady(m: ModelAsset, existingFiles: Set<String>) = m.path in existingFiles
 }
 
+/** جهة العرض/الألم بالنسبة للمريض؛ الزاوية تفترض أن الشخص يواجه الكاميرا (يمينه عند -X) */
+enum class Aspect(val key: String, val yawDeg: Float) {
+    FRONT("front", 0f), BACK("back", 180f), RIGHT("right", -90f), LEFT("left", 90f);
+    companion object { fun fromKey(k: String?) = entries.firstOrNull { it.key == k } }
+}
+
+/** أسماء القطع الناتجة عن tools/split_body.py:  <part>__FR|FL|BR|BL  (أمام/خلف + يمين/يسار تشريحي) */
+object Pieces {
+    fun base(node: String) = node.substringBefore("__")
+    fun matches(node: String, aspect: Aspect?): Boolean {
+        if (aspect == null || "__" !in node) return true
+        val s = node.substringAfter("__")
+        if (s.length < 2) return true
+        return when (aspect) {
+            Aspect.FRONT -> s[0] == 'F'; Aspect.BACK -> s[0] == 'B'
+            Aspect.RIGHT -> s[1] == 'R'; Aspect.LEFT -> s[1] == 'L'
+        }
+    }
+}
+
 object PainValidator {
     val natures = listOf("sharp", "dull", "burning", "throbbing", "cramping", "other")
     fun valid(regionId: String?, intensity: Int, nature: String?) =
