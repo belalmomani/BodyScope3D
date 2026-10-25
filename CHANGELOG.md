@@ -18,6 +18,7 @@
 - Direction picker (front/back/right/left) for every region: moves the camera to that side and is saved with each pain entry (DB v2 with migration).
 - Real half-part selection: direction (front/back/right/left) now isolates the matching half of each part (45 parts split into 4 pieces; 185 nodes, 342 KB).
 - Internal anatomy: selecting a bone/organ now isolates it and focuses the camera on it ("Show all" toggles back).
+- UI redesign: dark medical design system (Palette/Theme/Components), home = large 3D viewer with round controls + draggable bottom sheet, region panel (sub-regions, direction, isolate, next/back/undo), anatomy screen with on-demand layers and info card, pain form with 0–10 picker and persistent draft, records list/detail with edit and confirmed delete, settings/about/privacy/help, splash, reduced-motion support.
 - Asset pipeline (tools/export_glb.py, region_map.json, NOTICE.md) added; still no bundled GLB.
 - Placeholder launcher icon until `tools/app_icon_source.png` is provided.
 - Not built or run in the authoring environment (no network/SDK).

@@ -15,3 +15,13 @@
 
 - Direction (aspect): camera view + stored value + isolation of the matching half via split pieces (tools/split_body.py). Halves are cut by triangle centroid on a low-poly mesh (jagged). Parts <6 cm (eyes, ears, fingers) stay whole. Not verified in SceneView: relies on renderable node names equal to glTF node names.
 - DB migration 1→2 (ALTER TABLE add aspect) is untested; installing over an older debug build exercises it.
+
+## UI redesign (not compiled/run here)
+- All new Compose code (ui/*.kt) is unverified until CI compiles it. Likeliest errors: icon names (material-icons-extended), BottomSheetScaffold params, FilterChip colors.
+- Region highlight in 3D (glow/tint) is NOT implemented: SceneView material API unknown; selection is shown by isolation, camera move and a coral marker in the panel.
+- Tooltips on icon buttons: content descriptions only (screen readers); no long-press tooltips.
+- Font: system Arabic font (no font file bundled; no network to fetch one).
+- Head sub-areas from the brief (forehead, temples, cheeks, jaw, occiput) are NOT separate meshes: only front/back/right/left halves + eyes, ears, nose, mouth exist.
+- Muscles and blood-vessel layers do not exist and are not shown.
+- Layers load on first show (synchronously on the main thread; files are <300 KB).
+- Instrumented tests (androidTest) assume an English device and were not run.

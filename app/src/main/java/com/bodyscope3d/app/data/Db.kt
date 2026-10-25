@@ -22,6 +22,7 @@ data class SessionWithEntries(@Embedded val session: SessionEntity,
 @Dao interface AppDao {
     @Insert suspend fun insertSession(s: SessionEntity): Long
     @Insert suspend fun insertEntries(e: List<PainEntryEntity>)
+    @Update suspend fun updateEntry(e: PainEntryEntity)
     @Transaction @Query("SELECT * FROM SessionEntity ORDER BY createdAt DESC")
     fun sessions(): Flow<List<SessionWithEntries>>
     @Query("DELETE FROM SessionEntity WHERE id = :id") suspend fun deleteSession(id: Long)
@@ -50,6 +51,7 @@ interface PainRepository {
     fun sessions(): Flow<List<SessionWithEntries>>
     suspend fun save(entries: List<PainEntryEntity>, now: Long = System.currentTimeMillis()): Long
     suspend fun delete(sessionId: Long)
+    suspend fun update(entry: PainEntryEntity)
     suspend fun clearAll()
 }
 interface FavoritesRepository {
@@ -65,6 +67,7 @@ class LocalRepository(private val dao: AppDao) : PainRepository, FavoritesReposi
         return id
     }
     override suspend fun delete(sessionId: Long) = dao.deleteSession(sessionId)
+    override suspend fun update(entry: PainEntryEntity) = dao.updateEntry(entry)
     override suspend fun clearAll() { dao.clearSessions(); dao.clearFavorites() }
     override fun favorites() = dao.favorites()
     override suspend fun set(regionId: String, fav: Boolean) =

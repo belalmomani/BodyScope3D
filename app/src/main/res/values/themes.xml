@@ -1,1 +1,7 @@
-<resources><style name="Theme.BodyScope" parent="Theme.AppCompat.DayNight.NoActionBar" /></resources>
+<resources>
+    <style name="Theme.BodyScope" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+    </style>
+</resources>

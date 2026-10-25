@@ -53,11 +53,11 @@ fun Viewer3D(
     modelPath: String, selected: Region?, isolated: Boolean, regions: List<Region>,
     onMeshTapped: (String) -> Unit, onError: (Throwable) -> Unit, modifier: Modifier = Modifier,
     resetKey: Int = 0, viewYawDeg: Float? = null, onYaw: (Float) -> Unit = {}, aspect: Aspect? = null,
+    orbit: Orbit = remember { Orbit() }, onLoaded: () -> Unit = {},
 ) {
     val engine = rememberEngine()
     val modelLoader = rememberModelLoader(engine)
     val cameraNode = rememberCameraNode(engine) { position = Position(z = 2.5f) }
-    val orbit = remember { Orbit() }
     var modelNode by remember { mutableStateOf<ModelNode?>(null) }
     val nodes = rememberNodes {
         runCatching {
@@ -65,6 +65,7 @@ fun Viewer3D(
             modelNode = m; add(m)
         }.onFailure(onError)
     }
+    LaunchedEffect(modelNode) { if (modelNode != null) onLoaded() }
     LaunchedEffect(selected?.id, resetKey, viewYawDeg) { orbit.reset() }
     val c = selected?.camera
     OrbitEffect(cameraNode, orbit, viewYawDeg ?: c?.yawDeg ?: 0f, c?.targetX ?: 0f, c?.targetY ?: 0f,
@@ -92,34 +93,33 @@ fun Viewer3D(
 
 data class LayerModel(val id: String, val path: String, val visible: Boolean)
 
-/** عارض الطبقات: كل الطبقات الجاهزة تُحمَّل مرة واحدة ويُتحكم بإظهارها فقط */
+/** عارض الطبقات: كل طبقة تُحمَّل عند أول إظهار لها فقط (توفير للذاكرة) */
 @Composable
 fun AnatomyViewer(
     layers: List<LayerModel>, onNodeTapped: (String) -> Unit, onError: (Throwable) -> Unit,
     modifier: Modifier = Modifier, resetKey: Int = 0, viewYawDeg: Float = 0f,
     selectedMesh: String? = null, focus: CameraPreset? = null, isolate: Boolean = false,
+    orbit: Orbit = remember { Orbit() }, onLoaded: () -> Unit = {},
 ) {
     val engine = rememberEngine()
     val modelLoader = rememberModelLoader(engine)
     val cameraNode = rememberCameraNode(engine) { position = Position(z = 2.5f) }
-    val orbit = remember { Orbit() }
     val byId = remember { HashMap<String, ModelNode>() }
-    val nodes = rememberNodes {
-        layers.forEach { l ->
-            runCatching {
-                val m = ModelNode(modelInstance = modelLoader.createModelInstance(l.path), scaleToUnits = 1.0f)
-                byId[l.id] = m; add(m)
-            }.onFailure(onError)
-        }
-    }
+    val nodes = rememberNodes {}
     LaunchedEffect(resetKey, selectedMesh, viewYawDeg) { orbit.reset() }
     OrbitEffect(cameraNode, orbit, viewYawDeg, focus?.targetX ?: 0f, focus?.targetY ?: 0f, focus?.distance ?: 2.2f) {}
-    // التحديد: عند العزل تُخفى كل القطع ما عدا القطعة المحددة (في كل الطبقات)
+    // تحميل عند الطلب + إظهار/إخفاء + عزل قطعة واحدة
     LaunchedEffect(layers, selectedMesh, isolate) {
         val only = isolate && selectedMesh != null
         layers.forEach { l ->
+            if (l.visible && l.id !in byId) {
+                runCatching {
+                    val m = ModelNode(modelInstance = modelLoader.createModelInstance(l.path), scaleToUnits = 1.0f)
+                    byId[l.id] = m; nodes.add(m); onLoaded()
+                }.onFailure(onError)
+            }
             byId[l.id]?.let { m ->
-                m.isVisible = l.visible || only
+                m.isVisible = l.visible
                 runCatching { m.renderableNodes.forEach { n -> n.isVisible = !only || n.name == selectedMesh } }
             }
         }
