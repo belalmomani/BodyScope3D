@@ -18,7 +18,7 @@
 
 ## UI redesign (not compiled/run here)
 - All new Compose code (ui/*.kt) is unverified until CI compiles it. Likeliest errors: icon names (material-icons-extended), BottomSheetScaffold params, FilterChip colors.
-- Region highlight in 3D (glow/tint) is NOT implemented: SceneView material API unknown; selection is shown by isolation, camera move and a coral marker in the panel.
+- Region highlight in 3D = translucent coral inflated copies ("hl::<piece>") toggled via renderable node visibility (same unverified mechanism as isolation). Alpha-blended overlay: sorting artefacts possible on some GPUs.
 - Tooltips on icon buttons: content descriptions only (screen readers); no long-press tooltips.
 - Font: system Arabic font (no font file bundled; no network to fetch one).
 - Head zones (forehead, temples, cheeks, mid-face, jaw, occiput) are cut from the single head mesh by triangle centroid (coarse, jagged); checked only by an offline plot. Boundaries are approximate anatomy.

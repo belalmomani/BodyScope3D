@@ -22,5 +22,6 @@
 - Head split into real face zones (forehead, temples, cheeks, mid-face, jaw & chin, occiput) selectable on the 3D model; 51 regions.
 - Long-press tooltips on round icon buttons.
 - Launcher icon and in-app logo from the owner-supplied artwork (adaptive icon, safe-zone fitted); Play Store 512 px icon in docs/store.
+- 3D highlight: the selected region (and chosen direction half) is tinted translucent coral on the model via inflated "hl::" copies of every piece (body.glb 703 KB, 398 nodes).
 - Asset pipeline (tools/export_glb.py, region_map.json, NOTICE.md) added; still no bundled GLB.
 - Not built or run in the authoring environment (no network/SDK).

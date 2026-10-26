@@ -70,10 +70,11 @@ enum class Aspect(val key: String, val yawDeg: Float) {
 
 /** أسماء القطع الناتجة عن tools/split_body.py:  <part>__FR|FL|BR|BL  (أمام/خلف + يمين/يسار تشريحي) */
 object Pieces {
-    fun base(node: String) = node.substringBefore("__")
+    fun isHighlight(node: String) = node.startsWith("hl::")
+    fun base(node: String) = node.removePrefix("hl::").substringBefore("__")
     fun matches(node: String, aspect: Aspect?): Boolean {
         if (aspect == null || "__" !in node) return true
-        val s = node.substringAfter("__")
+        val s = node.removePrefix("hl::").substringAfter("__")
         if (s.length < 2) return true
         return when (aspect) {
             Aspect.FRONT -> s[0] == 'F'; Aspect.BACK -> s[0] == 'B'

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Split every sufficiently large part of body.glb into 4 geometric pieces so the app can show/hide HALVES of a part
 (front / back / anatomical right / anatomical left). Reads tools/body_source.glb (already Y-up fixed), writes assets/models/body.glb.
+Every piece also gets an inflated coral copy named "hl::<piece>" (shown by the app only for the selected region = 3D highlight).
 Piece names:  <mesh>__FR  <mesh>__FL  <mesh>__BR  <mesh>__BL   (F/B = front/back, R/L = ANATOMICAL right/left).
 Frame (before root rotation): front = -Y, anatomical RIGHT = -X.  Triangles are assigned by centroid (no cutting), so edges are jagged.
 Parts smaller than MIN_EXTENT in every direction stay whole (ears/eyes/fingers...). Usage: python3 tools/split_body.py"""
@@ -11,6 +12,9 @@ b = open(SRC, "rb").read(); jl = struct.unpack("<I", b[12:16])[0]; J = json.load
 def acc(i, dt, n):
     a = J["accessors"][i]; bv = J["bufferViews"][a["bufferView"]]
     return np.frombuffer(BIN, dt, a["count"] * n, bv.get("byteOffset", 0) + a.get("byteOffset", 0)).reshape(-1, n) if n > 1 else np.frombuffer(BIN, dt, a["count"], bv.get("byteOffset", 0) + a.get("byteOffset", 0))
+J["materials"] = list(J["materials"]) + [{"name": "pain_highlight", "pbrMetallicRoughness": {"baseColorFactor": [1.0, 0.48, 0.35, 0.45], "metallicFactor": 0.0, "roughnessFactor": 1.0},
+                                           "emissiveFactor": [0.45, 0.16, 0.08], "alphaMode": "BLEND"}]
+HL_MAT = len(J["materials"]) - 1; CUR = {"c": None, "k": 1.0}      # centre/scale of the part currently being emitted
 out = bytearray(); bvs = []; accs = []; meshes = []; nodes = []
 def add(data, target):
     while len(out) % 4: out.append(0)
@@ -20,11 +24,14 @@ def emit(name, V, T, mat):
     accs.append({"bufferView": add(V.tobytes(), 34962), "componentType": 5126, "count": len(V), "type": "VEC3", "min": V.min(0).tolist(), "max": V.max(0).tolist()})
     ia = len(accs); accs.append({"bufferView": add(T.astype(np.uint32).flatten().tobytes(), 34963), "componentType": 5125, "count": T.size, "type": "SCALAR"})
     meshes.append({"name": name, "primitives": [{"attributes": {"POSITION": pa}, "indices": ia, "material": mat}]}); nodes.append({"name": name, "mesh": len(meshes) - 1})
+    if not name.startswith("hl::") and CUR["c"] is not None:                       # نسخة تمييز مضخّمة قليلًا بلون مرجاني (تُظهر عند اختيار المنطقة فقط)
+        emit("hl::" + name, CUR["c"] + (V.astype(float) - CUR["c"]) * CUR["k"], T, HL_MAT)
 ntri = 0; split_n = 0
 for n in J["nodes"][1:]:
     m = J["meshes"][n["mesh"]]; pr = m["primitives"][0]; P = acc(pr["attributes"]["POSITION"], np.float32, 3).astype(float)
     T = acc(pr["indices"], np.uint32, 1).reshape(-1, 3); mat = pr.get("material", 0); ntri += len(T)
     lo, hi = P.min(0), P.max(0); c = (lo + hi) / 2
+    CUR["c"] = c; CUR["k"] = 1 + float(np.clip(0.003 / max((hi - lo).max(), 1e-3), 0.012, 0.08))
     if (hi - lo).max() < MIN_EXTENT: emit(n["name"], P, T, mat); continue
     cen = P[T].mean(1); front = cen[:, 1] < c[1]; right = cen[:, 0] < c[0]; got = 0
     # الرأس: يُقسَّم أولًا إلى مناطق وجه (جبهة، صدغ، خد، فك، وسط الوجه، مؤخرة) ثم كل منطقة إلى أرباعها

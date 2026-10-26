@@ -30,7 +30,9 @@ class ModelAssetTest {
         assertTrue(head.isNotEmpty()); assertTrue(all.none { it.startsWith("head__") })
         head.forEach { assertTrue(Pieces.matches(it, Aspect.FRONT) || Pieces.matches(it, Aspect.BACK)) }
         assertEquals("head@jaw", Pieces.base("head@jaw__FR"))
-        assertTrue(Pieces.matches("ear_L", Aspect.BACK)); 
+        assertTrue(Pieces.matches("ear_L", Aspect.BACK))
+        assertEquals("head@jaw", Pieces.base("hl::head@jaw__FR")); assertTrue(Pieces.isHighlight("hl::x")); assertTrue(Pieces.matches("hl::head@jaw__FR", Aspect.FRONT)); assertFalse(Pieces.matches("hl::head@jaw__FR", Aspect.BACK))
+        assertTrue(all.any { it.startsWith("hl::head@jaw__") })
     }
     @Test fun everyLeafRegionIsPickable() {
         val cat = RegionCatalog.parse(File("src/main/assets/regions.json").readText())

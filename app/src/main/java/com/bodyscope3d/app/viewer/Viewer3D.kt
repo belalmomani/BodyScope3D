@@ -74,10 +74,12 @@ fun Viewer3D(
     // العزل: إخفاء كل ما ليس ضمن المنطقة المحددة وأبنائها (كل المستويات)
     LaunchedEffect(selected?.id, isolated, modelNode, aspect) {
         val m = modelNode ?: return@LaunchedEffect
-        val keep = if (selected == null || !isolated) null else subtree(selected, regions).flatMap { it.meshNames }.toSet()
+        val selNames = selected?.let { subtree(it, regions).flatMap { r -> r.meshNames }.toSet() }
         runCatching { m.renderableNodes.forEach { n ->
                 val nm = n.name ?: ""
-                n.isVisible = keep == null || (Pieces.base(nm) in keep && Pieces.matches(nm, aspect))
+                val inSel = selNames != null && Pieces.base(nm) in selNames && Pieces.matches(nm, aspect)
+                // التمييز المرجاني يظهر فقط على المنطقة المختارة؛ العزل يُخفي ما سواها
+                n.isVisible = if (Pieces.isHighlight(nm)) inSel else (!isolated || selNames == null || inSel)
             } }.onFailure(onError)
     }
     Scene(
