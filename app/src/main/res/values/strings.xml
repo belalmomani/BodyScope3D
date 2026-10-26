@@ -60,7 +60,7 @@
     <string name="clear_confirm">This permanently deletes all saved sessions, pain entries and favorites from this device. Nothing is stored elsewhere.</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
-    <string name="privacy_text">All data stays on your device (local database). No account, no internet permission, no analytics. Nothing is sent to any third party. Firebase sync may be added later as an opt-in feature with explicit consent.</string>
+    <string name="privacy_text">All data stays on your device (local database). No account, no internet permission, no analytics. Nothing is sent to any third party. Firebase sync may be added later as an opt-in feature with explicit consent. Nothing is sent to any third party unless you choose to share a record yourself.</string>
     <string name="help_text">Tap a region on the body (or choose from the list), zoom in, then log pain from the Log pain screen. Educational content is general and not medical advice.</string>
     <string name="side_r">Right</string>
     <string name="side_l">Left</string>
@@ -131,4 +131,9 @@
     <string name="settings_data">Your data</string>
     <string name="splash_tag">Medical 3D education</string>
     <string name="sys_muscular">Muscular</string>
+    <string name="export_record">Share / export this record</string>
+    <string name="export_all">Export all records</string>
+    <string name="export_title">BodyScope 3D — pain record</string>
+    <string name="export_footer">Self-reported for logging only. This is not a diagnosis and does not replace a doctor.</string>
+    <string name="export_chooser">Share record via</string>
 </resources>

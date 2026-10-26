@@ -60,7 +60,7 @@
     <string name="clear_confirm">سيُحذف نهائيًا كل ما في هذا الجهاز: الجلسات وإدخالات الألم والمفضلة. لا يوجد نسخ في مكان آخر.</string>
     <string name="confirm">تأكيد</string>
     <string name="cancel">إلغاء</string>
-    <string name="privacy_text">كل البيانات تبقى على جهازك (قاعدة بيانات محلية). لا حساب ولا صلاحية إنترنت ولا تحليلات. لا يُرسل شيء لأي جهة. قد تُضاف مزامنة Firebase لاحقًا كخيار اختياري بموافقة صريحة.</string>
+    <string name="privacy_text">كل البيانات تبقى على جهازك (قاعدة بيانات محلية). لا حساب ولا صلاحية إنترنت ولا تحليلات. لا يُرسل شيء لأي جهة. قد تُضاف مزامنة Firebase لاحقًا كخيار اختياري بموافقة صريحة. لا يُرسل شيء لأي جهة إلا إذا اخترتَ بنفسك مشاركة سجل.</string>
     <string name="help_text">المس منطقة على الجسم (أو اختر من القائمة)، كبّرها، ثم سجّل الألم من شاشة تسجيل الألم. المحتوى التثقيفي عام وليس نصيحة طبية.</string>
     <string name="side_r">يمين</string>
     <string name="side_l">يسار</string>
@@ -131,4 +131,9 @@
     <string name="settings_data">بياناتك</string>
     <string name="splash_tag">تثقيف طبي ثلاثي الأبعاد</string>
     <string name="sys_muscular">العضلي</string>
+    <string name="export_record">مشاركة / تصدير هذا السجل</string>
+    <string name="export_all">تصدير كل السجلات</string>
+    <string name="export_title">BodyScope 3D — سجل الألم</string>
+    <string name="export_footer">معلومات ذاتية للتسجيل فقط. ليست تشخيصًا ولا تغني عن الطبيب.</string>
+    <string name="export_chooser">مشاركة السجل عبر</string>
 </resources>

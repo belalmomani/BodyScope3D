@@ -24,5 +24,6 @@
 - Launcher icon and in-app logo from the owner-supplied artwork (adaptive icon, safe-zone fitted); Play Store 512 px icon in docs/store.
 - 3D highlight: the selected region (and chosen direction half) is tinted translucent coral on the model via inflated "hl::" copies of every piece (body.glb 703 KB, 398 nodes).
 - Schematic muscles layer (30 superficial muscles, 16 groups, AR/EN catalog entries): approximate shapes, general descriptions.
+- Share/export pain records (one record or all) as plain text through the system share sheet; nothing is sent unless the user picks a target.
 - Asset pipeline (tools/export_glb.py, region_map.json, NOTICE.md) added; still no bundled GLB.
 - Not built or run in the authoring environment (no network/SDK).

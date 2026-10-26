@@ -15,17 +15,37 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bodyscope3d.app.R
 import com.bodyscope3d.app.data.*
+import android.content.Context
+import android.content.Intent
+import androidx.compose.ui.platform.LocalContext
 import java.text.DateFormat
 import java.util.Date
+
+private fun toExport(ctx: Context, graph: AppGraph, ar: Boolean, list: List<SessionWithEntries>) = list.map { s ->
+    ExportSession(DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(s.session.createdAt)), s.entries.map { e ->
+        ExportLine(graph.catalog.byId(e.regionId)?.name(ar) ?: e.regionId, Aspect.fromKey(e.aspect)?.let { ctx.getString(aspectRes(it)) },
+            e.intensity, ctx.getString(severityRes(e.intensity)), ctx.getString(natureRes(e.nature)),
+            ctx.getString(R.string.pain_onset), e.onset, ctx.getString(R.string.pain_duration), e.duration, ctx.getString(R.string.pain_symptoms), e.symptoms)
+    })
+}
+
+/** يفتح قائمة المشاركة في النظام؛ لا يُرسَل شيء قبل أن يختار المستخدم الوجهة */
+private fun share(ctx: Context, graph: AppGraph, ar: Boolean, list: List<SessionWithEntries>) {
+    val text = ExportFormat.format(ctx.getString(R.string.export_title), ctx.getString(R.string.export_footer), toExport(ctx, graph, ar, list))
+    val send = Intent(Intent.ACTION_SEND).apply { type = "text/plain"; putExtra(Intent.EXTRA_TEXT, text) }
+    ctx.startActivity(Intent.createChooser(send, ctx.getString(R.string.export_chooser)))
+}
 
 private fun when_(ms: Long) = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(ms))
 
 @Composable
 fun HistoryScreen(graph: AppGraph, open: (Long) -> Unit, back: () -> Unit) {
-    val ar = isArabic()
+    val ar = isArabic(); val ctx = LocalContext.current
     val sessions by graph.repo.sessions().collectAsState(emptyList())
     Column(Modifier.fillMaxSize()) {
-        AppTopBar(stringResource(R.string.records_title), back)
+        AppTopBar(stringResource(R.string.records_title), back) {
+            if (sessions.isNotEmpty()) RoundIconButton(Icons.Rounded.Share, stringResource(R.string.export_all), { share(ctx, graph, ar, sessions) })
+        }
         if (sessions.isEmpty()) { Text(stringResource(R.string.history_empty), Modifier.padding(16.dp), color = Palette.TextSecondary); return@Column }
         LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             items(sessions, key = { it.session.id }) { s ->
@@ -42,7 +62,7 @@ fun HistoryScreen(graph: AppGraph, open: (Long) -> Unit, back: () -> Unit) {
 
 @Composable
 fun RecordDetailScreen(graph: AppGraph, id: Long, back: () -> Unit) {
-    val ar = isArabic(); val scope = rememberCoroutineScope()
+    val ar = isArabic(); val scope = rememberCoroutineScope(); val ctx = LocalContext.current
     val sessions by graph.repo.sessions().collectAsState(emptyList())
     val s = sessions.firstOrNull { it.session.id == id }
     var editing by remember { mutableStateOf<PainEntryEntity?>(null) }
@@ -67,6 +87,7 @@ fun RecordDetailScreen(graph: AppGraph, id: Long, back: () -> Unit) {
             }
             Text(stringResource(R.string.pain_subjective), style = MaterialTheme.typography.bodySmall, color = Palette.TextSecondary)
         }
+        SecondaryButton(stringResource(R.string.export_record), { share(ctx, graph, ar, listOf(s)) }, Modifier.fillMaxWidth().padding(horizontal = 16.dp), Icons.Rounded.Share)
         DestructiveButton(stringResource(R.string.delete_record), stringResource(R.string.delete_record), stringResource(R.string.delete_record_confirm),
             { scope.launchIO { graph.repo.delete(s.session.id) }; back() }, Modifier.fillMaxWidth().padding(16.dp), Icons.Rounded.Delete)
     }
