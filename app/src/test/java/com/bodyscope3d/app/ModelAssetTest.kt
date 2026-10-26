@@ -26,11 +26,11 @@ class ModelAssetTest {
         val raw = glb.readBytes(); val bb = ByteBuffer.wrap(raw).order(ByteOrder.LITTLE_ENDIAN)
         val all = Json.parseToJsonElement(String(raw, 20, bb.getInt(12))).jsonObject["nodes"]!!.jsonArray
             .mapNotNull { it.jsonObject["name"]?.jsonPrimitive?.content }
-        val head = all.filter { it.startsWith("head__") }.toSet()
-        assertEquals(setOf("head__FR", "head__FL", "head__BR", "head__BL"), head)
-        assertEquals(2, head.count { Pieces.matches(it, Aspect.FRONT) }); assertEquals(2, head.count { Pieces.matches(it, Aspect.LEFT) })
-        assertEquals(1, head.count { Pieces.matches(it, Aspect.FRONT) && Pieces.matches(it, Aspect.RIGHT) })
-        assertTrue(Pieces.matches("ear_L", Aspect.BACK)); assertEquals("head", Pieces.base("head__FR"))
+        val head = all.filter { it.startsWith("head@jaw__") }.toSet()
+        assertTrue(head.isNotEmpty()); assertTrue(all.none { it.startsWith("head__") })
+        head.forEach { assertTrue(Pieces.matches(it, Aspect.FRONT) || Pieces.matches(it, Aspect.BACK)) }
+        assertEquals("head@jaw", Pieces.base("head@jaw__FR"))
+        assertTrue(Pieces.matches("ear_L", Aspect.BACK)); 
     }
     @Test fun everyLeafRegionIsPickable() {
         val cat = RegionCatalog.parse(File("src/main/assets/regions.json").readText())

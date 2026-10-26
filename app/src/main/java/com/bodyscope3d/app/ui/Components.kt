@@ -50,17 +50,24 @@ fun SecondaryButton(text: String, onClick: () -> Unit, modifier: Modifier = Modi
     }
 }
 
-/** زر أيقوني دائري (48dp) للتحكم بالمجسم، مع وصف لقارئات الشاشة */
+/** زر أيقوني دائري (48dp) للتحكم بالمجسم: وصف لقارئات الشاشة + تلميح عند الضغط المطوّل */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RoundIconButton(icon: ImageVector, description: String, onClick: () -> Unit, modifier: Modifier = Modifier, active: Boolean = false) {
-    Surface(
-        onClick = onClick,
-        modifier = modifier.size(48.dp).semantics { contentDescription = description },
-        shape = CircleShape,
-        color = if (active) Palette.Primary else Palette.SurfaceHigh,
-        contentColor = if (active) Palette.OnPrimary else Palette.TextPrimary,
-        border = BorderStroke(1.dp, Palette.Outline),
-    ) { Box(contentAlignment = Alignment.Center) { Icon(icon, null, Modifier.size(24.dp)) } }
+    TooltipBox(
+        positionProvider = TooltipDefaults.rememberPlainTooltipPositionProvider(),
+        tooltip = { PlainTooltip { Text(description) } },
+        state = rememberTooltipState(),
+    ) {
+        Surface(
+            onClick = onClick,
+            modifier = modifier.size(48.dp).semantics { contentDescription = description },
+            shape = CircleShape,
+            color = if (active) Palette.Primary else Palette.SurfaceHigh,
+            contentColor = if (active) Palette.OnPrimary else Palette.TextPrimary,
+            border = BorderStroke(1.dp, Palette.Outline),
+        ) { Box(contentAlignment = Alignment.Center) { Icon(icon, null, Modifier.size(24.dp)) } }
+    }
 }
 
 /** زر تبديل/اختيار: يُستخدم للطبقات والمناطق والجهات. accent = لون التحديد (المرجاني للألم فقط) */
@@ -113,9 +120,7 @@ fun AppCard(modifier: Modifier = Modifier, onClick: (() -> Unit)? = null, conten
 fun AppTopBar(title: String, onBack: (() -> Unit)? = null, showLogo: Boolean = false, actions: @Composable RowScope.() -> Unit = {}) {
     Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         if (onBack != null) RoundIconButton(Icons.AutoMirrored.Rounded.ArrowBack, stringResource(R.string.back), onBack)
-        if (showLogo) Surface(Modifier.size(40.dp), shape = RoundedCornerShape(12.dp), color = Palette.DeepBlue) {
-            Icon(painterResource(R.drawable.ic_launcher_foreground), null, Modifier.fillMaxSize(), tint = Color.Unspecified)
-        }
+        if (showLogo) androidx.compose.foundation.Image(painterResource(R.drawable.app_logo), null, Modifier.size(40.dp))
         Text(title, Modifier.weight(1f), style = MaterialTheme.typography.titleLarge, color = Palette.TextPrimary, maxLines = 1)
         actions()
     }

@@ -27,11 +27,26 @@ for n in J["nodes"][1:]:
     lo, hi = P.min(0), P.max(0); c = (lo + hi) / 2
     if (hi - lo).max() < MIN_EXTENT: emit(n["name"], P, T, mat); continue
     cen = P[T].mean(1); front = cen[:, 1] < c[1]; right = cen[:, 0] < c[0]; got = 0
-    for fb, fm in (("F", front), ("B", ~front)):
+    # الرأس: يُقسَّم أولًا إلى مناطق وجه (جبهة، صدغ، خد، فك، وسط الوجه، مؤخرة) ثم كل منطقة إلى أرباعها
+    groups = [(n["name"], np.ones(len(T), bool))]
+    if n["name"] == "head":
+        h = (hi - lo) / 2; uu = (cen[:, 0] - c[0]) / h[0]; vv = (cen[:, 1] - c[1]) / h[1]; ww = (cen[:, 2] - c[2]) / h[2]
+        zone = np.full(len(T), "midface", dtype=object); rt = uu < 0
+        zone[(vv < -0.15) & (ww < -0.35)] = "jaw"
+        zone[(vv < -0.15) & (ww >= 0.35) & (np.abs(uu) < 0.6)] = "forehead"
+        zone[(vv < -0.15) & (ww >= -0.35) & (ww < 0.35) & (np.abs(uu) >= 0.3)] = np.where(rt, "cheek_r", "cheek_l")[(vv < -0.15) & (ww >= -0.35) & (ww < 0.35) & (np.abs(uu) >= 0.3)]
+        side = (vv >= -0.15) & (vv < 0.35) & (ww >= -0.1) & (np.abs(uu) >= 0.55)
+        zone[side] = np.where(rt, "temple_r", "temple_l")[side]
+        zone[(vv >= 0.35) | ((vv >= -0.15) & ~side & (ww >= -0.1) & (vv >= 0.1))] = "occiput"
+        zone[(vv >= -0.15) & (ww < -0.1) & (zone != "occiput")] = "jaw"
+        groups = [(f"head@{z}", zone == z) for z in sorted(set(zone))]
+        print("head zones:", {z: int((zone == z).sum()) for z in sorted(set(zone))})
+    for base, gm in groups:
+      for fb, fm in (("F", front), ("B", ~front)):
         for rl, rm in (("R", right), ("L", ~right)):
-            sel = T[fm & rm]
+            sel = T[gm & fm & rm]
             if len(sel) == 0: continue
-            u, inv = np.unique(sel.flatten(), return_inverse=True); emit(f"{n['name']}__{fb}{rl}", P[u], inv.reshape(-1, 3), mat); got += len(sel)
+            u, inv = np.unique(sel.flatten(), return_inverse=True); emit(f"{base}__{fb}{rl}", P[u], inv.reshape(-1, 3), mat); got += len(sel)
     assert got == len(T); split_n += 1
 root = dict(J["nodes"][0]); root["children"] = list(range(1, len(nodes) + 1))
 G = {"asset": {"version": "2.0", "generator": "BodyScope3D tools/split_body.py"}, "scene": 0, "scenes": [{"nodes": [0]}], "nodes": [root] + nodes,

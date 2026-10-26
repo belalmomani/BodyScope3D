@@ -11,7 +11,7 @@ Bundled: stylized exterior `body.glb` (not realistic, not medically accurate). I
 ## Android Studio
 Open the folder → sync → Run on a real device (OpenGL ES 3.0). CLI: `gradle :app:testDebugUnitTest :app:assembleDebug`.
 ## Icon / الأيقونة
-Put your image at `tools/app_icon_source.png`, run `python3 tools/make_icons.py`, remove the placeholder vector foreground.
+Source: `tools/app_icon_source.png` → `python3 tools/make_icons.py` regenerates all launcher resources, `app_logo.png`, and `docs/store/ic_launcher_512.png`.
 ## Versioning
 Edit only `version.properties`, `VERSION`, `CHANGELOG.md`; tag `vX.Y.Z`. Firebase: future opt-in via the repository interfaces in `data/Db.kt`.
 

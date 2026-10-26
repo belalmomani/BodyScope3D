@@ -31,9 +31,7 @@ fun SplashScreen(onDone: () -> Unit) {
     LaunchedEffect(Unit) { delay(if (reduce) 250 else 900); onDone() }
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(14.dp)) {
-            Surface(Modifier.size(96.dp), shape = androidx.compose.foundation.shape.RoundedCornerShape(26.dp), color = Palette.DeepBlue) {
-                Icon(painterResource(R.drawable.ic_launcher_foreground), null, Modifier.fillMaxSize(), tint = Color.Unspecified)
-            }
+            androidx.compose.foundation.Image(painterResource(R.drawable.app_logo), null, Modifier.size(112.dp))
             Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineMedium, color = Palette.TextPrimary)
             Text(stringResource(R.string.splash_tag), style = MaterialTheme.typography.bodyMedium, color = Palette.TextSecondary, textAlign = TextAlign.Center)
         }
