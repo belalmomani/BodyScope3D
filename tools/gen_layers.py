@@ -15,7 +15,7 @@ def read_boxes(path):
             a = j["accessors"][j["meshes"][n["mesh"]]["primitives"][0]["attributes"]["POSITION"]]
             out[n["name"]] = (np.array(a["min"]), np.array(a["max"]))
     return out, j["nodes"][0]
-BOX, ROOT = read_boxes(os.path.join(MD, "body.glb"))
+BOX, ROOT = read_boxes(os.path.join(HERE, "body_source.glb"))   # الجسم الأصلي قبل التقسيم
 ctr = lambda n: (BOX[n][0] + BOX[n][1]) / 2
 half = lambda n: (BOX[n][1] - BOX[n][0]) / 2
 SUF = {"r": "L", "l": "R"}                      # anatomical right = model _L
@@ -157,5 +157,36 @@ def organs():
     add("bladder", ellipsoid(P(0, YC - 0.05, 0.84), [0.035, 0.03, 0.035], 12, 8), (0.95, 0.85, 0.45))
     return m + anchors()
 
+MUSC = (0.72, 0.24, 0.21)
+
+def spindle(p0, p1, r, off=(0, 0, 0), prof=(0.35, 0.8, 1.0, 0.8, 0.35), n=10):
+    p0, p1, off = np.array(p0, float), np.array(p1, float), np.array(off, float)
+    pts = [p0 + (p1 - p0) * t + off for t in np.linspace(0, 1, len(prof))]
+    return tube(pts, [r * k for k in prof], n)
+
+def muscles():
+    m = []
+    def add(n, g): m.append((n, g, MUSC))
+    add("trapezius", ellipsoid(P(0, YB - 0.01, 1.43), [0.15, 0.022, 0.11], 16, 10))
+    add("rectus_abdominis", merge([spindle(P(s * 0.025, YF + 0.012, 1.30), P(s * 0.025, YF + 0.012, 0.95), 0.028, prof=(0.7, 1, 1, 1, 0.7)) for s in (-1, 1)]))
+    for sd in "rl":
+        s = -1 if sd == "r" else 1; sx = SUF[sd]
+        sh = ctr("shoulder_" + sx); el = ctr("elbow_" + sx); hd = ctr("hand_" + sx); wr = P(hd[0], hd[1], BOX["hand_" + sx][1][2])
+        hip = P(s * 0.09, YC, 0.93); kn = ctr("knee_" + sx); an = ctr("ankle_" + sx)
+        add("pectoralis_" + sd, ellipsoid(P(s * 0.095, YF + 0.03, 1.40), [0.095, 0.022, 0.07], 14, 10))
+        add("deltoid_" + sd, ellipsoid(sh + P(s * 0.01, 0, 0.0), [0.05, 0.05, 0.075], 14, 10))
+        add("biceps_" + sd, spindle(sh + P(0, 0, -0.03), el, 0.030, off=(0, -0.02, 0)))
+        add("triceps_" + sd, spindle(sh + P(0, 0, -0.03), el, 0.032, off=(0, 0.02, 0)))
+        add("forearm_muscles_" + sd, spindle(el, wr, 0.028, prof=(0.9, 1.0, 0.8, 0.5, 0.25)))
+        add("latissimus_" + sd, ellipsoid(P(s * 0.11, YB - 0.025, 1.27), [0.09, 0.02, 0.13], 14, 10))
+        add("obliques_" + sd, ellipsoid(P(s * 0.14, YC - 0.02, 1.15), [0.04, 0.07, 0.11], 12, 8))
+        add("scm_" + sd, spindle(P(s * 0.06, YC + 0.01, 1.58), P(s * 0.02, YF + 0.03, 1.51), 0.011, n=8))
+        add("gluteus_" + sd, ellipsoid(P(s * 0.075, YB - 0.01, 0.90), [0.075, 0.055, 0.075], 14, 10))
+        add("quadriceps_" + sd, spindle(hip + P(0, 0, -0.03), kn, 0.050, off=(0, -0.025, 0)))
+        add("hamstrings_" + sd, spindle(hip + P(0, 0, -0.04), kn, 0.045, off=(0, 0.025, 0)))
+        add("gastrocnemius_" + sd, spindle(kn + P(0, 0, -0.02), an + P(0, 0, 0.06), 0.040, off=(0, 0.025, 0), prof=(0.8, 1.0, 0.9, 0.5, 0.25)))
+        add("tibialis_" + sd, spindle(kn + P(0, 0, -0.06), an + P(0, 0, 0.02), 0.022, off=(0, -0.025, 0)))
+    return m + anchors()
+
 if __name__ == "__main__":
-    write_glb(os.path.join(MD, "skeleton.glb"), skeleton()); write_glb(os.path.join(MD, "organs.glb"), organs())
+    write_glb(os.path.join(MD, "skeleton.glb"), skeleton()); write_glb(os.path.join(MD, "organs.glb"), organs()); write_glb(os.path.join(MD, "muscles.glb"), muscles())

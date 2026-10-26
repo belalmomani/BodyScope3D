@@ -22,6 +22,6 @@
 - Tooltips on icon buttons: content descriptions only (screen readers); no long-press tooltips.
 - Font: system Arabic font (no font file bundled; no network to fetch one).
 - Head zones (forehead, temples, cheeks, mid-face, jaw, occiput) are cut from the single head mesh by triangle centroid (coarse, jagged); checked only by an offline plot. Boundaries are approximate anatomy.
-- Muscles and blood-vessel layers do not exist and are not shown.
+- Muscles layer is a schematic of ~16 superficial groups (offline plot only, shapes approximate); blood vessels do not exist and are not shown.
 - Layers load on first show (synchronously on the main thread; files are <300 KB).
 - Instrumented tests (androidTest) assume an English device and were not run.

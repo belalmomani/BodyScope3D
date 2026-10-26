@@ -100,7 +100,7 @@
     <string name="ctl_reset">Reset view</string>
     <string name="ctl_close">Close</string>
     <string name="saved_empty">No saved regions. Tap the heart on a region to save it.</string>
-    <string name="layers_unavailable">Muscles and blood vessels: not available in this version.</string>
+    <string name="layers_unavailable">Blood vessels: not available in this version.</string>
     <string name="info_system">System</string>
     <string name="sys_nervous">Nervous</string>
     <string name="sys_respiratory">Respiratory</string>
@@ -130,4 +130,5 @@
     <string name="locations_n">locations</string>
     <string name="settings_data">Your data</string>
     <string name="splash_tag">Medical 3D education</string>
+    <string name="sys_muscular">Muscular</string>
 </resources>

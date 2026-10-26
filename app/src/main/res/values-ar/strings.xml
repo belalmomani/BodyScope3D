@@ -100,7 +100,7 @@
     <string name="ctl_reset">إعادة ضبط العرض</string>
     <string name="ctl_close">إغلاق</string>
     <string name="saved_empty">لا توجد مناطق محفوظة. اضغط القلب على أي منطقة لحفظها.</string>
-    <string name="layers_unavailable">العضلات والأوعية الدموية: غير متوفرة في هذا الإصدار.</string>
+    <string name="layers_unavailable">الأوعية الدموية: غير متوفرة في هذا الإصدار.</string>
     <string name="info_system">الجهاز</string>
     <string name="sys_nervous">العصبي</string>
     <string name="sys_respiratory">التنفسي</string>
@@ -130,4 +130,5 @@
     <string name="locations_n">مواضع</string>
     <string name="settings_data">بياناتك</string>
     <string name="splash_tag">تثقيف طبي ثلاثي الأبعاد</string>
+    <string name="sys_muscular">العضلي</string>
 </resources>

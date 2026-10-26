@@ -657,6 +657,454 @@
     "targetY": -0.446,
     "distance": 0.5
    }
+  },
+  {
+   "id": "trapezius",
+   "mesh": "trapezius",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة شبه المنحرفة",
+   "nameEn": "Trapezius",
+   "descAr": "تغطي أعلى الظهر والرقبة وتحرّك لوح الكتف وتدعم الرأس.",
+   "descEn": "Covers the upper back and neck; moves the scapula and supports the head.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": 0.0,
+    "targetY": 0.265,
+    "distance": 0.69
+   }
+  },
+  {
+   "id": "rectus_abdominis",
+   "mesh": "rectus_abdominis",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة المستقيمة البطنية",
+   "nameEn": "Rectus abdominis",
+   "descAr": "عضلة طولية في مقدمة البطن تثني الجذع.",
+   "descEn": "Long muscle at the front of the abdomen that flexes the trunk.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.0,
+    "targetY": 0.101,
+    "distance": 0.75
+   }
+  },
+  {
+   "id": "pectoralis_r",
+   "mesh": "pectoralis_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الصدرية الكبرى اليمنى",
+   "nameEn": "Right Pectoralis major",
+   "descAr": "عضلة مروحية في الصدر تقرّب الذراع وتدوّره للداخل.",
+   "descEn": "Fan-shaped chest muscle that adducts and rotates the arm inward.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.051,
+    "targetY": 0.249,
+    "distance": 0.55
+   }
+  },
+  {
+   "id": "pectoralis_l",
+   "mesh": "pectoralis_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الصدرية الكبرى اليسرى",
+   "nameEn": "Left Pectoralis major",
+   "descAr": "عضلة مروحية في الصدر تقرّب الذراع وتدوّره للداخل.",
+   "descEn": "Fan-shaped chest muscle that adducts and rotates the arm inward.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.051,
+    "targetY": 0.249,
+    "distance": 0.55
+   }
+  },
+  {
+   "id": "deltoid_r",
+   "mesh": "deltoid_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الدالية اليمنى",
+   "nameEn": "Right Deltoid",
+   "descAr": "تغطي الكتف وترفع الذراع في اتجاهات مختلفة.",
+   "descEn": "Covers the shoulder and lifts the arm in several directions.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.167,
+    "targetY": 0.265,
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "deltoid_l",
+   "mesh": "deltoid_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الدالية اليسرى",
+   "nameEn": "Left Deltoid",
+   "descAr": "تغطي الكتف وترفع الذراع في اتجاهات مختلفة.",
+   "descEn": "Covers the shoulder and lifts the arm in several directions.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.167,
+    "targetY": 0.265,
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "biceps_r",
+   "mesh": "biceps_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة ذات الرأسين العضدية اليمنى",
+   "nameEn": "Right Biceps brachii",
+   "descAr": "في مقدمة العضد وتثني المرفق.",
+   "descEn": "On the front of the upper arm; flexes the elbow.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.184,
+    "targetY": 0.193,
+    "distance": 0.58
+   }
+  },
+  {
+   "id": "biceps_l",
+   "mesh": "biceps_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة ذات الرأسين العضدية اليسرى",
+   "nameEn": "Left Biceps brachii",
+   "descAr": "في مقدمة العضد وتثني المرفق.",
+   "descEn": "On the front of the upper arm; flexes the elbow.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.184,
+    "targetY": 0.193,
+    "distance": 0.58
+   }
+  },
+  {
+   "id": "triceps_r",
+   "mesh": "triceps_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة ثلاثية الرؤوس العضدية اليمنى",
+   "nameEn": "Right Triceps brachii",
+   "descAr": "في خلف العضد وتبسط المرفق.",
+   "descEn": "On the back of the upper arm; extends the elbow.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": -0.184,
+    "targetY": 0.193,
+    "distance": 0.58
+   }
+  },
+  {
+   "id": "triceps_l",
+   "mesh": "triceps_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة ثلاثية الرؤوس العضدية اليسرى",
+   "nameEn": "Left Triceps brachii",
+   "descAr": "في خلف العضد وتبسط المرفق.",
+   "descEn": "On the back of the upper arm; extends the elbow.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": 0.184,
+    "targetY": 0.193,
+    "distance": 0.58
+   }
+  },
+  {
+   "id": "forearm_muscles_r",
+   "mesh": "forearm_muscles_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "عضلات الساعد اليمنى",
+   "nameEn": "Right Forearm muscles",
+   "descAr": "تحرّك الرسغ والأصابع.",
+   "descEn": "Move the wrist and fingers.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.208,
+    "targetY": 0.082,
+    "distance": 0.57
+   }
+  },
+  {
+   "id": "forearm_muscles_l",
+   "mesh": "forearm_muscles_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "عضلات الساعد اليسرى",
+   "nameEn": "Left Forearm muscles",
+   "descAr": "تحرّك الرسغ والأصابع.",
+   "descEn": "Move the wrist and fingers.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.208,
+    "targetY": 0.082,
+    "distance": 0.57
+   }
+  },
+  {
+   "id": "latissimus_r",
+   "mesh": "latissimus_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الظهرية العريضة اليمنى",
+   "nameEn": "Right Latissimus dorsi",
+   "descAr": "عضلة عريضة في الظهر تسحب الذراع للأسفل والخلف.",
+   "descEn": "Broad back muscle that pulls the arm down and back.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": -0.059,
+    "targetY": 0.179,
+    "distance": 0.64
+   }
+  },
+  {
+   "id": "latissimus_l",
+   "mesh": "latissimus_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الظهرية العريضة اليسرى",
+   "nameEn": "Left Latissimus dorsi",
+   "descAr": "عضلة عريضة في الظهر تسحب الذراع للأسفل والخلف.",
+   "descEn": "Broad back muscle that pulls the arm down and back.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": 0.059,
+    "targetY": 0.179,
+    "distance": 0.64
+   }
+  },
+  {
+   "id": "obliques_r",
+   "mesh": "obliques_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلات المائلة البطنية اليمنى",
+   "nameEn": "Right Abdominal obliques",
+   "descAr": "على جانبي البطن وتدوّر الجذع وتثنيه جانبًا.",
+   "descEn": "On the sides of the abdomen; rotate and bend the trunk sideways.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.075,
+    "targetY": 0.115,
+    "distance": 0.58
+   }
+  },
+  {
+   "id": "obliques_l",
+   "mesh": "obliques_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلات المائلة البطنية اليسرى",
+   "nameEn": "Left Abdominal obliques",
+   "descAr": "على جانبي البطن وتدوّر الجذع وتثنيه جانبًا.",
+   "descEn": "On the sides of the abdomen; rotate and bend the trunk sideways.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.075,
+    "targetY": 0.115,
+    "distance": 0.58
+   }
+  },
+  {
+   "id": "scm_r",
+   "mesh": "scm_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة القصية الترقوية الخشائية اليمنى",
+   "nameEn": "Right Sternocleidomastoid",
+   "descAr": "عضلة جانب الرقبة تدوّر الرأس وتثنيه.",
+   "descEn": "Muscle on the side of the neck that turns and tilts the head.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.022,
+    "targetY": 0.327,
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "scm_l",
+   "mesh": "scm_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة القصية الترقوية الخشائية اليسرى",
+   "nameEn": "Left Sternocleidomastoid",
+   "descAr": "عضلة جانب الرقبة تدوّر الرأس وتثنيه.",
+   "descEn": "Muscle on the side of the neck that turns and tilts the head.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.022,
+    "targetY": 0.327,
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "gluteus_r",
+   "mesh": "gluteus_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الألوية اليمنى",
+   "nameEn": "Right Gluteus",
+   "descAr": "عضلات الإلية تبسط الورك وتحافظ على استقامة الجسم.",
+   "descEn": "Buttock muscles that extend the hip and keep the body upright.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": -0.04,
+    "targetY": -0.02,
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "gluteus_l",
+   "mesh": "gluteus_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الألوية اليسرى",
+   "nameEn": "Left Gluteus",
+   "descAr": "عضلات الإلية تبسط الورك وتحافظ على استقامة الجسم.",
+   "descEn": "Buttock muscles that extend the hip and keep the body upright.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": 0.04,
+    "targetY": -0.02,
+    "distance": 0.5
+   }
+  },
+  {
+   "id": "quadriceps_r",
+   "mesh": "quadriceps_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة رباعية الرؤوس الفخذية اليمنى",
+   "nameEn": "Right Quadriceps",
+   "descAr": "في مقدمة الفخذ وتبسط الركبة.",
+   "descEn": "On the front of the thigh; extends the knee.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.057,
+    "targetY": -0.15,
+    "distance": 0.92
+   }
+  },
+  {
+   "id": "quadriceps_l",
+   "mesh": "quadriceps_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة رباعية الرؤوس الفخذية اليسرى",
+   "nameEn": "Left Quadriceps",
+   "descAr": "في مقدمة الفخذ وتبسط الركبة.",
+   "descEn": "On the front of the thigh; extends the knee.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.057,
+    "targetY": -0.15,
+    "distance": 0.92
+   }
+  },
+  {
+   "id": "hamstrings_r",
+   "mesh": "hamstrings_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلات الخلفية للفخذ اليمنى",
+   "nameEn": "Right Hamstrings",
+   "descAr": "في خلف الفخذ وتثني الركبة.",
+   "descEn": "On the back of the thigh; flexes the knee.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": -0.057,
+    "targetY": -0.152,
+    "distance": 0.91
+   }
+  },
+  {
+   "id": "hamstrings_l",
+   "mesh": "hamstrings_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلات الخلفية للفخذ اليسرى",
+   "nameEn": "Left Hamstrings",
+   "descAr": "في خلف الفخذ وتثني الركبة.",
+   "descEn": "On the back of the thigh; flexes the knee.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": 0.057,
+    "targetY": -0.152,
+    "distance": 0.91
+   }
+  },
+  {
+   "id": "gastrocnemius_r",
+   "mesh": "gastrocnemius_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "عضلة بطة الساق اليمنى",
+   "nameEn": "Right Gastrocnemius",
+   "descAr": "في خلف الساق وترفع الكعب.",
+   "descEn": "On the back of the lower leg; raises the heel.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": -0.065,
+    "targetY": -0.349,
+    "distance": 0.59
+   }
+  },
+  {
+   "id": "gastrocnemius_l",
+   "mesh": "gastrocnemius_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "عضلة بطة الساق اليسرى",
+   "nameEn": "Left Gastrocnemius",
+   "descAr": "في خلف الساق وترفع الكعب.",
+   "descEn": "On the back of the lower leg; raises the heel.",
+   "camera": {
+    "yawDeg": 180.0,
+    "targetX": 0.065,
+    "targetY": -0.349,
+    "distance": 0.59
+   }
+  },
+  {
+   "id": "tibialis_r",
+   "mesh": "tibialis_r",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الظنبوبية الأمامية اليمنى",
+   "nameEn": "Right Tibialis anterior",
+   "descAr": "في مقدمة الساق وترفع القدم للأعلى.",
+   "descEn": "On the front of the lower leg; lifts the foot upward.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": -0.065,
+    "targetY": -0.371,
+    "distance": 0.58
+   }
+  },
+  {
+   "id": "tibialis_l",
+   "mesh": "tibialis_l",
+   "layer": "MUSCULAR",
+   "system": "muscular",
+   "nameAr": "العضلة الظنبوبية الأمامية اليسرى",
+   "nameEn": "Left Tibialis anterior",
+   "descAr": "في مقدمة الساق وترفع القدم للأعلى.",
+   "descEn": "On the front of the lower leg; lifts the foot upward.",
+   "camera": {
+    "yawDeg": 0.0,
+    "targetX": 0.065,
+    "targetY": -0.371,
+    "distance": 0.58
+   }
   }
  ]
 }

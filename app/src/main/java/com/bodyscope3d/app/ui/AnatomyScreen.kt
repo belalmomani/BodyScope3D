@@ -33,7 +33,7 @@ private fun layerIcon(l: Layer): ImageVector = when (l) {
 }
 private fun systemName(s: String) = when (s) {
     "nervous" -> R.string.sys_nervous; "respiratory" -> R.string.sys_respiratory; "circulatory" -> R.string.sys_circulatory
-    "digestive" -> R.string.sys_digestive; "urinary" -> R.string.sys_urinary; "immune" -> R.string.sys_immune; else -> R.string.sys_skeletal
+    "muscular" -> R.string.sys_muscular; "digestive" -> R.string.sys_digestive; "urinary" -> R.string.sys_urinary; "immune" -> R.string.sys_immune; else -> R.string.sys_skeletal
 }
 
 /** شاشة التشريح الداخلي + بطاقة معلومات العضو. تعرض فقط الطبقات الموجودة فعليًا بين ملفات النماذج. */

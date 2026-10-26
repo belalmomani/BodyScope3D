@@ -27,6 +27,18 @@
    "redistributable": true
   },
   {
+   "id": "muscles",
+   "path": "models/muscles.glb",
+   "layer": "MUSCULAR",
+   "status": "READY",
+   "contains": [
+    "schematic simplified superficial muscles (approximate)"
+   ],
+   "license": "Original generated schematic; no third-party mesh",
+   "source": "tools/gen_layers.py (this project)",
+   "redistributable": true
+  },
+  {
    "id": "organs",
    "path": "models/organs.glb",
    "layer": "ORGANS",
