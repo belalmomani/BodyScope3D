@@ -15,6 +15,9 @@ class AppGraph(context: Context) {
     val anatomy: List<AnatomyItem> by lazy {
         AnatomyCatalog.parse(app.assets.open("anatomy.json").bufferedReader().use { it.readText() })
     }
+    val causes: CauseCatalog by lazy {
+        CauseCatalog.parse(app.assets.open("causes.json").bufferedReader().use { it.readText() })
+    }
     private val existing: Set<String> by lazy {
         (app.assets.list("models") ?: emptyArray()).map { "models/$it" }.toSet()
     }

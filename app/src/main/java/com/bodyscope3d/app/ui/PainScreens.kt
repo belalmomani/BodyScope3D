@@ -19,6 +19,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import com.bodyscope3d.app.R
 import com.bodyscope3d.app.data.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /** مسودة السجل: تبقى عند الرجوع بين الشاشات (ViewModel على مستوى النشاط) فلا يضيع ما أُدخل */
 class PainDraftViewModel : ViewModel() {
@@ -84,7 +87,7 @@ fun NaturePicker(value: String?, onChange: (String) -> Unit) =
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun PainFormScreen(graph: AppGraph, vm: ExploreViewModel, draft: PainDraftViewModel, nav: (String) -> Unit, back: () -> Unit, done: () -> Unit) {
+fun PainFormScreen(graph: AppGraph, vm: ExploreViewModel, draft: PainDraftViewModel, nav: (String) -> Unit, back: () -> Unit, done: (Long) -> Unit) {
     val st by vm.state.collectAsState(); val ar = isArabic(); val scope = rememberCoroutineScope()
     val region = graph.catalog.byId(st.selectedId)
     val canSave = draft.entries.isNotEmpty() || draft.canCommit(region?.id)
@@ -105,6 +108,7 @@ fun PainFormScreen(graph: AppGraph, vm: ExploreViewModel, draft: PainDraftViewMo
                     Aspect.entries.forEach { a -> SelectChip(st.aspect == a, stringResource(aspectRes(a)), { vm.setAspect(a) }, accent = Palette.Pain) }
                 }
             }
+            Text(stringResource(R.string.pointed_note), style = MaterialTheme.typography.bodySmall, color = Palette.TextSecondary)
             AppCard {
                 SectionTitle(stringResource(R.string.pain_intensity))
                 IntensityPicker(draft.intensity) { draft.intensity = it }
@@ -132,10 +136,11 @@ fun PainFormScreen(graph: AppGraph, vm: ExploreViewModel, draft: PainDraftViewMo
         }
         // أزرار الإجراء ثابتة أسفل الشاشة: رئيسي واحد + ثانويان
         Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(stringResource(R.string.disclaimer), style = MaterialTheme.typography.bodySmall, color = Palette.TextSecondary)
             PrimaryButton(stringResource(R.string.save_pain), {
                 draft.commit(region?.id, st.aspect)
                 val toSave = draft.entries.toList()
-                if (toSave.isNotEmpty()) { scope.launchIO { graph.repo.save(toSave) }; draft.clearAll(); vm.fullBody(); done() }
+                if (toSave.isNotEmpty()) { draft.clearAll(); vm.fullBody(); scope.launch { done(withContext(Dispatchers.IO) { graph.repo.save(toSave) }) } }
             }, Modifier.fillMaxWidth(), Icons.Rounded.Check, enabled = canSave)
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 SecondaryButton(stringResource(R.string.add_another), {

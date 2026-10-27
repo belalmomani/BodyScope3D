@@ -60,7 +60,7 @@
     <string name="clear_confirm">This permanently deletes all saved sessions, pain entries and favorites from this device. Nothing is stored elsewhere.</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
-    <string name="privacy_text">All data stays on your device (local database). No account, no internet permission, no analytics. Nothing is sent to any third party. Firebase sync may be added later as an opt-in feature with explicit consent. Nothing is sent to any third party unless you choose to share a record yourself.</string>
+    <string name="privacy_text">All data stays on your device (local database). No account, no internet permission, no analytics. Nothing is sent to any third party. Firebase sync may be added later as an opt-in feature with explicit consent. Nothing is sent to any third party unless you choose to share a record yourself. Shared report images are created temporarily in the app cache and handed to the app you choose.</string>
     <string name="help_text">Tap a region on the body (or choose from the list), zoom in, then log pain from the Log pain screen. Educational content is general and not medical advice.</string>
     <string name="side_r">Right</string>
     <string name="side_l">Left</string>
@@ -136,4 +136,18 @@
     <string name="export_title">BodyScope 3D — pain record</string>
     <string name="export_footer">Self-reported for logging only. This is not a diagnosis and does not replace a doctor.</string>
     <string name="export_chooser">Share record via</string>
+    <string name="share_whatsapp">Share via WhatsApp</string>
+    <string name="share_other">Share via another app</string>
+    <string name="save_image">Save image</string>
+    <string name="image_saved">Image saved to Pictures/BodyScope3D</string>
+    <string name="image_save_unsupported">Saving to the gallery needs Android 10 or newer. Use Share instead.</string>
+    <string name="whatsapp_missing">WhatsApp is not installed; choose another app.</string>
+    <string name="report_onset">Onset</string>
+    <string name="report_duration">Duration</string>
+    <string name="report_notes">Associated symptoms / notes</string>
+    <string name="possibilities_title">Common possibilities for this area (not a diagnosis)</string>
+    <string name="possibilities_note">General, non-exhaustive list for education. The order does not indicate likelihood, and it does not mean any of these applies to you.</string>
+    <string name="possibilities_redflags">Seek urgent medical care if you have:</string>
+    <string name="possibilities_footer">This does not replace a doctor. See a doctor to assess your condition.</string>
+    <string name="possibilities_unreviewed">Written by the project; not medically reviewed.</string>
 </resources>

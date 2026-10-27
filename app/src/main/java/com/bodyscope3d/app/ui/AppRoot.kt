@@ -34,7 +34,7 @@ fun AppRoot(graph: AppGraph) {
                 composable("splash") { SplashScreen { nav.navigate("home") { popUpTo("splash") { inclusive = true } } } }
                 composable("home") { HomeScreen(graph, explore, go) }
                 composable("anatomy") { AnatomyScreen(graph, back) }
-                composable("pain") { PainFormScreen(graph, explore, draft, go, back) { nav.navigate("history") { popUpTo("home") } } }
+                composable("pain") { PainFormScreen(graph, explore, draft, go, back) { id -> nav.navigate("record/$id") { popUpTo("home") } } }
                 composable("history") { HistoryScreen(graph, { nav.navigate("record/$it") }, back) }
                 composable("record/{id}", arguments = listOf(navArgument("id") { type = NavType.LongType })) { e ->
                     RecordDetailScreen(graph, e.arguments?.getLong("id") ?: -1L, back)

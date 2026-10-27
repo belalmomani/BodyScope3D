@@ -25,5 +25,7 @@
 - 3D highlight: the selected region (and chosen direction half) is tinted translucent coral on the model via inflated "hl::" copies of every piece (body.glb 703 KB, 398 nodes).
 - Schematic muscles layer (30 superficial muscles, 16 groups, AR/EN catalog entries): approximate shapes, general descriptions.
 - Share/export pain records (one record or all) as plain text through the system share sheet; nothing is sent unless the user picks a target.
+- Possibilities: for each logged region the record page lists common, non-exhaustive possible causes and red-flag signs, with "not a diagnosis / does not replace a doctor" (no ranking, no probabilities). Bilingual, project-written, NOT medically reviewed.
+- Sharing is now an image report (front/back body figures with numbered pain markers + details) with direct WhatsApp button (or any app) and save-to-gallery; text export removed. After saving a pain log the app opens the saved record.
 - Asset pipeline (tools/export_glb.py, region_map.json, NOTICE.md) added; still no bundled GLB.
 - Not built or run in the authoring environment (no network/SDK).

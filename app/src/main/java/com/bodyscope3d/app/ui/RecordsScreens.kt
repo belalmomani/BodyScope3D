@@ -1,5 +1,7 @@
 package com.bodyscope3d.app.ui
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -11,41 +13,25 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bodyscope3d.app.R
 import com.bodyscope3d.app.data.*
-import android.content.Context
-import android.content.Intent
-import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.DateFormat
 import java.util.Date
-
-private fun toExport(ctx: Context, graph: AppGraph, ar: Boolean, list: List<SessionWithEntries>) = list.map { s ->
-    ExportSession(DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(s.session.createdAt)), s.entries.map { e ->
-        ExportLine(graph.catalog.byId(e.regionId)?.name(ar) ?: e.regionId, Aspect.fromKey(e.aspect)?.let { ctx.getString(aspectRes(it)) },
-            e.intensity, ctx.getString(severityRes(e.intensity)), ctx.getString(natureRes(e.nature)),
-            ctx.getString(R.string.pain_onset), e.onset, ctx.getString(R.string.pain_duration), e.duration, ctx.getString(R.string.pain_symptoms), e.symptoms)
-    })
-}
-
-/** يفتح قائمة المشاركة في النظام؛ لا يُرسَل شيء قبل أن يختار المستخدم الوجهة */
-private fun share(ctx: Context, graph: AppGraph, ar: Boolean, list: List<SessionWithEntries>) {
-    val text = ExportFormat.format(ctx.getString(R.string.export_title), ctx.getString(R.string.export_footer), toExport(ctx, graph, ar, list))
-    val send = Intent(Intent.ACTION_SEND).apply { type = "text/plain"; putExtra(Intent.EXTRA_TEXT, text) }
-    ctx.startActivity(Intent.createChooser(send, ctx.getString(R.string.export_chooser)))
-}
 
 private fun when_(ms: Long) = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(ms))
 
 @Composable
 fun HistoryScreen(graph: AppGraph, open: (Long) -> Unit, back: () -> Unit) {
-    val ar = isArabic(); val ctx = LocalContext.current
+    val ar = isArabic()
     val sessions by graph.repo.sessions().collectAsState(emptyList())
     Column(Modifier.fillMaxSize()) {
-        AppTopBar(stringResource(R.string.records_title), back) {
-            if (sessions.isNotEmpty()) RoundIconButton(Icons.Rounded.Share, stringResource(R.string.export_all), { share(ctx, graph, ar, sessions) })
-        }
+        AppTopBar(stringResource(R.string.records_title), back)
         if (sessions.isEmpty()) { Text(stringResource(R.string.history_empty), Modifier.padding(16.dp), color = Palette.TextSecondary); return@Column }
         LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             items(sessions, key = { it.session.id }) { s ->
@@ -60,12 +46,45 @@ fun HistoryScreen(graph: AppGraph, open: (Long) -> Unit, back: () -> Unit) {
     }
 }
 
+/** صورة التقرير: الجسم أمام/خلف مع مواضع الألم مرقّمة + التفاصيل. بدون أي احتمالات أو تشخيص. */
+private fun buildReport(ctx: Context, graph: AppGraph, ar: Boolean, s: SessionWithEntries) = ReportRenderer.render(
+    ctx, ReportTexts(ctx.getString(R.string.export_title), when_(s.session.createdAt), ctx.getString(R.string.view_front), ctx.getString(R.string.view_back),
+        ctx.getString(R.string.export_footer), ctx.getString(R.string.app_name)),
+    s.entries.mapIndexed { i, e ->
+        val r = graph.catalog.byId(e.regionId); val asp = Aspect.fromKey(e.aspect)
+        val back = asp == Aspect.BACK || (asp == null && (r?.camera?.yawDeg ?: 0f) >= 179f)
+        val (nx, ny) = r?.let { BodyMap.point(it, back) } ?: (0.5f to 0.5f)
+        ReportEntry(i + 1, r?.name(ar) ?: e.regionId, asp?.let { ctx.getString(aspectRes(it)) }, back, nx, ny,
+            "${e.intensity}/10 — ${ctx.getString(severityRes(e.intensity))} — ${ctx.getString(natureRes(e.nature))}",
+            listOfNotNull(
+                e.onset.takeIf { it.isNotBlank() }?.let { ctx.getString(R.string.report_onset) + ": " + it },
+                e.duration.takeIf { it.isNotBlank() }?.let { ctx.getString(R.string.report_duration) + ": " + it },
+                e.symptoms.takeIf { it.isNotBlank() }?.let { ctx.getString(R.string.report_notes) + ": " + it }))
+    })
+
 @Composable
 fun RecordDetailScreen(graph: AppGraph, id: Long, back: () -> Unit) {
     val ar = isArabic(); val scope = rememberCoroutineScope(); val ctx = LocalContext.current
     val sessions by graph.repo.sessions().collectAsState(emptyList())
     val s = sessions.firstOrNull { it.session.id == id }
     var editing by remember { mutableStateOf<PainEntryEntity?>(null) }
+    var busy by remember { mutableStateOf(false) }
+
+    fun share(packages: List<String>) = scope.launch {
+        val rec = s ?: return@launch; busy = true
+        runCatching {
+            val bmp = withContext(Dispatchers.Default) { buildReport(ctx, graph, ar, rec) }
+            val uri = withContext(Dispatchers.IO) { ReportShare.uriFor(ctx, ReportShare.writePng(ctx, bmp)) }
+            if (!ReportShare.send(ctx, uri, packages, ctx.getString(R.string.share_other))) Toast.makeText(ctx, R.string.whatsapp_missing, Toast.LENGTH_LONG).show()
+        }.onFailure { Toast.makeText(ctx, R.string.model_error, Toast.LENGTH_LONG).show() }
+        busy = false
+    }
+    fun saveImage() = scope.launch {
+        val rec = s ?: return@launch; busy = true
+        val ok = runCatching { withContext(Dispatchers.IO) { ReportShare.saveToGallery(ctx, buildReport(ctx, graph, ar, rec)) } }.getOrDefault(false)
+        Toast.makeText(ctx, if (ok) R.string.image_saved else R.string.image_save_unsupported, Toast.LENGTH_LONG).show(); busy = false
+    }
+
     Column(Modifier.fillMaxSize()) {
         AppTopBar(stringResource(R.string.record_details), back)
         if (s == null) { Text(stringResource(R.string.history_empty), Modifier.padding(16.dp), color = Palette.TextSecondary); return@Column }
@@ -81,17 +100,51 @@ fun RecordDetailScreen(graph: AppGraph, id: Long, back: () -> Unit) {
                         }
                         RoundIconButton(Icons.Rounded.Edit, stringResource(R.string.edit), { editing = e })
                     }
-                    listOf(stringResource(R.string.pain_onset) to e.onset, stringResource(R.string.pain_duration) to e.duration, stringResource(R.string.pain_symptoms) to e.symptoms)
+                    listOf(stringResource(R.string.report_onset) to e.onset, stringResource(R.string.report_duration) to e.duration, stringResource(R.string.report_notes) to e.symptoms)
                         .filter { it.second.isNotBlank() }.forEach { (k, v) -> Text("$k: $v", style = MaterialTheme.typography.bodySmall, color = Palette.TextSecondary) }
                 }
             }
             Text(stringResource(R.string.pain_subjective), style = MaterialTheme.typography.bodySmall, color = Palette.TextSecondary)
+            PossibilitiesSection(graph, s.entries)
+            Spacer(Modifier.height(4.dp))
         }
-        SecondaryButton(stringResource(R.string.export_record), { share(ctx, graph, ar, listOf(s)) }, Modifier.fillMaxWidth().padding(horizontal = 16.dp), Icons.Rounded.Share)
-        DestructiveButton(stringResource(R.string.delete_record), stringResource(R.string.delete_record), stringResource(R.string.delete_record_confirm),
-            { scope.launchIO { graph.repo.delete(s.session.id) }; back() }, Modifier.fillMaxWidth().padding(16.dp), Icons.Rounded.Delete)
+        Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            if (busy) LinearProgressIndicator(Modifier.fillMaxWidth(), color = Palette.Primary)
+            PrimaryButton(stringResource(R.string.share_whatsapp), { share(ReportShare.WHATSAPP) }, Modifier.fillMaxWidth(), Icons.Rounded.Share, enabled = !busy)
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                SecondaryButton(stringResource(R.string.share_other), { share(emptyList()) }, Modifier.weight(1f), Icons.Rounded.IosShare, enabled = !busy)
+                SecondaryButton(stringResource(R.string.save_image), { saveImage() }, Modifier.weight(1f), Icons.Rounded.Download, enabled = !busy)
+            }
+            DestructiveButton(stringResource(R.string.delete_record), stringResource(R.string.delete_record), stringResource(R.string.delete_record_confirm),
+                { scope.launchIO { graph.repo.delete(s.session.id) }; back() }, Modifier.fillMaxWidth(), Icons.Rounded.Delete)
+        }
     }
     editing?.let { e -> EditEntryDialog(e, onDismiss = { editing = null }, onSave = { upd -> scope.launchIO { graph.repo.update(upd) }; editing = null }) }
+}
+
+/** احتمالات شائعة وعلامات خطر لكل منطقة مسجّلة: قائمة عامة للتثقيف، ليست تشخيصًا ولا ترتيبًا بالأرجحية */
+@Composable
+fun PossibilitiesSection(graph: AppGraph, entries: List<PainEntryEntity>) {
+    val ar = isArabic()
+    val groups = entries.map { it.regionId }.distinct().map { id -> id to graph.causes.keyFor(id, graph.catalog) }.distinctBy { it.second }
+    if (groups.isEmpty()) return
+    AppCard {
+        SectionTitle(stringResource(R.string.possibilities_title))
+        Text(stringResource(R.string.possibilities_note), style = MaterialTheme.typography.bodySmall, color = Palette.TextSecondary)
+        groups.forEach { (regionId, key) ->
+            val area = graph.causes.area(key)
+            Text(graph.catalog.byId(regionId)?.name(ar) ?: regionId, style = MaterialTheme.typography.titleSmall, color = Palette.Primary)
+            area.causes.forEach { Text("• " + it.t(ar), style = MaterialTheme.typography.bodyMedium, color = Palette.TextPrimary) }
+            Surface(Modifier.fillMaxWidth(), shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp), color = Palette.DangerBg) {
+                Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(stringResource(R.string.possibilities_redflags), style = MaterialTheme.typography.titleSmall, color = Palette.Danger)
+                    area.redFlags.forEach { Text("• " + it.t(ar), style = MaterialTheme.typography.bodySmall, color = Palette.TextPrimary) }
+                }
+            }
+        }
+        Text(stringResource(R.string.possibilities_footer), style = MaterialTheme.typography.titleSmall, color = Palette.TextPrimary)
+        Text(stringResource(R.string.possibilities_unreviewed), style = MaterialTheme.typography.bodySmall, color = Palette.TextSecondary)
+    }
 }
 
 @Composable

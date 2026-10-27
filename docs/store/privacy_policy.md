@@ -4,7 +4,7 @@ Last updated: [DATE]    Contact: [YOUR EMAIL]     (fill both before publishing; 
 ## العربية
 1. **ما نجمعه:** لا نجمع أي بيانات على خوادمنا. السجلات التي تدخلها (مناطق الألم والشدة والطبيعة والملاحظات والمفضلة) تُحفظ محليًا على جهازك فقط.
 2. **الحساب:** لا يوجد حساب ولا تسجيل دخول.
-3. **المشاركة:** لا نرسل بياناتك لأي جهة. لا تُشارك أي بيانات إلا إذا اخترتَ بنفسك زر «مشاركة / تصدير» واخترتَ تطبيق الوجهة.
+3. **المشاركة:** لا نرسل بياناتك لأي جهة. لا تُشارك أي بيانات إلا إذا اخترتَ بنفسك زر المشاركة (واتساب أو غيره) أو «حفظ الصورة»، وعندها تُنشأ صورة تقرير مؤقتة تُسلَّم للتطبيق الذي تختاره.
 4. **الإعلانات والتتبع:** لا إعلانات ولا تحليلات ولا تتبع.
 5. **الأذونات:** التطبيق لا يطلب أي إذن (لا إنترنت ولا موقع ولا كاميرا).
 6. **الحذف:** يمكنك حذف سجل واحد، أو مسح كل البيانات من الإعدادات، أو إزالة التطبيق لحذف كل شيء.
@@ -15,7 +15,7 @@ Last updated: [DATE]    Contact: [YOUR EMAIL]     (fill both before publishing; 
 ## English
 1. **Data we collect:** none on our servers. Entries you create (pain locations, intensity, nature, notes, favorites) are stored locally on your device only.
 2. **Account:** none.
-3. **Sharing:** we never send your data anywhere. Data leaves the device only if you press Share/Export and pick a target app.
+3. **Sharing:** we never send your data anywhere. Data leaves the device only if you press Share (WhatsApp or another app) or Save image; a temporary report image is then created and handed to the app you choose.
 4. **Ads/tracking:** no ads, analytics or tracking.
 5. **Permissions:** none requested (no internet, location or camera).
 6. **Deletion:** delete a record, clear all data in Settings, or uninstall the app.

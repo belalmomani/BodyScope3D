@@ -60,7 +60,7 @@
     <string name="clear_confirm">سيُحذف نهائيًا كل ما في هذا الجهاز: الجلسات وإدخالات الألم والمفضلة. لا يوجد نسخ في مكان آخر.</string>
     <string name="confirm">تأكيد</string>
     <string name="cancel">إلغاء</string>
-    <string name="privacy_text">كل البيانات تبقى على جهازك (قاعدة بيانات محلية). لا حساب ولا صلاحية إنترنت ولا تحليلات. لا يُرسل شيء لأي جهة. قد تُضاف مزامنة Firebase لاحقًا كخيار اختياري بموافقة صريحة. لا يُرسل شيء لأي جهة إلا إذا اخترتَ بنفسك مشاركة سجل.</string>
+    <string name="privacy_text">كل البيانات تبقى على جهازك (قاعدة بيانات محلية). لا حساب ولا صلاحية إنترنت ولا تحليلات. لا يُرسل شيء لأي جهة. قد تُضاف مزامنة Firebase لاحقًا كخيار اختياري بموافقة صريحة. لا يُرسل شيء لأي جهة إلا إذا اخترتَ بنفسك مشاركة سجل. صور التقارير المشاركة تُنشأ مؤقتًا في كاش التطبيق وتُسلَّم للتطبيق الذي تختاره.</string>
     <string name="help_text">المس منطقة على الجسم (أو اختر من القائمة)، كبّرها، ثم سجّل الألم من شاشة تسجيل الألم. المحتوى التثقيفي عام وليس نصيحة طبية.</string>
     <string name="side_r">يمين</string>
     <string name="side_l">يسار</string>
@@ -136,4 +136,18 @@
     <string name="export_title">BodyScope 3D — سجل الألم</string>
     <string name="export_footer">معلومات ذاتية للتسجيل فقط. ليست تشخيصًا ولا تغني عن الطبيب.</string>
     <string name="export_chooser">مشاركة السجل عبر</string>
+    <string name="share_whatsapp">مشاركة عبر واتساب</string>
+    <string name="share_other">مشاركة عبر تطبيق آخر</string>
+    <string name="save_image">حفظ الصورة</string>
+    <string name="image_saved">تم حفظ الصورة في Pictures/BodyScope3D</string>
+    <string name="image_save_unsupported">الحفظ في المعرض يتطلب Android 10 أو أحدث. استخدم المشاركة.</string>
+    <string name="whatsapp_missing">واتساب غير مثبّت؛ اختر تطبيقًا آخر.</string>
+    <string name="report_onset">البداية</string>
+    <string name="report_duration">المدة</string>
+    <string name="report_notes">أعراض مصاحبة / ملاحظات</string>
+    <string name="possibilities_title">احتمالات شائعة مرتبطة بهذه المنطقة (ليست تشخيصًا)</string>
+    <string name="possibilities_note">قائمة عامة غير شاملة للتثقيف. الترتيب لا يدل على الأرجحية، ولا يعني أن أيًّا منها موجود لديك.</string>
+    <string name="possibilities_redflags">اطلب رعاية طبية عاجلة إذا ظهر:</string>
+    <string name="possibilities_footer">هذا لا يغني عن الطبيب. راجع طبيبًا لتقييم حالتك.</string>
+    <string name="possibilities_unreviewed">كتبه فريق المشروع ولم تراجعه جهة طبية.</string>
 </resources>

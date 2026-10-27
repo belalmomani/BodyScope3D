@@ -25,3 +25,9 @@
 - Muscles layer is a schematic of ~16 superficial groups (offline plot only, shapes approximate); blood vessels do not exist and are not shown.
 - Layers load on first show (synchronously on the main thread; files are <300 KB).
 - Instrumented tests (androidTest) assume an English device and were not run.
+
+## Possibilities + image report (not compiled/run here)
+- `causes.json` is general-knowledge content written by the project, NOT medically reviewed; a clinician must review it before public release. Apps that suggest possible conditions can fall under Google Play health/medical-symptom-checker policies: check before publishing.
+- The report image is drawn with Canvas/StaticLayout (Arabic shaping depends on the device font); the 2D body figures are rendered offline from the model (tools/make_body_maps.py) and marker positions use the regions' camera targets, so markers are approximate.
+- WhatsApp: tries com.whatsapp then com.whatsapp.w4b, else the system share sheet. FileProvider/cache-path config untested. Gallery save needs Android 10+.
+- The report image deliberately contains only the user's own entries (no possibilities).

@@ -1,0 +1,1441 @@
+{
+ "version": 1,
+ "note": "General, non-exhaustive educational lists written by the project. NOT medically reviewed. Order does NOT indicate likelihood. Must be reviewed by a clinician before public release.",
+ "aliases": {
+  "nose": "midface",
+  "leg": "thigh",
+  "torso": "generic",
+  "upper_arm": "arm",
+  "scalp": "scalp"
+ },
+ "areas": {
+  "head": {
+   "causes": [
+    {
+     "ar": "صداع توتري",
+     "en": "Tension headache"
+    },
+    {
+     "ar": "صداع نصفي (شقيقة)",
+     "en": "Migraine"
+    },
+    {
+     "ar": "صداع عنقودي",
+     "en": "Cluster headache"
+    },
+    {
+     "ar": "التهاب الجيوب الأنفية",
+     "en": "Sinusitis"
+    },
+    {
+     "ar": "إجهاد العين أو مشكلات النظر",
+     "en": "Eye strain or vision problems"
+    },
+    {
+     "ar": "الجفاف أو قلة النوم أو الصيام",
+     "en": "Dehydration, poor sleep or fasting"
+    },
+    {
+     "ar": "إصابة أو ارتجاج",
+     "en": "Injury or concussion"
+    },
+    {
+     "ar": "ارتفاع ضغط الدم",
+     "en": "High blood pressure"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "أسوأ صداع في حياتك أو صداع شديد مفاجئ",
+     "en": "Worst headache of your life, or sudden severe headache"
+    },
+    {
+     "ar": "ألم بعد إصابة في الرأس",
+     "en": "Pain after a head injury"
+    },
+    {
+     "ar": "مع ضعف في طرف أو صعوبة في الكلام أو تشوش الرؤية أو الارتباك",
+     "en": "With limb weakness, speech difficulty, vision changes or confusion"
+    },
+    {
+     "ar": "مع حمى وتيبس في الرقبة",
+     "en": "With fever and a stiff neck"
+    },
+    {
+     "ar": "مع إغماء أو تشنجات",
+     "en": "With fainting or seizures"
+    }
+   ]
+  },
+  "scalp": {
+   "causes": [
+    {
+     "ar": "صداع توتري",
+     "en": "Tension headache"
+    },
+    {
+     "ar": "التهاب الجلد أو بصيلات الشعر",
+     "en": "Scalp dermatitis or folliculitis"
+    },
+    {
+     "ar": "الحزام الناري (هربس زوستر)",
+     "en": "Shingles"
+    },
+    {
+     "ar": "إصابة أو كدمة",
+     "en": "Injury or bruise"
+    },
+    {
+     "ar": "ألم مرجع من الرقبة",
+     "en": "Pain referred from the neck"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "أسوأ صداع في حياتك أو صداع شديد مفاجئ",
+     "en": "Worst headache of your life, or sudden severe headache"
+    },
+    {
+     "ar": "ألم بعد إصابة في الرأس",
+     "en": "Pain after a head injury"
+    },
+    {
+     "ar": "مع ضعف في طرف أو صعوبة في الكلام أو تشوش الرؤية أو الارتباك",
+     "en": "With limb weakness, speech difficulty, vision changes or confusion"
+    },
+    {
+     "ar": "مع حمى وتيبس في الرقبة",
+     "en": "With fever and a stiff neck"
+    },
+    {
+     "ar": "مع إغماء أو تشنجات",
+     "en": "With fainting or seizures"
+    }
+   ]
+  },
+  "occiput": {
+   "causes": [
+    {
+     "ar": "صداع توتري",
+     "en": "Tension headache"
+    },
+    {
+     "ar": "ألم مصدره الرقبة (صداع عنقي المنشأ)",
+     "en": "Neck-related headache (cervicogenic)"
+    },
+    {
+     "ar": "التهاب العصب القذالي",
+     "en": "Occipital neuralgia"
+    },
+    {
+     "ar": "وضعية جلوس أو نوم خاطئة",
+     "en": "Poor posture or sleeping position"
+    },
+    {
+     "ar": "إجهاد عضلي",
+     "en": "Muscle strain"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "أسوأ صداع في حياتك أو صداع شديد مفاجئ",
+     "en": "Worst headache of your life, or sudden severe headache"
+    },
+    {
+     "ar": "ألم بعد إصابة في الرأس",
+     "en": "Pain after a head injury"
+    },
+    {
+     "ar": "مع ضعف في طرف أو صعوبة في الكلام أو تشوش الرؤية أو الارتباك",
+     "en": "With limb weakness, speech difficulty, vision changes or confusion"
+    },
+    {
+     "ar": "مع حمى وتيبس في الرقبة",
+     "en": "With fever and a stiff neck"
+    },
+    {
+     "ar": "مع إغماء أو تشنجات",
+     "en": "With fainting or seizures"
+    }
+   ]
+  },
+  "forehead": {
+   "causes": [
+    {
+     "ar": "صداع توتري",
+     "en": "Tension headache"
+    },
+    {
+     "ar": "التهاب الجيوب الجبهية",
+     "en": "Frontal sinusitis"
+    },
+    {
+     "ar": "صداع نصفي (شقيقة)",
+     "en": "Migraine"
+    },
+    {
+     "ar": "إجهاد العين",
+     "en": "Eye strain"
+    },
+    {
+     "ar": "الحزام الناري (هربس زوستر)",
+     "en": "Shingles"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "أسوأ صداع في حياتك أو صداع شديد مفاجئ",
+     "en": "Worst headache of your life, or sudden severe headache"
+    },
+    {
+     "ar": "ألم بعد إصابة في الرأس",
+     "en": "Pain after a head injury"
+    },
+    {
+     "ar": "مع ضعف في طرف أو صعوبة في الكلام أو تشوش الرؤية أو الارتباك",
+     "en": "With limb weakness, speech difficulty, vision changes or confusion"
+    },
+    {
+     "ar": "مع حمى وتيبس في الرقبة",
+     "en": "With fever and a stiff neck"
+    },
+    {
+     "ar": "مع إغماء أو تشنجات",
+     "en": "With fainting or seizures"
+    }
+   ]
+  },
+  "temple": {
+   "causes": [
+    {
+     "ar": "صداع توتري",
+     "en": "Tension headache"
+    },
+    {
+     "ar": "صداع نصفي (شقيقة)",
+     "en": "Migraine"
+    },
+    {
+     "ar": "اضطراب المفصل الفكي الصدغي أو صرير الأسنان",
+     "en": "Jaw joint (TMJ) disorder or teeth grinding"
+    },
+    {
+     "ar": "التهاب الشريان الصدغي (خاصة بعد سن الخمسين)",
+     "en": "Temporal arteritis (especially after age 50)"
+    },
+    {
+     "ar": "إصابة",
+     "en": "Injury"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "أسوأ صداع في حياتك أو صداع شديد مفاجئ",
+     "en": "Worst headache of your life, or sudden severe headache"
+    },
+    {
+     "ar": "ألم بعد إصابة في الرأس",
+     "en": "Pain after a head injury"
+    },
+    {
+     "ar": "مع ضعف في طرف أو صعوبة في الكلام أو تشوش الرؤية أو الارتباك",
+     "en": "With limb weakness, speech difficulty, vision changes or confusion"
+    },
+    {
+     "ar": "مع حمى وتيبس في الرقبة",
+     "en": "With fever and a stiff neck"
+    },
+    {
+     "ar": "مع إغماء أو تشنجات",
+     "en": "With fainting or seizures"
+    },
+    {
+     "ar": "ألم جديد في الصدغ مع ألم عند المضغ أو اضطراب الرؤية بعد سن الخمسين",
+     "en": "New temple pain with jaw pain on chewing or vision changes after age 50"
+    }
+   ]
+  },
+  "face": {
+   "causes": [
+    {
+     "ar": "التهاب الجيوب الأنفية",
+     "en": "Sinusitis"
+    },
+    {
+     "ar": "مشكلات الأسنان (تسوس أو خراج)",
+     "en": "Dental problems (decay or abscess)"
+    },
+    {
+     "ar": "اضطراب المفصل الفكي الصدغي",
+     "en": "Jaw joint (TMJ) disorder"
+    },
+    {
+     "ar": "التهاب العصب الثلاثي التوائم",
+     "en": "Trigeminal neuralgia"
+    },
+    {
+     "ar": "عدوى جلدية أو حبوب",
+     "en": "Skin infection or acne"
+    },
+    {
+     "ar": "إصابة",
+     "en": "Injury"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تورم سريع في الوجه مع صعوبة في التنفس أو البلع",
+     "en": "Rapid facial swelling with difficulty breathing or swallowing"
+    },
+    {
+     "ar": "تدلٍّ أو ضعف في جانب واحد من الوجه",
+     "en": "Drooping or weakness on one side of the face"
+    },
+    {
+     "ar": "ألم شديد كالصعق",
+     "en": "Severe electric-shock-like pain"
+    },
+    {
+     "ar": "فقدان مفاجئ للرؤية",
+     "en": "Sudden vision loss"
+    }
+   ]
+  },
+  "cheek": {
+   "causes": [
+    {
+     "ar": "التهاب الجيوب الفكية",
+     "en": "Maxillary sinusitis"
+    },
+    {
+     "ar": "ألم أسنان أو خراج",
+     "en": "Toothache or dental abscess"
+    },
+    {
+     "ar": "اضطراب المفصل الفكي الصدغي",
+     "en": "Jaw joint (TMJ) disorder"
+    },
+    {
+     "ar": "التهاب العصب الثلاثي التوائم",
+     "en": "Trigeminal neuralgia"
+    },
+    {
+     "ar": "إصابة أو كدمة",
+     "en": "Injury or bruise"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تورم سريع في الوجه مع صعوبة في التنفس أو البلع",
+     "en": "Rapid facial swelling with difficulty breathing or swallowing"
+    },
+    {
+     "ar": "حمى مع تورم واحمرار الخد",
+     "en": "Fever with cheek swelling and redness"
+    },
+    {
+     "ar": "ألم شديد كالصعق",
+     "en": "Severe electric-shock-like pain"
+    }
+   ]
+  },
+  "midface": {
+   "causes": [
+    {
+     "ar": "التهاب الجيوب الأنفية",
+     "en": "Sinusitis"
+    },
+    {
+     "ar": "حساسية الأنف والزكام",
+     "en": "Allergic rhinitis or common cold"
+    },
+    {
+     "ar": "إصابة أو كسر في الأنف",
+     "en": "Nasal injury or fracture"
+    },
+    {
+     "ar": "جفاف الأنف أو نزيف",
+     "en": "Dry nose or nosebleed"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تشوه أو نزيف لا يتوقف بعد إصابة",
+     "en": "Deformity or bleeding that does not stop after an injury"
+    },
+    {
+     "ar": "تورم حول العين مع حمى",
+     "en": "Swelling around the eye with fever"
+    },
+    {
+     "ar": "صعوبة في التنفس",
+     "en": "Difficulty breathing"
+    }
+   ]
+  },
+  "eye": {
+   "causes": [
+    {
+     "ar": "التهاب الملتحمة",
+     "en": "Conjunctivitis"
+    },
+    {
+     "ar": "إجهاد العين أو جفافها",
+     "en": "Eye strain or dry eye"
+    },
+    {
+     "ar": "شعيرة (دمل في الجفن)",
+     "en": "Stye"
+    },
+    {
+     "ar": "خدش القرنية أو جسم غريب",
+     "en": "Corneal scratch or foreign body"
+    },
+    {
+     "ar": "التهاب القزحية",
+     "en": "Uveitis"
+    },
+    {
+     "ar": "ارتفاع ضغط العين الحاد (الجلوكوما الحادة)",
+     "en": "Acute glaucoma"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "فقدان مفاجئ للرؤية أو ستارة تحجب جزءًا من الرؤية",
+     "en": "Sudden vision loss or a curtain over part of the vision"
+    },
+    {
+     "ar": "ألم شديد مع احمرار وغثيان وهالات حول الأضواء",
+     "en": "Severe pain with redness, nausea and halos around lights"
+    },
+    {
+     "ar": "إصابة أو مادة كيميائية في العين",
+     "en": "Eye injury or chemical in the eye"
+    },
+    {
+     "ar": "ومضات ضوء أو عوائم كثيرة جديدة",
+     "en": "New flashes of light or many new floaters"
+    }
+   ]
+  },
+  "ear": {
+   "causes": [
+    {
+     "ar": "التهاب الأذن الوسطى",
+     "en": "Middle ear infection"
+    },
+    {
+     "ar": "التهاب قناة الأذن الخارجية",
+     "en": "Outer ear canal infection"
+    },
+    {
+     "ar": "شمع الأذن",
+     "en": "Ear wax"
+    },
+    {
+     "ar": "ألم مرجع من الأسنان أو المفصل الفكي",
+     "en": "Pain referred from teeth or jaw joint"
+    },
+    {
+     "ar": "تغيّر الضغط (طيران أو غوص)",
+     "en": "Pressure change (flying or diving)"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "سائل أو دم من الأذن مع ألم شديد وحمى",
+     "en": "Fluid or blood from the ear with severe pain and fever"
+    },
+    {
+     "ar": "فقدان مفاجئ للسمع",
+     "en": "Sudden hearing loss"
+    },
+    {
+     "ar": "تورم أو احمرار خلف الأذن",
+     "en": "Swelling or redness behind the ear"
+    },
+    {
+     "ar": "ضعف في جانب الوجه أو دوار شديد",
+     "en": "Facial weakness or severe dizziness"
+    }
+   ]
+  },
+  "mouth": {
+   "causes": [
+    {
+     "ar": "تسوس الأسنان",
+     "en": "Tooth decay"
+    },
+    {
+     "ar": "التهاب اللثة",
+     "en": "Gingivitis"
+    },
+    {
+     "ar": "قرح الفم",
+     "en": "Mouth ulcers"
+    },
+    {
+     "ar": "خراج الأسنان",
+     "en": "Dental abscess"
+    },
+    {
+     "ar": "تهيج اللسان أو الشفة",
+     "en": "Tongue or lip irritation"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تورم ينتشر نحو الرقبة أو صعوبة في البلع أو التنفس",
+     "en": "Swelling spreading to the neck, or difficulty swallowing or breathing"
+    },
+    {
+     "ar": "حمى مع تورم الوجه",
+     "en": "Fever with facial swelling"
+    },
+    {
+     "ar": "قرحة لا تلتئم أكثر من ثلاثة أسابيع",
+     "en": "A sore that has not healed for more than three weeks"
+    }
+   ]
+  },
+  "jaw": {
+   "causes": [
+    {
+     "ar": "اضطراب المفصل الفكي الصدغي",
+     "en": "Jaw joint (TMJ) disorder"
+    },
+    {
+     "ar": "صرير الأسنان (الجزّ)",
+     "en": "Teeth grinding (bruxism)"
+    },
+    {
+     "ar": "خراج أسنان أو ضرس العقل",
+     "en": "Dental abscess or wisdom tooth"
+    },
+    {
+     "ar": "إصابة",
+     "en": "Injury"
+    },
+    {
+     "ar": "حصى الغدد اللعابية",
+     "en": "Salivary gland stones"
+    },
+    {
+     "ar": "ألم مرجع من القلب",
+     "en": "Pain referred from the heart"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "ألم الفك مع ضغط في الصدر أو تعرق أو ضيق نفس",
+     "en": "Jaw pain with chest pressure, sweating or shortness of breath"
+    },
+    {
+     "ar": "تورم ينتشر نحو الرقبة أو صعوبة في البلع",
+     "en": "Swelling spreading to the neck or difficulty swallowing"
+    },
+    {
+     "ar": "عدم القدرة على فتح الفم أو إغلاقه بعد إصابة",
+     "en": "Cannot open or close the mouth after an injury"
+    }
+   ]
+  },
+  "neck": {
+   "causes": [
+    {
+     "ar": "شد عضلي أو وضعية خاطئة أو تصلب الرقبة",
+     "en": "Muscle strain, poor posture or stiff neck"
+    },
+    {
+     "ar": "خشونة فقرات الرقبة",
+     "en": "Cervical spondylosis"
+    },
+    {
+     "ar": "انزلاق غضروفي أو انضغاط عصب",
+     "en": "Disc herniation or pinched nerve"
+    },
+    {
+     "ar": "إصابة السوط (بعد حادث)",
+     "en": "Whiplash after an accident"
+    },
+    {
+     "ar": "تضخم الغدد اللمفاوية مع عدوى",
+     "en": "Swollen lymph nodes with infection"
+    },
+    {
+     "ar": "التهاب الحلق أو اللوزتين",
+     "en": "Sore throat or tonsillitis"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "حمى مع تيبس الرقبة وصداع",
+     "en": "Fever with a stiff neck and headache"
+    },
+    {
+     "ar": "ألم بعد حادث أو سقوط",
+     "en": "Pain after an accident or fall"
+    },
+    {
+     "ar": "خدر أو ضعف في الذراعين أو اليدين",
+     "en": "Numbness or weakness in the arms or hands"
+    },
+    {
+     "ar": "صعوبة في البلع أو التنفس",
+     "en": "Difficulty swallowing or breathing"
+    },
+    {
+     "ar": "ألم الرقبة مع ألم أو ضغط في الصدر",
+     "en": "Neck pain with chest pain or pressure"
+    }
+   ]
+  },
+  "shoulder": {
+   "causes": [
+    {
+     "ar": "إصابة أو التهاب أوتار الكفة المدورة",
+     "en": "Rotator cuff injury or tendinitis"
+    },
+    {
+     "ar": "التهاب الجراب",
+     "en": "Bursitis"
+    },
+    {
+     "ar": "تيبس الكتف (الكتف المتجمد)",
+     "en": "Frozen shoulder"
+    },
+    {
+     "ar": "التهاب مفصل أو خشونة",
+     "en": "Arthritis"
+    },
+    {
+     "ar": "خلع أو إصابة أربطة",
+     "en": "Dislocation or ligament injury"
+    },
+    {
+     "ar": "انضغاط عصب في الرقبة",
+     "en": "Pinched nerve in the neck"
+    },
+    {
+     "ar": "ألم مرجع من القلب (خاصة الكتف الأيسر) أو المرارة (الأيمن)",
+     "en": "Referred pain from the heart (especially left shoulder) or gallbladder (right)"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "ألم الكتف مع ضغط في الصدر أو تعرق أو ضيق نفس",
+     "en": "Shoulder pain with chest pressure, sweating or shortness of breath"
+    },
+    {
+     "ar": "تشوه أو عدم القدرة على رفع الذراع بعد إصابة",
+     "en": "Deformity or inability to raise the arm after an injury"
+    },
+    {
+     "ar": "مفصل ساخن ومتورم مع حمى",
+     "en": "Hot, swollen joint with fever"
+    }
+   ]
+  },
+  "chest": {
+   "causes": [
+    {
+     "ar": "ألم عضلي أو في غضاريف الأضلاع",
+     "en": "Muscle or rib cartilage pain (costochondritis)"
+    },
+    {
+     "ar": "ارتجاع المريء (حموضة)",
+     "en": "Acid reflux"
+    },
+    {
+     "ar": "القلق ونوبات الهلع",
+     "en": "Anxiety or panic attack"
+    },
+    {
+     "ar": "التهاب القصبات أو الرئة أو غشاء الجنب",
+     "en": "Bronchitis, pneumonia or pleurisy"
+    },
+    {
+     "ar": "الذبحة الصدرية أو احتشاء عضلة القلب",
+     "en": "Angina or heart attack"
+    },
+    {
+     "ar": "جلطة رئوية",
+     "en": "Pulmonary embolism"
+    },
+    {
+     "ar": "استرواح الصدر (هواء حول الرئة)",
+     "en": "Pneumothorax (collapsed lung)"
+    },
+    {
+     "ar": "الحزام الناري (هربس زوستر)",
+     "en": "Shingles"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "ضغط أو انقباض أو ثقل في الصدر يستمر أكثر من بضع دقائق",
+     "en": "Chest pressure, tightness or heaviness lasting more than a few minutes"
+    },
+    {
+     "ar": "ألم ينتشر إلى الذراع أو الفك أو الظهر",
+     "en": "Pain spreading to the arm, jaw or back"
+    },
+    {
+     "ar": "ضيق نفس",
+     "en": "Shortness of breath"
+    },
+    {
+     "ar": "تعرق بارد أو غثيان أو إغماء",
+     "en": "Cold sweat, nausea or fainting"
+    },
+    {
+     "ar": "سعال مصحوب بدم",
+     "en": "Coughing up blood"
+    },
+    {
+     "ar": "ألم حاد مفاجئ مع صعوبة في التنفس",
+     "en": "Sudden sharp pain with difficulty breathing"
+    }
+   ]
+  },
+  "abdomen": {
+   "causes": [
+    {
+     "ar": "التهاب المعدة أو قرحتها",
+     "en": "Gastritis or stomach ulcer"
+    },
+    {
+     "ar": "ارتجاع المريء",
+     "en": "Acid reflux"
+    },
+    {
+     "ar": "التهاب المعدة والأمعاء أو تسمم غذائي",
+     "en": "Gastroenteritis or food poisoning"
+    },
+    {
+     "ar": "الإمساك أو القولون العصبي أو الغازات",
+     "en": "Constipation, irritable bowel or gas"
+    },
+    {
+     "ar": "حصى المرارة",
+     "en": "Gallstones"
+    },
+    {
+     "ar": "التهاب الزائدة الدودية",
+     "en": "Appendicitis"
+    },
+    {
+     "ar": "التهاب البنكرياس",
+     "en": "Pancreatitis"
+    },
+    {
+     "ar": "حصى الكلى أو التهاب المسالك البولية",
+     "en": "Kidney stones or urinary tract infection"
+    },
+    {
+     "ar": "فتق",
+     "en": "Hernia"
+    },
+    {
+     "ar": "أسباب نسائية (دورة شهرية أو كيسات مبيض)",
+     "en": "Gynaecological causes (period pain or ovarian cysts)"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "ألم شديد مفاجئ",
+     "en": "Sudden severe pain"
+    },
+    {
+     "ar": "بطن صلب كاللوح",
+     "en": "Rigid, board-like abdomen"
+    },
+    {
+     "ar": "قيء مستمر أو قيء دموي",
+     "en": "Persistent vomiting or vomiting blood"
+    },
+    {
+     "ar": "براز أسود أو دموي",
+     "en": "Black or bloody stools"
+    },
+    {
+     "ar": "حمى مع ألم شديد",
+     "en": "Fever with severe pain"
+    },
+    {
+     "ar": "ألم أو نزيف أثناء الحمل",
+     "en": "Pain or bleeding during pregnancy"
+    }
+   ]
+  },
+  "back": {
+   "causes": [
+    {
+     "ar": "شد عضلي أو وضعية خاطئة",
+     "en": "Muscle strain or poor posture"
+    },
+    {
+     "ar": "انزلاق غضروفي",
+     "en": "Herniated disc"
+    },
+    {
+     "ar": "عرق النسا",
+     "en": "Sciatica"
+    },
+    {
+     "ar": "خشونة الفقرات أو التهاب المفاصل",
+     "en": "Spinal arthritis"
+    },
+    {
+     "ar": "حصى الكلى أو التهاب الكلى",
+     "en": "Kidney stones or kidney infection"
+    },
+    {
+     "ar": "كسر انضغاطي (هشاشة العظام)",
+     "en": "Compression fracture (osteoporosis)"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "فقدان السيطرة على البول أو البراز",
+     "en": "Loss of bladder or bowel control"
+    },
+    {
+     "ar": "خدر في منطقة الفخذ الداخلية أو العجان",
+     "en": "Numbness in the groin or saddle area"
+    },
+    {
+     "ar": "ضعف متزايد في الساقين",
+     "en": "Progressive leg weakness"
+    },
+    {
+     "ar": "ألم بعد سقوط أو حادث",
+     "en": "Pain after a fall or accident"
+    },
+    {
+     "ar": "حمى مع ألم الظهر",
+     "en": "Fever with back pain"
+    },
+    {
+     "ar": "نقص وزن غير مفسَّر",
+     "en": "Unexplained weight loss"
+    }
+   ]
+  },
+  "pelvis": {
+   "causes": [
+    {
+     "ar": "التهاب المسالك البولية أو المثانة",
+     "en": "Urinary tract or bladder infection"
+    },
+    {
+     "ar": "آلام الدورة أو كيسات المبيض أو بطانة الرحم المهاجرة",
+     "en": "Period pain, ovarian cysts or endometriosis"
+    },
+    {
+     "ar": "التهاب الحوض",
+     "en": "Pelvic inflammatory disease"
+    },
+    {
+     "ar": "التهاب البروستات",
+     "en": "Prostatitis"
+    },
+    {
+     "ar": "فتق إربي",
+     "en": "Inguinal hernia"
+    },
+    {
+     "ar": "الإمساك",
+     "en": "Constipation"
+    },
+    {
+     "ar": "مفصل الورك أو العجز والحرقفة",
+     "en": "Hip or sacroiliac joint problems"
+    },
+    {
+     "ar": "حصى الحالب",
+     "en": "Ureteric stones"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "ألم شديد مفاجئ",
+     "en": "Sudden severe pain"
+    },
+    {
+     "ar": "ألم أو نزيف أثناء الحمل",
+     "en": "Pain or bleeding during pregnancy"
+    },
+    {
+     "ar": "حمى مع ألم",
+     "en": "Fever with pain"
+    },
+    {
+     "ar": "دم في البول مع ألم شديد",
+     "en": "Blood in the urine with severe pain"
+    },
+    {
+     "ar": "ألم مفاجئ في الخصية",
+     "en": "Sudden testicular pain"
+    }
+   ]
+  },
+  "arm": {
+   "causes": [
+    {
+     "ar": "شد أو إصابة عضلية",
+     "en": "Muscle strain or injury"
+    },
+    {
+     "ar": "التهاب الأوتار",
+     "en": "Tendinitis"
+    },
+    {
+     "ar": "كسر أو كدمة",
+     "en": "Fracture or bruise"
+    },
+    {
+     "ar": "انضغاط عصب",
+     "en": "Nerve compression"
+    },
+    {
+     "ar": "ألم مرجع من الرقبة أو الكتف أو القلب (الذراع اليسرى)",
+     "en": "Pain referred from the neck, shoulder or heart (left arm)"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "ألم الذراع اليسرى مع ضغط في الصدر أو تعرق أو ضيق نفس",
+     "en": "Left arm pain with chest pressure, sweating or shortness of breath"
+    },
+    {
+     "ar": "ضعف مفاجئ في جانب واحد مع تغيّر في الوجه أو الكلام",
+     "en": "Sudden one-sided weakness with face or speech changes"
+    },
+    {
+     "ar": "تشوه واضح أو عدم القدرة على تحريك الطرف بعد إصابة",
+     "en": "Visible deformity or inability to move the limb after an injury"
+    },
+    {
+     "ar": "طرف بارد أو شاحب أو مزرق أو بلا نبض",
+     "en": "Cold, pale or bluish limb, or no pulse"
+    },
+    {
+     "ar": "تورم واحمرار وسخونة مع حمى",
+     "en": "Swelling, redness and warmth with fever"
+    },
+    {
+     "ar": "خدر أو ضعف مفاجئ",
+     "en": "Sudden numbness or weakness"
+    }
+   ]
+  },
+  "elbow": {
+   "causes": [
+    {
+     "ar": "مرفق التنس (التهاب اللقيمة الجانبية)",
+     "en": "Tennis elbow"
+    },
+    {
+     "ar": "مرفق لاعب الغولف (التهاب اللقيمة الإنسية)",
+     "en": "Golfer's elbow"
+    },
+    {
+     "ar": "التهاب الجراب",
+     "en": "Bursitis"
+    },
+    {
+     "ar": "التهاب المفاصل",
+     "en": "Arthritis"
+    },
+    {
+     "ar": "انضغاط العصب الزندي",
+     "en": "Ulnar nerve entrapment"
+    },
+    {
+     "ar": "كسر أو خلع",
+     "en": "Fracture or dislocation"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تشوه واضح أو عدم القدرة على تحريك الطرف بعد إصابة",
+     "en": "Visible deformity or inability to move the limb after an injury"
+    },
+    {
+     "ar": "طرف بارد أو شاحب أو مزرق أو بلا نبض",
+     "en": "Cold, pale or bluish limb, or no pulse"
+    },
+    {
+     "ar": "تورم واحمرار وسخونة مع حمى",
+     "en": "Swelling, redness and warmth with fever"
+    },
+    {
+     "ar": "خدر أو ضعف مفاجئ",
+     "en": "Sudden numbness or weakness"
+    }
+   ]
+  },
+  "forearm": {
+   "causes": [
+    {
+     "ar": "إجهاد أو إصابة عضلية",
+     "en": "Muscle strain or overuse"
+    },
+    {
+     "ar": "التهاب الأوتار",
+     "en": "Tendinitis"
+    },
+    {
+     "ar": "متلازمة النفق الرسغي أو انضغاط عصب",
+     "en": "Carpal tunnel syndrome or nerve compression"
+    },
+    {
+     "ar": "كسر",
+     "en": "Fracture"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تشوه واضح أو عدم القدرة على تحريك الطرف بعد إصابة",
+     "en": "Visible deformity or inability to move the limb after an injury"
+    },
+    {
+     "ar": "طرف بارد أو شاحب أو مزرق أو بلا نبض",
+     "en": "Cold, pale or bluish limb, or no pulse"
+    },
+    {
+     "ar": "تورم واحمرار وسخونة مع حمى",
+     "en": "Swelling, redness and warmth with fever"
+    },
+    {
+     "ar": "خدر أو ضعف مفاجئ",
+     "en": "Sudden numbness or weakness"
+    }
+   ]
+  },
+  "hand": {
+   "causes": [
+    {
+     "ar": "متلازمة النفق الرسغي",
+     "en": "Carpal tunnel syndrome"
+    },
+    {
+     "ar": "التهاب المفاصل (خشونة أو روماتويد)",
+     "en": "Arthritis (osteoarthritis or rheumatoid)"
+    },
+    {
+     "ar": "التهاب الأوتار أو الإصبع الزنادي",
+     "en": "Tendinitis or trigger finger"
+    },
+    {
+     "ar": "التواء أو كسر",
+     "en": "Sprain or fracture"
+    },
+    {
+     "ar": "كيس عقدي",
+     "en": "Ganglion cyst"
+    },
+    {
+     "ar": "ظاهرة رينو (برودة الأصابع)",
+     "en": "Raynaud's phenomenon"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تشوه واضح أو عدم القدرة على تحريك الطرف بعد إصابة",
+     "en": "Visible deformity or inability to move the limb after an injury"
+    },
+    {
+     "ar": "طرف بارد أو شاحب أو مزرق أو بلا نبض",
+     "en": "Cold, pale or bluish limb, or no pulse"
+    },
+    {
+     "ar": "تورم واحمرار وسخونة مع حمى",
+     "en": "Swelling, redness and warmth with fever"
+    },
+    {
+     "ar": "خدر أو ضعف مفاجئ",
+     "en": "Sudden numbness or weakness"
+    },
+    {
+     "ar": "خطوط حمراء تمتد من الجرح مع حمى",
+     "en": "Red streaks spreading from a wound with fever"
+    }
+   ]
+  },
+  "fingers": {
+   "causes": [
+    {
+     "ar": "الإصبع الزنادي",
+     "en": "Trigger finger"
+    },
+    {
+     "ar": "التهاب المفاصل",
+     "en": "Arthritis"
+    },
+    {
+     "ar": "التواء أو كسر",
+     "en": "Sprain or fracture"
+    },
+    {
+     "ar": "التهاب حول الظفر",
+     "en": "Infection around the nail (paronychia)"
+    },
+    {
+     "ar": "ظاهرة رينو",
+     "en": "Raynaud's phenomenon"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تشوه واضح أو عدم القدرة على تحريك الطرف بعد إصابة",
+     "en": "Visible deformity or inability to move the limb after an injury"
+    },
+    {
+     "ar": "طرف بارد أو شاحب أو مزرق أو بلا نبض",
+     "en": "Cold, pale or bluish limb, or no pulse"
+    },
+    {
+     "ar": "تورم واحمرار وسخونة مع حمى",
+     "en": "Swelling, redness and warmth with fever"
+    },
+    {
+     "ar": "خدر أو ضعف مفاجئ",
+     "en": "Sudden numbness or weakness"
+    }
+   ]
+  },
+  "thumb": {
+   "causes": [
+    {
+     "ar": "التهاب أوتار الإبهام (دي كيرفان)",
+     "en": "De Quervain's tenosynovitis"
+    },
+    {
+     "ar": "خشونة قاعدة الإبهام",
+     "en": "Thumb-base arthritis"
+    },
+    {
+     "ar": "التواء الإبهام",
+     "en": "Thumb sprain"
+    },
+    {
+     "ar": "الإبهام الزنادي",
+     "en": "Trigger thumb"
+    },
+    {
+     "ar": "كسر",
+     "en": "Fracture"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تشوه واضح أو عدم القدرة على تحريك الطرف بعد إصابة",
+     "en": "Visible deformity or inability to move the limb after an injury"
+    },
+    {
+     "ar": "طرف بارد أو شاحب أو مزرق أو بلا نبض",
+     "en": "Cold, pale or bluish limb, or no pulse"
+    },
+    {
+     "ar": "تورم واحمرار وسخونة مع حمى",
+     "en": "Swelling, redness and warmth with fever"
+    },
+    {
+     "ar": "خدر أو ضعف مفاجئ",
+     "en": "Sudden numbness or weakness"
+    }
+   ]
+  },
+  "thigh": {
+   "causes": [
+    {
+     "ar": "شد أو تمزق عضلي أو تشنج",
+     "en": "Muscle strain, tear or cramp"
+    },
+    {
+     "ar": "كدمة أو ورم دموي",
+     "en": "Bruise or hematoma"
+    },
+    {
+     "ar": "عرق النسا أو ألم عصبي",
+     "en": "Sciatica or nerve pain"
+    },
+    {
+     "ar": "ألم مرجع من مفصل الورك",
+     "en": "Pain referred from the hip joint"
+    },
+    {
+     "ar": "كسر إجهادي",
+     "en": "Stress fracture"
+    },
+    {
+     "ar": "جلطة وريدية عميقة",
+     "en": "Deep vein thrombosis"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تشوه واضح أو عدم القدرة على تحريك الطرف بعد إصابة",
+     "en": "Visible deformity or inability to move the limb after an injury"
+    },
+    {
+     "ar": "طرف بارد أو شاحب أو مزرق أو بلا نبض",
+     "en": "Cold, pale or bluish limb, or no pulse"
+    },
+    {
+     "ar": "تورم واحمرار وسخونة مع حمى",
+     "en": "Swelling, redness and warmth with fever"
+    },
+    {
+     "ar": "خدر أو ضعف مفاجئ",
+     "en": "Sudden numbness or weakness"
+    },
+    {
+     "ar": "تورم وألم في ساق واحدة مع احمرار أو سخونة (قد يدل على جلطة وريدية)",
+     "en": "Swelling and pain in one leg with redness or warmth (may suggest a blood clot)"
+    },
+    {
+     "ar": "ضيق نفس أو ألم صدر مع ألم الساق",
+     "en": "Shortness of breath or chest pain together with leg pain"
+    }
+   ]
+  },
+  "knee": {
+   "causes": [
+    {
+     "ar": "خشونة الركبة",
+     "en": "Knee osteoarthritis"
+    },
+    {
+     "ar": "إصابة الأربطة (الرباط الصليبي أو الجانبي)",
+     "en": "Ligament injury (ACL or MCL)"
+    },
+    {
+     "ar": "تمزق الغضروف الهلالي",
+     "en": "Meniscus tear"
+    },
+    {
+     "ar": "ألم الرضفة الفخذي",
+     "en": "Patellofemoral pain"
+    },
+    {
+     "ar": "التهاب الجراب أو الأوتار",
+     "en": "Bursitis or tendinitis"
+    },
+    {
+     "ar": "النقرس أو التهاب المفصل الإنتاني",
+     "en": "Gout or septic arthritis"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "عدم القدرة على تحميل الوزن أو ركبة عالقة",
+     "en": "Cannot bear weight or locked knee"
+    },
+    {
+     "ar": "مفصل ساخن أحمر ومتورم مع حمى",
+     "en": "Hot, red, swollen joint with fever"
+    },
+    {
+     "ar": "تشوه بعد إصابة",
+     "en": "Deformity after an injury"
+    },
+    {
+     "ar": "تورم الساق مع ألم",
+     "en": "Calf swelling with pain"
+    }
+   ]
+  },
+  "shin": {
+   "causes": [
+    {
+     "ar": "التهاب السمحاق (آلام الساق الرياضية)",
+     "en": "Shin splints"
+    },
+    {
+     "ar": "كسر إجهادي",
+     "en": "Stress fracture"
+    },
+    {
+     "ar": "شد أو تشنج عضلي",
+     "en": "Muscle strain or cramp"
+    },
+    {
+     "ar": "جلطة وريدية عميقة",
+     "en": "Deep vein thrombosis"
+    },
+    {
+     "ar": "التهاب النسيج الخلوي",
+     "en": "Cellulitis"
+    },
+    {
+     "ar": "متلازمة الحيز العضلي",
+     "en": "Compartment syndrome"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "تشوه واضح أو عدم القدرة على تحريك الطرف بعد إصابة",
+     "en": "Visible deformity or inability to move the limb after an injury"
+    },
+    {
+     "ar": "طرف بارد أو شاحب أو مزرق أو بلا نبض",
+     "en": "Cold, pale or bluish limb, or no pulse"
+    },
+    {
+     "ar": "تورم واحمرار وسخونة مع حمى",
+     "en": "Swelling, redness and warmth with fever"
+    },
+    {
+     "ar": "خدر أو ضعف مفاجئ",
+     "en": "Sudden numbness or weakness"
+    },
+    {
+     "ar": "تورم وألم في ساق واحدة مع احمرار أو سخونة (قد يدل على جلطة وريدية)",
+     "en": "Swelling and pain in one leg with redness or warmth (may suggest a blood clot)"
+    },
+    {
+     "ar": "ضيق نفس أو ألم صدر مع ألم الساق",
+     "en": "Shortness of breath or chest pain together with leg pain"
+    },
+    {
+     "ar": "ألم شديد بعد إصابة مع تورم مشدود",
+     "en": "Severe pain after injury with tense swelling"
+    }
+   ]
+  },
+  "ankle": {
+   "causes": [
+    {
+     "ar": "التواء الكاحل",
+     "en": "Ankle sprain"
+    },
+    {
+     "ar": "التهاب وتر أخيل أو تمزقه",
+     "en": "Achilles tendinitis or rupture"
+    },
+    {
+     "ar": "التهاب المفاصل",
+     "en": "Arthritis"
+    },
+    {
+     "ar": "كسر",
+     "en": "Fracture"
+    },
+    {
+     "ar": "النقرس",
+     "en": "Gout"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "عدم القدرة على تحميل الوزن أو تشوه",
+     "en": "Cannot bear weight or deformity"
+    },
+    {
+     "ar": "مفصل ساخن ومتورم مع حمى",
+     "en": "Hot, swollen joint with fever"
+    },
+    {
+     "ar": "صوت طقطقة مفاجئ خلف الكاحل مع عجز عن رفع الكعب",
+     "en": "Sudden snap behind the ankle with inability to raise the heel"
+    }
+   ]
+  },
+  "foot": {
+   "causes": [
+    {
+     "ar": "التهاب اللفافة الأخمصية",
+     "en": "Plantar fasciitis"
+    },
+    {
+     "ar": "التواء",
+     "en": "Sprain"
+    },
+    {
+     "ar": "إصبع القدم المطرقي أو الودْعة",
+     "en": "Bunion or hammer toe"
+    },
+    {
+     "ar": "النقرس",
+     "en": "Gout"
+    },
+    {
+     "ar": "كسر إجهادي",
+     "en": "Stress fracture"
+    },
+    {
+     "ar": "اعتلال الأعصاب (مثل السكري)",
+     "en": "Neuropathy (e.g., diabetes)"
+    },
+    {
+     "ar": "فطريات أو عدوى",
+     "en": "Fungal or other infection"
+    }
+   ],
+   "redFlags": [
+    {
+     "ar": "جرح أو احمرار منتشر أو اسوداد جلد القدم (خاصة لمرضى السكري)",
+     "en": "A wound, spreading redness or blackened skin (especially in diabetes)"
+    },
+    {
+     "ar": "قدم باردة أو شاحبة",
+     "en": "Cold or pale foot"
+    },
+    {
+     "ar": "تشوه بعد إصابة",
+     "en": "Deformity after an injury"
+    },
+    {
+     "ar": "حمى مع ألم وتورم",
+     "en": "Fever with pain and swelling"
+    }
+   ]
+  }
+ },
+ "fallback": {
+  "causes": [
+   {
+    "ar": "شد أو إجهاد عضلي",
+    "en": "Muscle strain"
+   },
+   {
+    "ar": "إصابة أو كدمة",
+    "en": "Injury or bruise"
+   },
+   {
+    "ar": "التهاب أو عدوى موضعية",
+    "en": "Local inflammation or infection"
+   },
+   {
+    "ar": "ألم مرجع من منطقة أخرى",
+    "en": "Pain referred from another area"
+   },
+   {
+    "ar": "انضغاط عصب",
+    "en": "Nerve compression"
+   }
+  ],
+  "redFlags": [
+   {
+    "ar": "ألم شديد مفاجئ أو يزداد بسرعة",
+    "en": "Sudden severe or rapidly worsening pain"
+   },
+   {
+    "ar": "حمى أو تورم واحمرار شديد",
+    "en": "Fever or marked swelling and redness"
+   },
+   {
+    "ar": "ضعف أو خدر مفاجئ",
+    "en": "Sudden weakness or numbness"
+   },
+   {
+    "ar": "صعوبة في التنفس أو إغماء",
+    "en": "Difficulty breathing or fainting"
+   }
+  ]
+ }
+}
